@@ -1,10 +1,10 @@
 @import 'tailwindcss';
 @theme {
-  --color-point1: #f2f3f4;
-  --color-point2: #fbb900;
-  --color-gray-400: #999;
-  --color-gray-500: #333;
-  --color-gray-600: #000;
+  --color-point1: #f7f7f7;
+  --color-point2: #9450e7;
+  --color-gray-400: #d1d1d1;
+  --color-gray-500: #979797;
+  --color-gray-600: #212121;
   /* 1201미만 테블릿 */
   --breakpoint-md: 1101px;
   /* 1025미만 테블릿 */
@@ -24,11 +24,11 @@
   /* 컬러 변수 */
   /* :root는 html을 의미 */
   :root {
-    --point-color1: #f2f3f4;
-    --point-color2: #fbb900;
-    --gray-400: #999;
-    --gray-500: #333;
-    --gray-600: #000;
+    --point-color1: #f7f7f7;
+    --point-color2: #9450e7;
+    --gray-400: #d1d1d1;
+    --gray-500: #979797;
+    --gray-600: #212121;
   }
 
   /* rem단위사용시 주석풀고 사용 */
@@ -226,14 +226,14 @@
   textarea,
   button,
   table {
-    font-family: 'SpoqaHanSansNeo', '맑은 고딕', 'malgun gothic',
+    font-family: 'Noto Sans KR', '맑은 고딕', 'malgun gothic',
       'Apple SD Gothic Neo', sans-serif;
     /* font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', '맑은 고딕',
     helvetica, 'Apple SD Gothic Neo', sans-serif; */
-    font-size: 16px;
-    color: var(--gray-500);
+    font-size: 15px;
+    color: var(--gray-600);
     /* 테일윈드 줄간격 기본값(1.5) 초기화 */
-    line-height: normal;
+    line-height: 1.3;
     /* 프리텐다드 기본줄간격 좁으므로 변경 */
     /* line-height: 1.5; */
   }

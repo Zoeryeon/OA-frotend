@@ -1,7 +1,5 @@
 // app/ui/home/Footer.tsx
-import Community from '@/app/components/home/Community';
-import LinkList from '@/app/components/home/LinkList';
-import Snsicon from '@/app/components/home/Snsicon';
+
 import Link from 'next/link';
 
 export default function Footer() {
@@ -12,10 +10,7 @@ export default function Footer() {
         alt="푸터로고"
         className="max-sm:h-[26px]"
       />
-      <div className="flex items-start justify-between mt-[54px] max-md:flex-col-reverse max-md:gap-y-[42px] max-md:mb-[54px] max-sm:mb-[50px]">
-        <LinkList />
-        <Community />
-      </div>
+      <div className="flex items-start justify-between mt-[54px] max-md:flex-col-reverse max-md:gap-y-[42px] max-md:mb-[54px] max-sm:mb-[50px]"></div>
       <span className="text-[14px] leading-[28px] text-gray-500">
         copyright (c) Changbi Publishers, Inc. All Rights Reserved.
         <br />
@@ -33,7 +28,6 @@ export default function Footer() {
           개인정보처리방침
         </Link>
       </span>
-      <Snsicon />
     </footer>
   );
 }
