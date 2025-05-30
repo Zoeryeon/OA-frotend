@@ -1,5 +1,11 @@
 // app /page.tsx
 
+import MainSlider from '@/app/components/home/MainSlider';
+
 export default function Home() {
-  return <main className="pt-[168px] max-sm:py-[90px]"></main>;
+  return (
+    <main className="">
+      <MainSlider />
+    </main>
+  );
 }

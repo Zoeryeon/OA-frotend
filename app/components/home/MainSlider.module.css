@@ -1,0 +1,15 @@
+.slider {
+  aspect-ratio: 1915 / 748;
+}
+
+@media (max-width: 1024px) {
+  .slider {
+    aspect-ratio: 768 / 405;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider {
+    aspect-ratio: 360 / 422;
+  }
+}

@@ -25,6 +25,19 @@ const keywords = [
   '신규작품',
 ];
 
+const category = [
+  { name: '뮤지컬', href: '/watch?genre=musical' },
+  { name: '연극', href: '/watch?genre=theater' },
+  { name: '무용', href: '/watch?genre=dance' },
+  { name: '음악', href: '/watch?genre=music' },
+  { name: '오뗌 극장', href: '/oatheme' },
+  { name: '오아플러스', href: '/watch/oaplus' },
+  {
+    name: '동아콩쿠르',
+    href: '/oatheme/%EB%8F%99%EC%95%84-%EC%BD%A9%EC%BF%A0%EB%A5%B4',
+  },
+];
+
 export default function Search({
   isVisible,
   setIsVisible,
@@ -35,7 +48,7 @@ export default function Search({
     <div className="ml-auto">
       <Link
         href="#"
-        className={`inline-flex items-center justify-center flex-wrap flex-row mr-[5px] ${ordinaryArtist.className} before:content-['\\e90f'] before:text-[40px] before:text-gray-600`}
+        className={`inline-flex items-center justify-center flex-wrap flex-row mr-[5px] ${ordinaryArtist.className} before:content-['\\e90f'] before:text-[40px] before:text-gray-600 max-md:block`}
         onClick={() => setIsVisible((prev) => !prev)}
       >
         <span className="hidden">
@@ -43,9 +56,9 @@ export default function Search({
         </span>
       </Link>
       {isVisible && (
-        <div className="inline-flex absolute left-[50%] top-full bottom-0 max-w-[1920px] w-full h-screen -translate-x-[50%] bg-black/70 backdrop-blur-sm">
-          <form className="w-full h-[405px] bg-point1 border-t border-t-gray-400">
-            <div className="w-[calc(100%-160px)] max-w-[calc(1280px/2-160px)] py-[80px] mx-auto relative left-0 top-0">
+        <div className="inline-flex absolute left-[50%] top-full bottom-0 max-w-[1920px] w-full h-screen -translate-x-[50%] bg-black/70 backdrop-blur-sm max-md:block">
+          <form className="w-full h-[405px] bg-point1 border-t border-t-gray-400 max-md:fixed max-md:left-0 max-md:top-0 max-md:h-full">
+            <div className="w-[calc(100%-160px)] max-w-[calc(1280px/2-160px)] py-[80px] mx-auto relative left-0 top-0 max-md:w-full max-md:max-w-full max-md:px-[20px] max-md:py-[40px]">
               <div
                 className={`relative py-[10px] rounded-[15px] h-[60px] ${
                   isShadow ? 'shadow-[0px_2px_6px_rgba(0,0,0,0.15)]' : ''
@@ -59,7 +72,7 @@ export default function Search({
                   <input
                     type="search"
                     placeholder="검색어를 입력해주세요"
-                    className="text-[20px] font-medium shrink w-full border-0 pl-0 placeholder:text-[17px] placeholder:font-semibold placeholder:text-gray-500 placeholder:tracking-tight"
+                    className="text-[20px] font-medium shrink w-full border-0 pl-0 placeholder:text-[17px] placeholder:font-semibold placeholder:text-gray-500 placeholder:tracking-tight max-md:text-[18px] max-md:placeholder:text-[15px]"
                   />
                 </label>
                 <ul></ul>
@@ -79,44 +92,24 @@ export default function Search({
                   ))}
                 </ul>
               </div>
-              <div className="hidden max-sm:flex">
-                <span>카테고리</span>
-                <ul>
-                  <li>
-                    <Link href="/watch?genre=musical">
-                      뮤지컬 <i></i>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/watch?genre=theater">
-                      연극 <i></i>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/watch?genre=dance">
-                      무용 <i></i>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/watch?genre=music">
-                      음악 <i></i>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/oatheme">
-                      오뗌 극장 <i></i>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/watch/oaplus">
-                      오아플러스 <i></i>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/oatheme/%EB%8F%99%EC%95%84-%EC%BD%A9%EC%BF%A0%EB%A5%B4">
-                      동아콩쿠르 <i></i>
-                    </Link>
-                  </li>
+              <div className="hidden max-md:flex max-md:flex-col max-md:gap-[10px] max-md:mt-[20px] max-md:px-[10px]">
+                <span className="text-[12px] opacity-50">카테고리</span>
+                <ul className="flex flex-wrap gap-[15px]">
+                  {category.map((item, index) => (
+                    <li key={index}>
+                      <Link
+                        href={item.href}
+                        className="block py-[10px] px-[15px] rounded-[5px] text-[14px] bg-point2 text-white"
+                      >
+                        {item.name}
+                        <i
+                          className={`inline-flex items-center justify-center flex-wrap flex-row ${ordinaryArtist.className} before:content-['\\e93b'] before:text-[14px] before:text-white before:font-semibold`}
+                        >
+                          <span className="hidden">바로가기</span>
+                        </i>
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
