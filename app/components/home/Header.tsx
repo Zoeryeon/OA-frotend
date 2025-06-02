@@ -18,6 +18,15 @@ export default function Header() {
   // 랜덤 이미지
   const [num, setNum] = useState(0);
 
+  // 테블릿 메뉴버튼
+  const [active, setActive] = useState(false);
+  const [showSubmenu, setShowSubmenu] = useState(false);
+
+  const handleClick = () => {
+    setActive(!active);
+    setShowSubmenu(!showSubmenu);
+  };
+
   useEffect(() => {
     setNum(Math.floor(Math.random() * 3));
   }, []);
@@ -50,8 +59,8 @@ export default function Header() {
   }, [isVisible]);
 
   return (
-    <header className="z-999 bg-point1 h-[75px] w-full flex grow items-center relative left-0 top-0 right-0 max-md:flex-col">
-      <div className="max-w-[1280px] m-auto flex flex-row px-[80px] shrink bg-point1 items-center left-0 top-0 right-0 grow max-md:justify-between">
+    <header className="bg-point1">
+      <div className="max-w-[1160px] relative m-auto flex px-[20px] items-center max-md:justify-between max-md:items-start max-md:h-[105px]">
         <h1 className="h-[75px] flex mr-[14px] items-center w-[67px] max-md:h-[65px] max-md:w-[55px]">
           <Link href="/">
             <svg
@@ -119,13 +128,20 @@ export default function Header() {
         />
         <Link
           href="#"
-          className="hidden max-md:flex max-md:w-auto max-md:items-center max-md:pl-[20px] max-md:pr-[15px] max-md:justify-center max-md:h-[46px] max-md:relative"
+          className="hidden max-md:flex max-md:w-auto max-md:items-center max-md:ml-[5px] max-md:justify-center max-md:h-[46px] max-md:relative max-md:mt-[12px]"
+          onClick={handleClick}
         >
-          <i className="block w-[20px] h-[1px] bg-gray-600 relative before:-top-[5px] transition-all duration-700 before:content-[''] before:block before:w-full before:h-full before:bg-gray-600 before:absolute before:left-0 before:transition-all before:duration-35 after:-bottom-[5px] after:content-[''] after:block after:w-full after:h-full after:bg-gray-600 after:absolute after:left-0 after:transition-all after:duration-35 rotate-[-45]">
+          <i
+            className={`block w-[20px] h-[1px] bg-gray-600 relative transition-all duration-700 before:content-[''] before:block before:w-full before:h-full before:bg-gray-600 before:absolute before:left-0 before:transition-all before:duration-350  after:content-[''] after:block after:w-full after:h-full after:bg-gray-600 after:absolute after:left-0 after:transition-all after:duration-350 rotate-[-45] ${
+              active
+                ? 'transform -rotate-45 before:top-0 after:transform after:rotate-90 after:bottom-0'
+                : 'before:-top-[5px] after:-bottom-[5px]'
+            }`}
+          >
             <span className="hidden">메뉴버튼</span>
           </i>
         </Link>
-        <Submenu />
+        {showSubmenu && <Submenu showSubmenu={showSubmenu} />}
         <Link
           href="/account/login"
           className="leading-[30px] relative z-0  text-gray-600 w-[46px] h-[46px] flex justify-center items-center before:bg-[#ededed] before:rounded-[50px] before:block before:h-[46px] before:w-[46px] before:absolute before:left-0 before:top-0 before:-z-1 max-md:hidden"

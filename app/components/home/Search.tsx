@@ -48,7 +48,7 @@ export default function Search({
     <div className="ml-auto">
       <Link
         href="#"
-        className={`inline-flex items-center justify-center flex-wrap flex-row mr-[5px] ${ordinaryArtist.className} before:content-['\\e90f'] before:text-[40px] before:text-gray-600 max-md:block`}
+        className={`inline-flex items-center justify-center flex-wrap flex-row mr-[5px] ${ordinaryArtist.className} before:content-['\\e90f'] before:text-[40px] before:text-gray-600 max-md:block max-md:mt-[10px]`}
         onClick={() => setIsVisible((prev) => !prev)}
       >
         <span className="hidden">
