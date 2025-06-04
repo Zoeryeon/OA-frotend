@@ -14,3 +14,10 @@ export const ordinaryArtist = localFont({
   src: [{ path: '../../public/fonts/OrdinaryArtist-ico.woff', weight: '400' }],
   display: 'swap',
 });
+
+export const ordinaryArtistR = localFont({
+  src: [
+    { path: '../../public/fonts/OrdinaryArtist-Regular.woff', weight: '400' },
+  ],
+  display: 'swap',
+});

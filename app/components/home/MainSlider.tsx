@@ -1,29 +1,42 @@
-'use client';
 // app /components /home /MainSlider.tsx
+'use client';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import styles from './MainSlider.module.css';
 import Link from 'next/link';
+import { ordinaryArtist } from '@/app/components/fonts';
+import { ordinaryArtistR } from '@/app/components/fonts';
+import { useRef, useState } from 'react';
 
 export default function MainSlider() {
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
-    <div className="">
+    <div className={ordinaryArtist.className}>
       <Swiper
         className={styles.slider}
-        //className={styles['main-slider']} ->두단어할때
-        modules={[Navigation]}
+        modules={[Navigation, Autoplay]}
         spaceBetween={30}
         slidesPerView={1}
-        autoplay={{
-          delay: 3000, // 3초마다 슬라이드 이동
-          disableOnInteraction: false, // 사용자가 터치해도 자동 이동 유지
+        loop={true} // 무한 반복 설정
+        // autoplay={{
+        //   delay: 3000, // 3초마다 슬라이드 이동
+        //   disableOnInteraction: false, // 사용자가 터치해도 자동 이동 유지
+        // }}
+        navigation={{
+          prevEl: prevRef.current,
+          nextEl: nextRef.current,
         }}
-        navigation
-        onSlideChange={() => console.log('slide change')}
+        onSlideChange={(swiper) => {
+          setActiveIndex(swiper.realIndex); // 현재 슬라이드 인덱스 업데이트
+        }}
         onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide>
@@ -31,7 +44,7 @@ export default function MainSlider() {
             href="/watch/vod/연극-장도"
             className="flex flex-col w-full h-full bg-[url(/images/2ab67ac133853b5fd484eb93a615308c.jpg)] bg-cover bg-center bg-no-repeat items-center text-center max-md:bg-[auto_100%]"
           >
-            <div className="text-[12px] w-[460px] translate-y-0">
+            <div className="text-[12px] w-[460px] -translate-y-[100%]">
               <div className="h-[55%] relative ">
                 <svg
                   className="block m-full h-full"
@@ -212,10 +225,10 @@ export default function MainSlider() {
                     시공간을 뛰어넘어 성장하는 감동적인 이야기
                   </p>
                   <p
-                    className="text-[21px] font-medium mt-[12%] text-point1"
+                    className="text-[21px] font-medium mt-[12%] text-point1 tracking-tight"
                     style={{ textShadow: '.1px .1em 0 rgba(0, 0, 0, .6)' }}
                   >
-                    티켓가격 : 0 Wow~
+                    티켓가격 : 0 WoW~
                   </p>
                 </div>
               </div>
@@ -358,13 +371,13 @@ export default function MainSlider() {
                 </svg>
                 <div className="absolute left-0 top-0 leading-1 w-full h-full">
                   <p
-                    className="top-[7%] text-[22px] w-full absolute left-0 text-point2"
+                    className={`top-[7%] text-[22px] w-full absolute left-0 text-point2 ${ordinaryArtistR.className}`}
                     style={{ textShadow: '.1px .1em 0 rgba(0, 0, 0, .6)' }}
                   >
                     ordinary arTist live
                   </p>
                   <span
-                    className="top-[43%] text-[15px] w-full absolute left-0 text-point1"
+                    className="top-[43%] text-[15px] w-full absolute left-0 text-point1 tracking-tight"
                     style={{ textShadow: '.1px .1em 0 rgba(0, 0, 0, .6)' }}
                   >
                     250211 한양레퍼토리컴퍼니
@@ -386,17 +399,21 @@ export default function MainSlider() {
             className="flex w-full h-full bg-[url(/images/7259b95773af92d0af4f3f38d2ef88a6.jpg)] bg-cover bg-center bg-no-repeat"
           ></Link>
         </SwiperSlide>
-        <SwiperSlide className="border">
+        <SwiperSlide>
           <Link
             href="/cs-center/notice/read/1582"
             className="flex w-full h-full bg-[url(/images/9b6ff8dff9d070e4a5ef7b8492b550c4.jpg)] bg-cover bg-center bg-no-repeat"
           ></Link>
           <img
             src="/images/9b6ff8dff9d070e4a5ef7b8492b550c4.jpg"
-            alt="고양이"
+            alt="작품공모"
             className="w-full h-full object-cover"
           />
         </SwiperSlide>
+        <div className="max-w-[1160px] absolute left-1/2 top-[50%] -translate-x-1/2 z-1 w-full flex justify-between">
+          <button ref={prevRef} className="swiper-button-prev"></button>
+          <button ref={nextRef} className="swiper-button-next"></button>
+        </div>
       </Swiper>
     </div>
   );
