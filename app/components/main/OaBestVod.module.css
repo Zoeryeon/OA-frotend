@@ -1,0 +1,8 @@
+.vodslider [class*='swiper-button-prev']::after {
+  content: '\e93c';
+  font-family: 'OrdinaryArtist-ico';
+}
+.vodslider [class*='swiper-button-next']::after {
+  content: '\e93c';
+  font-family: 'OrdinaryArtist-ico';
+}
