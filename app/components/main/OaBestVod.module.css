@@ -1,8 +1,32 @@
-.vodslider [class*='swiper-button-prev']::after {
-  content: '\e93c';
-  font-family: 'OrdinaryArtist-ico';
+.vodslider {
+  position: static;
 }
-.vodslider [class*='swiper-button-next']::after {
+
+.vodslider [class*='swiper-button'] {
+  width: 36px;
+  height: 36px;
+  left: -18px;
+  border: 1px solid var(--color-gray-400);
+  border-radius: 50%;
+  background-color: var(--color-point1);
+  transform: rotateZ(180deg);
+}
+.vodslider [class*='swiper-button']:hover {
+  background-color: var(--color-gray-600);
+  border: none;
+}
+.vodslider [class*='swiper-button']::after {
+  font-size: 24px;
+  font-weight: 600;
   content: '\e93c';
   font-family: 'OrdinaryArtist-ico';
+  color: #212121;
+}
+.vodslider [class*='swiper-button']:hover::after {
+  color: var(--color-point1);
+}
+.vodslider [class*='swiper-button-next'] {
+  right: -18px;
+  left: auto;
+  transform: rotateZ(0);
 }

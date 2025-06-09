@@ -3,6 +3,7 @@
 import CategoryMenu from '@/app/components/main/CategoryMenu';
 import MainSlider from '@/app/components/main/MainSlider';
 import OaBestVod from '@/app/components/main/OaBestVod';
+import PresentSet from '@/app/components/main/PresentSet';
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <MainSlider />
       <CategoryMenu />
       <OaBestVod />
+      <PresentSet />
     </main>
   );
 }

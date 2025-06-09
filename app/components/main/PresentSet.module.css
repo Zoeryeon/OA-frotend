@@ -1,0 +1,4 @@
+.presentslider [class*='swiper-button']::after {
+  content: '\e93c';
+  font-family: 'OrdinaryArtist-ico';
+}
