@@ -1,7 +1,6 @@
 .vodslider {
   position: static;
 }
-
 .vodslider [class*='swiper-button'] {
   width: 36px;
   height: 36px;

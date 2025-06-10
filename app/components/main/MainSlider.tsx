@@ -38,7 +38,6 @@ export default function MainSlider() {
         onSlideChange={(swiper) => {
           setActiveIndex(swiper.realIndex); // 현재 슬라이드 인덱스 업데이트
         }}
-        onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide>
           <Link
