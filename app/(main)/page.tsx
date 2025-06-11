@@ -2,7 +2,7 @@
 
 import CategoryMenu from '@/app/components/main/CategoryMenu';
 import MainSlider from '@/app/components/main/MainSlider';
-import OaBestVod from '@/app/components/main/OaBestVod';
+import OaSliderLap from '@/app/components/main/OaSliderLap';
 import PresentSet from '@/app/components/main/PresentSet';
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
     <main className="bg-point1">
       <MainSlider />
       <CategoryMenu />
-      <OaBestVod />
+      <OaSliderLap />
       <PresentSet />
     </main>
   );

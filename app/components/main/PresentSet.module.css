@@ -1,5 +1,6 @@
 .presentslider [class*='swiper-button'] {
   transform: rotateZ(180deg);
+  top: 40%;
 }
 .presentslider [class*='swiper-button-next'] {
   transform: rotateZ(0);
@@ -51,4 +52,18 @@
   right: 5px;
   left: auto;
   transform: rotateZ(0);
+}
+
+@media (max-width: 1024px) {
+  .subslider [class*='swiper-slide'] {
+    width: calc(100% / 2 - (20px / 2));
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .subslider [class*='swiper-slide'] {
+    width: calc(100% - 20px);
+    margin-right: 10px;
+  }
 }
