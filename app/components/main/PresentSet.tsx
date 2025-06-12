@@ -283,19 +283,22 @@ export default function PresentSet() {
 
   useEffect(() => {
     setRandomSlide([...slideData].sort(() => Math.random() - 0.5).slice(0, 4));
+  }, []);
+
+  useEffect(() => {
     setRandomSlide2(
       [...slideData2].sort(() => Math.random() - 0.5).slice(0, 5)
     );
-  }, []);
+  }, [activeIndex]);
 
   return (
-    <div className="pt-[80px]">
+    <div className="pt-[80px] max-md:pt-[48px] max-sm:pt-[40px]">
       <div className="max-w-[1280px] px-[20px] mx-auto">
-        <div className="text-center px-[80px] pb-[24px]">
-          <h3 className="text-[30px] font-semibold tracking-tight">
+        <div className="text-center px-[80px] pb-[24px] max-md:px-0">
+          <h3 className="text-[30px] font-semibold tracking-tight max-md:text-[28px] max-sm:text-[22px]">
             오아 종합 선물 세트
           </h3>
-          <p className="mt-[10px] tracking-tight">
+          <p className="mt-[10px] tracking-tight max-sm:text-[14px]">
             가격 부담은 낮추고 가치는 높이고
           </p>
         </div>
@@ -307,11 +310,14 @@ export default function PresentSet() {
             slidesPerView={1}
             loop={true} // 무한 반복 설정
             navigation
+            onSlideChange={(swiper) => {
+              setActiveIndex(swiper.realIndex); // 현재 슬라이드 인덱스 업데이트
+            }}
           >
             {randomSlide.map((slide) => (
               <SwiperSlide key={slide.id}>
                 <Link href="/watch/vod/53" className="block">
-                  <div className="h-[320px] overflow-hidden">
+                  <div className="h-[320px] overflow-hidden max-sm:h-[133px]">
                     <img
                       src={`/images/${slide.img}`}
                       alt="썸네일"
@@ -319,10 +325,10 @@ export default function PresentSet() {
                     />
                   </div>
                   <div className="bg-point1 pt-[40px] px-[40px] w-[calc(100%-120px)] text-center mx-auto -mt-[40px] relative z-1 max-md:w-[calc(100%-40px)] max-md:pt-[20px] max-md:px-[20px]">
-                    <h4 className="text-[30px] font-semibold text-gray-600 tracking-tight max-md:text-[28px]">
+                    <h4 className="text-[30px] font-semibold text-gray-600 tracking-tight max-md:text-[28px] max-sm:text-[22px]">
                       {slide.title}
                     </h4>
-                    <p className="mt-[10px] text-gray-600">
+                    <p className="mt-[10px] text-gray-600 max-sm:text-[14px]">
                       오아플러스 큐레이션
                     </p>
                   </div>
@@ -348,7 +354,7 @@ export default function PresentSet() {
                     style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.07)' }}
                   >
                     {/* All 라벨 부분 */}
-                    <div className="min-w-[15px] h-[27px] whitespace-nowrap absolute z-10 left-[10px] top-[13px]">
+                    <div className="min-w-[15px] h-[27px] whitespace-nowrap absolute z-10 left-[10px] top-[13px] max-sm:h-[24px]">
                       <svg
                         version="1.0"
                         xmlns="http://www.w3.org/2000/svg"
@@ -366,7 +372,7 @@ export default function PresentSet() {
                           d="M11.586,0.008c-7.5-0.332-14.125,10.498-10.625,16.83c2.5,4.668,7.723,6.4,12.125,5.609 c6.167-1.109,11.143-10.605,9.143-16.105C20.729,2.842,14.919,0.002,11.586,0.008"
                         ></path>
                       </svg>
-                      <em className="text-point1 text-[12px] w-full text-center absolute left-0 top-0 leading-[27px]">
+                      <em className="text-point1 text-[12px] w-full text-center absolute left-0 top-0 leading-[27px] max-sm:leading-[24px] max-sm:text-[10px]">
                         All
                       </em>
                     </div>

@@ -1,0 +1,31 @@
+.movieslider {
+  position: static;
+}
+.movieslider [class*='swiper-button'] {
+  width: 36px;
+  height: 36px;
+  left: -18px;
+  border: 1px solid var(--color-gray-400);
+  border-radius: 50%;
+  background-color: var(--color-point1);
+  transform: rotateZ(180deg);
+}
+.movieslider [class*='swiper-button']:hover {
+  background-color: var(--color-gray-600);
+  border: none;
+}
+.movieslider [class*='swiper-button']::after {
+  font-size: 24px;
+  font-weight: 600;
+  content: '\e93c';
+  font-family: 'OrdinaryArtist-ico';
+  color: #212121;
+}
+.movieslider [class*='swiper-button']:hover::after {
+  color: var(--color-point1);
+}
+.movieslider [class*='swiper-button-next'] {
+  right: -18px;
+  left: auto;
+  transform: rotateZ(0);
+}

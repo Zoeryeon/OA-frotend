@@ -19,7 +19,7 @@ export default function MainSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className={ordinaryArtist.className}>
+    <div>
       <Swiper
         className={styles.slider}
         modules={[Navigation, Autoplay]}
@@ -45,11 +45,11 @@ export default function MainSlider() {
             className="flex flex-col w-full h-full bg-[url(/images/2ab67ac133853b5fd484eb93a615308c.jpg)] bg-cover bg-center bg-no-repeat items-center text-center max-md:bg-[auto_100%]"
           >
             <div
-              className={`text-[12px] w-[460px] transform duration-300 delay-500 ${
+              className={`text-[0.625vw] w-[24vw] max-w-[30vmax] transform duration-300 delay-500 ${
                 activeIndex === 0 ? '-translate-y-0' : '-translate-y-[100%]'
-              }`}
+              } max-md:text-[0.825vh] max-md:w-[90vw]`}
             >
-              <div className="h-[55%] relative ">
+              <div className="h-[55%] relative text-shadow-[0.1em_0.2em_0_rgba(0,0,0,0.6)]">
                 <svg
                   className="block m-full h-full"
                   version="1.1"
@@ -178,7 +178,7 @@ export default function MainSlider() {
                   </g>
                 </svg>
                 <div className="w-full h-full absolute left-0 top-0 text-left p-[10%] flex flex-col items-start justify-center">
-                  <div className="relative leading-[30px] h-[30px] mx-[13px] inline-flex whitespace-nowrap">
+                  <div className="relative leading-[30px] h-[30px] mx-[13px] inline-flex whitespace-nowrap max-sm:text-[1.75em] max-sm:leading-8 max-sm:h-auto">
                     <div className="-left-[13px] -right-[13px] top-[2px] bottom-[2px] absolute">
                       <svg
                         version="1.0"
@@ -202,41 +202,27 @@ export default function MainSlider() {
                         ></path>
                       </svg>
                     </div>
-                    <div
-                      className="text-[12px] text-point1 relative"
-                      style={{ textShadow: '.1px .1em 0 rgba(0, 0, 0, .6)' }}
-                    >
-                      VOD
-                    </div>
+                    <div className="text-[1em] text-point1 relative">VOD</div>
                   </div>
-                  <h2
-                    className="text-[36px] mt-[1.5%] py-[2%] -leading-[3px] font-medium text-point1 tracking-tighter"
-                    style={{ textShadow: '.1px .1em 0 rgba(0, 0, 0, .6)' }}
-                  >
+                  <h2 className="text-[3em] mt-[1.5%] py-[2%] -leading-[3px] font-medium text-point1 tracking-tighter max-md:text-[2.75em] max-md:py-[1%]">
                     잘 산다는 것 무엇일까?
                     <br />
                     삶의 의미를 묻는
-                    <span className="text-[#ffb647] text-[36px]">
+                    <span className="text-[#ffb647] text-[1em]">
                       &lt;장도&gt;
                     </span>
                     <br />
                   </h2>
-                  <p
-                    className="mt-[6%] text-[18px] leading-nomal  whitespace-pre-wrap text-point1 tracking-tighter"
-                    style={{ textShadow: '.1px .1em 0 rgba(0, 0, 0, .6)' }}
-                  >
+                  <p className="mt-[6%] text-[1.5em] leading-nomal  whitespace-pre-wrap text-point1 tracking-tighter max-sm:hidden">
                     주목받는 신진 극작·연출가 김승철 신작! <br />
                     시공간을 뛰어넘어 성장하는 감동적인 이야기
                   </p>
-                  <p
-                    className="text-[21px] font-medium mt-[12%] text-point1 tracking-tight"
-                    style={{ textShadow: '.1px .1em 0 rgba(0, 0, 0, .6)' }}
-                  >
+                  <p className="text-[1.75em] font-medium mt-[12%] text-point1 tracking-tight">
                     티켓가격 : 0 WoW~
                   </p>
                 </div>
               </div>
-              <div className="h-[33%] relative">
+              <div className="h-[33%] relative text-shadow-[0.1em_0.2em_0_rgba(0,0,0,0.6)]">
                 <svg
                   version="1.1"
                   x="0px"
@@ -375,15 +361,11 @@ export default function MainSlider() {
                 </svg>
                 <div className="absolute left-0 top-0 leading-1 w-full h-full">
                   <p
-                    className={`top-[7%] text-[22px] w-full absolute left-0 text-point2 ${ordinaryArtistR.className}`}
-                    style={{ textShadow: '.1px .1em 0 rgba(0, 0, 0, .6)' }}
+                    className={`top-[7%] text-[1.875em] w-full absolute left-0 text-point2 ${ordinaryArtistR.className}`}
                   >
                     ordinary arTist live
                   </p>
-                  <span
-                    className="top-[43%] text-[15px] w-full absolute left-0 text-point1 tracking-tight"
-                    style={{ textShadow: '.1px .1em 0 rgba(0, 0, 0, .6)' }}
-                  >
+                  <span className="top-[43%] text-[1.25em] w-full absolute left-0 text-point1 tracking-tight">
                     250211 한양레퍼토리컴퍼니
                   </span>
                 </div>
@@ -397,11 +379,11 @@ export default function MainSlider() {
             className="flex flex-col w-full h-full bg-[url(/images/93bd25a7919528a0fcfc9c88430975c2.jpg)] bg-cover bg-center bg-no-repeat items-center text-center max-md:bg-[auto_100%]"
           >
             <div
-              className={`text-[12px] w-[460px] transform duration-300 delay-500 ${
+              className={`text-[0.625vw] w-[24vw] max-w-[30vmax] transform duration-300 delay-500 ${
                 activeIndex === 1 ? '-translate-y-0' : '-translate-y-[100%]'
-              }`}
+              } max-md:text-[0.825vh] max-md:w-[90vw]`}
             >
-              <div className="h-[55%] relative ">
+              <div className="h-[55%] relative text-shadow-[0.1em_0.2em_0_rgba(0,0,0,0.6)]">
                 <svg
                   className="block m-full h-full"
                   version="1.1"
@@ -530,7 +512,7 @@ export default function MainSlider() {
                   </g>
                 </svg>
                 <div className="w-full h-full absolute left-0 top-0 text-left p-[10%] flex flex-col items-start justify-center">
-                  <div className="relative leading-[30px] h-[30px] mx-[13px] inline-flex whitespace-nowrap">
+                  <div className="relative leading-[30px] h-[30px] mx-[13px] inline-flex whitespace-nowrap max-sm:text-[1.75em] max-sm:leading-8 max-sm:h-auto">
                     <div className="-left-[13px] -right-[13px] top-[2px] bottom-[2px] absolute">
                       <svg
                         version="1.0"
@@ -554,40 +536,28 @@ export default function MainSlider() {
                         ></path>
                       </svg>
                     </div>
-                    <div
-                      className="text-[12px] text-point1 relative"
-                      style={{ textShadow: '.1px .1em 0 rgba(0, 0, 0, .6)' }}
-                    >
+                    <div className="text-[1em] text-point1 relative">
                       OA THEME
                     </div>
                   </div>
-                  <h2
-                    className="text-[36px] mt-[1.5%] py-[2%] -leading-[3px] font-medium text-point1 -tracking-widest"
-                    style={{ textShadow: '.1px .1em 0 rgba(0, 0, 0, .6)' }}
-                  >
+                  <h2 className="text-[3em] mt-[1.5%] py-[2%] -leading-[3px] font-medium text-point1 -tracking-[0.07em] max-md:text-[2.75em] max-md:py-[1%]">
                     세계와 소통하는 무용 축제
                     <br />
-                    <span className="text-[#ffb647] text-[36px] -tracking-widest">
+                    <span className="text-[#ffb647] text-[1em] -tracking-widest">
                       창무국제공연예술제
                     </span>
                     <br />
                   </h2>
-                  <p
-                    className="mt-[6%] text-[18px] leading-nomal  whitespace-pre-wrap text-point1 tracking-tighter"
-                    style={{ textShadow: '.1px .1em 0 rgba(0, 0, 0, .6)' }}
-                  >
+                  <p className="mt-[6%] text-[1.5em] leading-nomal  whitespace-pre-wrap text-point1 tracking-tighter max-sm:hidden">
                     국내외 수준급 무용수들과 창무프라이즈 경연 7팀 <br />
                     8대 중견 춤꾼들의 감동적인 무대를 만나보세요.
                   </p>
-                  <p
-                    className="text-[21px] font-medium mt-[12%] text-point1 -tracking-widest"
-                    style={{ textShadow: '.1px .1em 0 rgba(0, 0, 0, .6)' }}
-                  >
+                  <p className="text-[1.75em] font-medium mt-[12%] text-point1 -tracking-widest">
                     티켓가격 : 3 WoW~
                   </p>
                 </div>
               </div>
-              <div className="h-[33%] relative">
+              <div className="h-[33%] relative text-shadow-[0.1em_0.2em_0_rgba(0,0,0,0.6)]">
                 <svg
                   version="1.1"
                   x="0px"
@@ -726,15 +696,11 @@ export default function MainSlider() {
                 </svg>
                 <div className="absolute left-0 top-0 leading-1 w-full h-full">
                   <p
-                    className={`top-[7%] text-[22px] w-full absolute left-0 text-point2 ${ordinaryArtistR.className}`}
-                    style={{ textShadow: '.1px .1em 0 rgba(0, 0, 0, .6)' }}
+                    className={`top-[7%] text-[1.875em] w-full absolute left-0 text-point2 ${ordinaryArtistR.className}`}
                   >
                     ordinary arTist live
                   </p>
-                  <span
-                    className="top-[43%] text-[15px] w-full absolute left-0 text-point1 tracking-tight"
-                    style={{ textShadow: '.1px .1em 0 rgba(0, 0, 0, .6)' }}
-                  >
+                  <span className="top-[43%] text-[1.25em] w-full absolute left-0 text-point1 tracking-tight">
                     241226 창무국제공연예술제
                   </span>
                 </div>

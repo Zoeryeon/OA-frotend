@@ -55,7 +55,7 @@ const categories = [
 
 export default function CategoryMenu() {
   return (
-    <nav className="px-[80px] pt-[80px] items-center justify-center mx-auto w-full flex max-md:px-[20px] max-md:flex-col">
+    <nav className="px-[80px] pt-[80px] items-center justify-center mx-auto w-full flex max-md:px-[20px] max-md:flex-col max-md:pt-[40px]">
       <ol className="flex flex-wrap gap-[36px] max-md:w-full max-md:gap-y-[20px] max-md:gap-x-0">
         {categories.map((category, index) => (
           <li key={index} className="max-md:w-[25%]">

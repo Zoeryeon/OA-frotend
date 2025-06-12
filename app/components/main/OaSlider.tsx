@@ -55,12 +55,14 @@ export default function OaSlider({
   }[];
 }) {
   return (
-    <div className="max-w-[1160px] pt-[80px] px-[20px] mx-auto">
-      <div className="text-center px-[80px] pb-[24px]">
-        <h3 className="text-[30px] font-semibold tracking-tight">
+    <div className="max-w-[1160px] pt-[80px] px-[20px] mx-auto max-md:pt-[48px] max-sm:pt-[40px]">
+      <div className="text-center px-[80px] pb-[24px] max-md:px-0">
+        <h3 className="text-[30px] font-semibold tracking-tight max-md:text-[28px] max-sm:text-[22px]">
           {header.title}
         </h3>
-        <p className="mt-[10px] tracking-tight">{header.sub}</p>
+        <p className="mt-[10px] tracking-tight max-sm:text-[14px]">
+          {header.sub}
+        </p>
       </div>
       <div className="relative">
         <Swiper
@@ -102,7 +104,7 @@ export default function OaSlider({
                     style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.07)' }}
                   >
                     {item.age !== null && (
-                      <div className="min-w-[15px] h-[27px] whitespace-nowrap absolute z-10 left-[10px] top-[13px]">
+                      <div className="min-w-[15px] h-[27px] whitespace-nowrap absolute z-10 left-[10px] top-[13px] max-sm:h-[24px]">
                         <svg
                           version="1.0"
                           xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +128,7 @@ export default function OaSlider({
                             d="M11.586,0.008c-7.5-0.332-14.125,10.498-10.625,16.83c2.5,4.668,7.723,6.4,12.125,5.609 c6.167-1.109,11.143-10.605,9.143-16.105C20.729,2.842,14.919,0.002,11.586,0.008"
                           ></path>
                         </svg>
-                        <em className="text-point1 text-[12px] w-full text-center absolute left-0 top-0 leading-[27px]">
+                        <em className="text-point1 text-[12px] w-full text-center absolute left-0 top-0 leading-[27px] max-sm:leading-[24px] max-sm:text-[10px]">
                           {item.age}
                         </em>
                       </div>

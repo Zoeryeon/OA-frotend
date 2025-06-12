@@ -35,10 +35,16 @@
   .slider {
     aspect-ratio: 768 / 405;
   }
+  .slider [class*='swiper-button-prev']::after {
+    font-size: 28px;
+  }
+  .slider [class*='swiper-button-next']::after {
+    font-size: 28px;
+  }
 }
 
 @media (max-width: 768px) {
   .slider {
-    aspect-ratio: 498 / 348;
+    aspect-ratio: 360 / 425;
   }
 }

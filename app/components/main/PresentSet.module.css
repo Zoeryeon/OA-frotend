@@ -62,6 +62,12 @@
 }
 
 @media (max-width: 768px) {
+  .presentslider [class*='swiper-button'] {
+    top: 20%;
+  }
+  .presentslider [class*='swiper-button']::after {
+    font-size: 28px;
+  }
   .subslider [class*='swiper-slide'] {
     width: calc(100% - 20px);
     margin-right: 10px;
