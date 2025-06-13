@@ -1,5 +1,6 @@
 //app /ui/home/Gnb.tsx
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const menuItems = [
   { label: '관람하기', href: '/watch' },
@@ -9,6 +10,9 @@ const menuItems = [
 ];
 
 export default function Gnb() {
+  // 현재 페이지 경로 가져오기
+  const pathname = usePathname();
+
   return (
     <nav className="flex items-center justify-between h-[75px] max-md:absolute max-md:left-0 max-md:bottom-0 max-md:bg-point1 max-md:w-full max-md:h-[40px]">
       <ul className="flex items-center relative grow max-md:whitespace-nowrap max-md:overflow-auto max-md:justify-between max-md:px-[10px]">
@@ -16,7 +20,11 @@ export default function Gnb() {
           <li key={index} className="mr-[20px] max-md:mr-0">
             <Link
               href={item.href}
-              className="leading-[30px] relative text-gray-600 left-0 top-0 whitespace-nowrap after:content-[''] after:block after:w-0 after:absolute after:left-[50%] after:top-full after:bg-[var(--point-color2)] after:h-[1px] after:transition-all after:duration-150 hover:text-point2 hover:after:w-full hover:after:left-0 hover:after:transition-all hover:after:duration-300 max-md:px-[10px] max-md:leading-[40px] max-md:flex max-md:after:hidden max-md:hover:text-inherit max-md:hover:after:w-0 max-md:hover:after:lefe-[50%]"
+              className={`leading-[30px] relative text-gray-600 left-0 top-0 whitespace-nowrap  max-md:px-[10px] max-md:leading-[40px] max-md:flex dark:text-point1 ${
+                pathname === item.href
+                  ? "text-point2 after:content-[''] after:block after:w-full after:absolute after:left-0 after:top-full after:bg-point2 after:h-[1px]"
+                  : "after:content-[''] after:block after:w-0 after:absolute after:left-[50%] after:top-full after:bg-point2 after:h-[1px] after:transition-all after:duration-150 hover:text-point2 hover:after:w-full hover:after:left-0 hover:after:transition-all hover:after:duration-300 max-md:after:hidden max-md:hover:text-inherit max-md:hover:after:w-0 max-md:hover:after:lefe-[50%]"
+              }`}
             >
               {item.label}
             </Link>

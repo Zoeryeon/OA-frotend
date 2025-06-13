@@ -1,8 +1,15 @@
-// app /components /main /CategoryMenu.tsx
+// app /components /watch /CateMenu.tsx
 
 import Link from 'next/link';
+import { ordinaryArtist } from '@/app/components/fonts';
 
 const categories = [
+  {
+    href: '/watch?genre=all',
+    imgSrc: '/images/category_ico_0all.webp',
+    alt: 'ALL',
+    label: 'ALL',
+  },
   {
     href: '/watch?genre=musical',
     imgSrc: '/images/category_ico_0G01.webp',
@@ -34,12 +41,6 @@ const categories = [
     label: '인터뷰',
   },
   {
-    href: '/oatheme',
-    imgSrc: '/images/category_ico_0G05.webp',
-    alt: '오뗌극장',
-    label: '오뗌극장',
-  },
-  {
     href: '/watch/oaplus',
     imgSrc: '/images/category_ico_0G06.webp',
     alt: '오아플러스',
@@ -53,9 +54,9 @@ const categories = [
   },
 ];
 
-export default function CategoryMenu() {
+export default function CateMenu() {
   return (
-    <nav className="px-[80px] pt-[80px] items-center justify-center mx-auto w-full flex max-md:px-[20px] max-md:flex-col max-md:pt-[40px]">
+    <div className="pt-[155px] px-[80px] pb-[80px] items-center justify-center w-full flex max-md:px-[20px] max-md:flex-col max-md:pt-[40px]">
       <ol className="flex flex-wrap gap-[36px] max-md:w-full max-md:gap-y-[20px] max-md:gap-x-0">
         {categories.map((category, index) => (
           <li key={index} className="max-md:w-[25%]">
@@ -75,11 +76,16 @@ export default function CategoryMenu() {
               </div>
               <p className="text-center text-[14px] max-sm:text-[13px] dark:text-point1">
                 {category.label}
+                {(index === 6 || index === 7) && (
+                  <i
+                    className={`bg-[#ededed] rounded-[5px] not-italic ${ordinaryArtist.className} before:content-['\\e93b'] before:text-[15px]`}
+                  ></i>
+                )}
               </p>
             </Link>
           </li>
         ))}
       </ol>
-    </nav>
+    </div>
   );
 }

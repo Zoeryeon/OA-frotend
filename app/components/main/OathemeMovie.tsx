@@ -85,14 +85,18 @@ const MovieData = [
 export default function OathemeMovie() {
   return (
     <div className="pt-[80px]">
-      <div className="max-w-[1160px]  px-[20px] mx-auto">
+      <div className="max-w-[1160px] px-[20px] mx-auto">
         <div className="text-center px-[80px] pb-[24px]">
-          <h3 className="text-[30px] font-semibold tracking-tight">오뗌극장</h3>
-          <p className="mt-[10px] tracking-tight">Only OA! 특별 전용 상영관</p>
+          <h3 className="text-[30px] font-semibold tracking-tight dark:text-point1">
+            오뗌극장
+          </h3>
+          <p className="mt-[10px] tracking-tight dark:text-point1">
+            Only OA! 특별 전용 상영관
+          </p>
         </div>
         <div className="relative">
           <Swiper
-            className={styles.movieslider}
+            className={`${styles.movieslider} movie-slider`}
             modules={[Navigation]}
             spaceBetween={0}
             slidesPerView={1}
@@ -113,7 +117,7 @@ export default function OathemeMovie() {
               <SwiperSlide key={item.id}>
                 <Link
                   href={item.href}
-                  className=" block h-[336px] border border-gray-400 rounded-[10px] overflow-hidden group max-sm:rounded-[5px]"
+                  className=" block h-[336px] border border-gray-400 rounded-[10px] overflow-hidden group max-sm:rounded-[5px] dark:border-gray-600"
                   style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.07)' }}
                 >
                   <div className="relative w-full h-full ">

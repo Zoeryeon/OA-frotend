@@ -8,6 +8,7 @@ import Gnb from '@/app/components/home/Gnb';
 import Search from '@/app/components/home/Search';
 import Submenu from '@/app/components/home/Submenu';
 import RandomImg from '@/app/components/home/RandomImg';
+import { ordinaryArtist } from '@/app/components/fonts';
 
 export default function Header() {
   // 검색입력창 그림자 상태
@@ -17,6 +18,8 @@ export default function Header() {
 
   // 랜덤 이미지
   const [num, setNum] = useState(0);
+  // 스크롤 이벤트
+  const [visible, setVisible] = useState(true);
 
   // 테블릿 메뉴버튼
   const [active, setActive] = useState(false);
@@ -27,6 +30,7 @@ export default function Header() {
     setShowSubmenu(!showSubmenu);
   };
 
+  // 랜덤 이미지
   useEffect(() => {
     setNum(Math.floor(Math.random() * 3));
   }, []);
@@ -45,6 +49,32 @@ export default function Header() {
     };
   }, []);
 
+  // 스크롤 이벤트 처리
+  useEffect(() => {
+    let prevScrollY = 0;
+
+    function handleScroll() {
+      let currentScrollY = window.scrollY;
+
+      // 아래로 스크롤시 헤더 안보이게
+      if (currentScrollY > prevScrollY && currentScrollY > 50) {
+        setVisible(false);
+        // 위로 스크롤시 헤더 보이게
+      } else if (currentScrollY <= prevScrollY && currentScrollY > 50) {
+        setVisible(true);
+      }
+
+      // 현재 스크롤 위치를 이전 위치로 업데이트
+      prevScrollY = currentScrollY;
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // 의존성 배열에서 scrollY 제거
+
   // 검색창 열렸을때 스크롤 막기
   useEffect(() => {
     if (isVisible) {
@@ -59,7 +89,11 @@ export default function Header() {
   }, [isVisible]);
 
   return (
-    <header className="bg-point1">
+    <header
+      className={`fixed w-full bg-point1 z-999 dark:bg-gray-600 transition-all duration-400 ${
+        visible ? 'top-0' : '-top-[75px]'
+      }`}
+    >
       <div className="max-w-[1160px] relative m-auto flex px-[20px] items-center max-md:justify-between max-md:items-start max-md:h-[105px]">
         <h1 className="h-[75px] flex mr-[14px] items-center w-[67px] max-md:h-[65px] max-md:w-[55px]">
           <Link href="/">
@@ -120,12 +154,15 @@ export default function Header() {
           </Link>
         </h1>
         <Gnb />
-        <Search
-          isVisible={isVisible}
-          setIsVisible={setIsVisible}
-          isShadow={isShadow}
-          setShadow={setShadow}
-        />
+        <Link
+          href="#"
+          className={`inline-flex items-center justify-center flex-wrap flex-row ml-auto mr-[5px] ${ordinaryArtist.className} before:content-['\\e90f'] before:text-[40px] before:text-gray-600 max-md:block max-md:mt-[10px] dark:before:text-point1`}
+          onClick={() => setIsVisible((prev) => !prev)}
+        >
+          <span className="hidden">
+            {isVisible ? '검색창 닫기' : '검색창 활성화'}
+          </span>
+        </Link>
         <Link
           href="#"
           className="hidden max-md:flex max-md:w-auto max-md:items-center max-md:ml-[5px] max-md:justify-center max-md:h-[46px] max-md:relative max-md:mt-[12px]"
@@ -149,6 +186,7 @@ export default function Header() {
           <RandomImg num={num} />
         </Link>
       </div>
+      <Search isVisible={isVisible} isShadow={isShadow} setShadow={setShadow} />
     </header>
   );
 }

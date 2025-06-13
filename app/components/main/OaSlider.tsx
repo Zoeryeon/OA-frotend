@@ -57,16 +57,16 @@ export default function OaSlider({
   return (
     <div className="max-w-[1160px] pt-[80px] px-[20px] mx-auto max-md:pt-[48px] max-sm:pt-[40px]">
       <div className="text-center px-[80px] pb-[24px] max-md:px-0">
-        <h3 className="text-[30px] font-semibold tracking-tight max-md:text-[28px] max-sm:text-[22px]">
+        <h3 className="text-[30px] font-semibold tracking-tight max-md:text-[28px] max-sm:text-[22px] dark:text-point1">
           {header.title}
         </h3>
-        <p className="mt-[10px] tracking-tight max-sm:text-[14px]">
+        <p className="mt-[10px] tracking-tight max-sm:text-[14px] dark:text-point1">
           {header.sub}
         </p>
       </div>
       <div className="relative">
         <Swiper
-          className={styles.vodslider}
+          className={`${styles.vodslider} vod-slider`}
           modules={[Navigation]}
           spaceBetween={0}
           slidesPerView={1}
@@ -100,7 +100,7 @@ export default function OaSlider({
                 <div className="flex overflow-hidden">
                   <Link
                     href={item.href}
-                    className="block border border-gray-400 rounded-[10px] overflow-hidden group"
+                    className="block border border-gray-400 rounded-[10px] overflow-hidden group dark:border-gray-600"
                     style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.07)' }}
                   >
                     {item.age !== null && (
@@ -141,7 +141,7 @@ export default function OaSlider({
                         style={{ boxShadow: '2px 2px 6px rgba(0, 0, 0, 0.3)' }}
                       />
                     </div>
-                    <div className="flex flex-col h-[180px] border-t border-t-gray-400 px-[10px] pb-[15px] bg-white max-md:h-[130px]">
+                    <div className="flex flex-col h-[180px] border-t border-t-gray-400 px-[10px] pb-[15px] bg-white max-md:h-[130px] dark:bg-black dark:border-t-gray-600">
                       <div className="mt-[15px] text-[13px] flex flex-wrap items-start gap-[5px] text-gray-600 tracking-tight w-full text-ellipsis break-all max-md:text-[11px]">
                         <p className="text-point1 bg-point2 block mb-[6px] py-[1px] px-[6px] rounded-[3px]">
                           {item.price}
@@ -149,17 +149,17 @@ export default function OaSlider({
                         {item.cate.map((cate, index) => (
                           <p
                             key={index}
-                            className="bg-[#ededed] block mb-[6px] py-[1px] px-[6px] rounded-[3px]"
+                            className="bg-[#ededed] block mb-[6px] py-[1px] px-[6px] rounded-[3px] dark:bg-gray-600 dark:text-point1"
                           >
                             {cate}
                           </p>
                         ))}
                       </div>
-                      <h4 className="h-[50px] tracking-tighter text-[20px] font-semibold mb-[7px] text-gray-600 overflow-hidden text-ellipsis line-clamp-2 max-md:text-[16px] max-md:h-[43px]">
+                      <h4 className="h-[50px] tracking-tighter text-[20px] font-semibold mb-[7px] text-gray-600 overflow-hidden text-ellipsis line-clamp-2 max-md:text-[16px] max-md:h-[43px] dark:text-point1">
                         {item.title}
                       </h4>
                       <div className="flex mt-auto items-end h-[40px] justify-between gap-[10px] max-md:h-auto">
-                        <p className="text-[#676767] overflow-hidden text-ellipsis line-clamp-2">
+                        <p className="text-[#676767] overflow-hidden text-ellipsis line-clamp-2 dark:text-point1">
                           {item.summary}
                         </p>
                         <i

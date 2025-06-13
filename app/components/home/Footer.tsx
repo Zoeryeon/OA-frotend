@@ -1,13 +1,40 @@
 // app/ui/home/Footer.tsx
+'use client';
 
 import DarkUp from '@/app/components/home/DarkUp';
 import FooterList from '@/app/components/home/FooterList';
 import Information from '@/app/components/home/Information';
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Footer() {
+  const [isFixed, setIsFixed] = useState(false);
+  const footerRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    function handleScroll() {
+      if (
+        footerRef.current &&
+        window.scrollY > footerRef.current.offsetTop - window.innerHeight
+      ) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <footer className="bg-point1 border-t border-t-gray-400">
+    <footer
+      ref={footerRef}
+      className="bg-point1 border-t border-t-gray-400 relative dark:bg-[#080808] dark:border-t-gray-600"
+    >
       <div className="max-w-[1160px] px-[20px] py-[40px] mx-auto flex">
         <h6 className=" inline-flex mr-[48px] w-[67px] max-md:hidden">
           <Link href="/">
@@ -90,7 +117,7 @@ export default function Footer() {
           <Information />
         </div>
       </div>
-      <DarkUp />
+      <DarkUp isFixed={isFixed} />
     </footer>
   );
 }

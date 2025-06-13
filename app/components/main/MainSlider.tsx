@@ -19,7 +19,7 @@ export default function MainSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div>
+    <div className="pt-[75px]">
       <Swiper
         className={styles.slider}
         modules={[Navigation, Autoplay]}

@@ -7,7 +7,7 @@ export default function OaArtist() {
   return (
     <div className="pt-[80px]">
       <div className="max-w-[1160px] px-[20px] pb-[80px] mx-auto flex justify-between max-md:flex-col">
-        <div className="flex max-md:flex-col">
+        <div className="flex max-md:flex-col dark:text-point1">
           <h3 className="pr-[80px] text-[30px] font-bold max-md:text-[28px] max-sm:text-[22px]">
             오아라이브와 함께 할<br className="max-md:hidden" />
             Ordinart Artist를

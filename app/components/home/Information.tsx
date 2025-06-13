@@ -15,7 +15,7 @@ export default function Information() {
           <Link
             href="http://www.fillthefeel.com/"
             target="_blank"
-            className="text-gray-600 font-semibold"
+            className="text-gray-600 font-semibold dark:text-point1"
           >
             ©FillTheFeel Corp.
           </Link>
@@ -31,6 +31,7 @@ export default function Information() {
         viewBox="0 0 85.258 24.858"
         enableBackground="new 0 0 85.258 24.858"
         style={{ marginTop: 10 }}
+        className="dark:fill-point1"
       >
         <title>A.N.D AWARD WINNER 2022 (필더필, 오아라이브)</title>
         <g>

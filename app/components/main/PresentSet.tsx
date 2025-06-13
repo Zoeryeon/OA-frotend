@@ -295,10 +295,10 @@ export default function PresentSet() {
     <div className="pt-[80px] max-md:pt-[48px] max-sm:pt-[40px]">
       <div className="max-w-[1280px] px-[20px] mx-auto">
         <div className="text-center px-[80px] pb-[24px] max-md:px-0">
-          <h3 className="text-[30px] font-semibold tracking-tight max-md:text-[28px] max-sm:text-[22px]">
+          <h3 className="text-[30px] font-semibold tracking-tight max-md:text-[28px] max-sm:text-[22px] dark:text-point1">
             오아 종합 선물 세트
           </h3>
-          <p className="mt-[10px] tracking-tight max-sm:text-[14px]">
+          <p className="mt-[10px] tracking-tight max-sm:text-[14px] dark:text-point1">
             가격 부담은 낮추고 가치는 높이고
           </p>
         </div>
@@ -324,11 +324,11 @@ export default function PresentSet() {
                       className="w-full h-full object-cover object-center"
                     />
                   </div>
-                  <div className="bg-point1 pt-[40px] px-[40px] w-[calc(100%-120px)] text-center mx-auto -mt-[40px] relative z-1 max-md:w-[calc(100%-40px)] max-md:pt-[20px] max-md:px-[20px]">
-                    <h4 className="text-[30px] font-semibold text-gray-600 tracking-tight max-md:text-[28px] max-sm:text-[22px]">
+                  <div className="bg-point1 pt-[40px] px-[40px] w-[calc(100%-120px)] text-center mx-auto -mt-[40px] relative z-1 max-md:w-[calc(100%-40px)] max-md:pt-[20px] max-md:px-[20px] dark:bg-black">
+                    <h4 className="text-[30px] font-semibold tracking-tight max-md:text-[28px] max-sm:text-[22px] dark:text-point1">
                       {slide.title}
                     </h4>
-                    <p className="mt-[10px] text-gray-600 max-sm:text-[14px]">
+                    <p className="mt-[10px] max-sm:text-[14px] dark:text-point1">
                       오아플러스 큐레이션
                     </p>
                   </div>
@@ -339,7 +339,7 @@ export default function PresentSet() {
         </div>
         <div className="relative mt-[30px] max-w-[1160px] px-[20px] mx-auto">
           <Swiper
-            className={styles.subslider}
+            className={`${styles.subslider} sub-slider`}
             modules={[Navigation]}
             slidesPerView="auto"
             navigation
@@ -350,7 +350,7 @@ export default function PresentSet() {
                 <div className="flex overflow-hidden">
                   <Link
                     href={slide.href}
-                    className="block border border-gray-400 rounded-[10px] overflow-hidden group"
+                    className="block border border-gray-400 rounded-[10px] overflow-hidden group dark:border-gray-600"
                     style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.07)' }}
                   >
                     {/* All 라벨 부분 */}
@@ -388,7 +388,7 @@ export default function PresentSet() {
                       />
                     </div>
                     {/* 콘텐츠 정보 부분 */}
-                    <div className="flex flex-col h-[180px] border-t border-t-gray-400 px-[10px] pb-[15px] bg-white max-md:h-[130px]">
+                    <div className="flex flex-col h-[180px] border-t border-t-gray-400 px-[10px] pb-[15px] bg-white max-md:h-[130px] dark:bg-black dark:border-t-gray-600">
                       {/* 태그들을 map으로 처리 */}
                       <div className="mt-[15px] text-[13px] flex flex-wrap items-start gap-[5px] text-gray-600 tracking-tight w-full text-ellipsis break-all max-md:text-[11px]">
                         {slide.tags.map((tag, index) => (
@@ -397,7 +397,7 @@ export default function PresentSet() {
                             className={`block mb-[6px] py-[1px] px-[6px] rounded-[3px] ${
                               index === 0
                                 ? 'text-point1 bg-point2'
-                                : 'bg-[#ededed]'
+                                : 'bg-[#ededed] dark:bg-gray-600 dark:text-point1'
                             }`}
                           >
                             {tag}
@@ -405,7 +405,7 @@ export default function PresentSet() {
                         ))}
                       </div>
                       {/* 제목 */}
-                      <h4 className="h-[50px] tracking-tighter text-[20px] font-semibold mb-[7px] text-gray-600 overflow-hidden text-ellipsis line-clamp-2 max-md:text-[16px] max-md:h-[43px]">
+                      <h4 className="h-[50px] tracking-tighter text-[20px] font-semibold mb-[7px] text-gray-600 overflow-hidden text-ellipsis line-clamp-2 max-md:text-[16px] max-md:h-[43px] dark:text-point1">
                         {slide.title}
                       </h4>
                       {/* 작성자와 좋아요 버튼 */}
