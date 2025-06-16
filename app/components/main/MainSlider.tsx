@@ -8,7 +8,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import styles from './MainSlider.module.css';
 import Link from 'next/link';
-import { ordinaryArtist } from '@/app/components/fonts';
 import { ordinaryArtistR } from '@/app/components/fonts';
 import { useRef, useState } from 'react';
 

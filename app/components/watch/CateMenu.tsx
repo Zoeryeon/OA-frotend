@@ -56,7 +56,7 @@ const categories = [
 
 export default function CateMenu() {
   return (
-    <div className="pt-[155px] px-[80px] pb-[80px] items-center justify-center w-full flex max-md:px-[20px] max-md:flex-col max-md:pt-[40px]">
+    <div className="pt-[155px] px-[80px] pb-[80px] items-center justify-center w-full flex max-md:px-[20px] max-md:flex-col max-md:pt-[153px] max-md:pb-[48px] max-sm:pt-[145px] max-sm:pb-[40px]">
       <ol className="flex flex-wrap gap-[36px] max-md:w-full max-md:gap-y-[20px] max-md:gap-x-0">
         {categories.map((category, index) => (
           <li key={index} className="max-md:w-[25%]">

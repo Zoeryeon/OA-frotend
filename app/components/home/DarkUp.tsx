@@ -29,12 +29,14 @@ export default function DarkUp({ isFixed }: { isFixed: boolean }) {
   return (
     <div
       className={`flex right-0 z-9 mix-blend-exclusion ${
-        isFixed ? 'absolute bottom-[180px]' : 'fixed bottom-[80px]'
+        isFixed
+          ? 'absolute bottom-[180px] max-md:bottom-[195px] max-sm:bottom-[250px]'
+          : 'fixed bottom-[80px]'
       }`}
     >
       <button
         type="button"
-        className={`w-auto h-auto right-[70px] py-[10px] px-[10px] flex flex-col items-center text-[14px] text-[#fff] after:inline after:content-['다크모드'] dark:after:content-['라이트모드']`}
+        className={`w-auto h-auto right-[70px] py-[10px] px-[10px] flex flex-col items-center text-[14px] text-[#fff] after:inline after:content-['다크모드'] dark:after:content-['라이트모드'] max-sm:hidden`}
         onClick={handleDarkMode}
       >
         <i className="relative mb-[5px] w-[20px] h-[20px] rounded-[50%] bg-[#fff] after:content-[''] after:block after:w-[50%] after:h-[50%] after:rounded-[50%] after:absolute after:right-0 after:top-0 after:transition-all after:duration-75 after:bg-[#000] dark:after:-right-[50%] dark:after:-top-[50%]"></i>
