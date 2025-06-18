@@ -319,7 +319,7 @@ export default function PresentSet() {
                 <Link href="/watch/vod/53" className="block">
                   <div className="h-[320px] overflow-hidden max-sm:h-[133px]">
                     <img
-                      src={`/images/${slide.img}`}
+                      src={`/images/oaset/${slide.img}`}
                       alt="썸네일"
                       className="w-full h-full object-cover object-center"
                     />
@@ -379,7 +379,7 @@ export default function PresentSet() {
                     {/* 이미지 부분 */}
                     <div className="w-full overflow-hidden">
                       <img
-                        src={`/images/${slide.image}`}
+                        src={`/images/vod/${slide.image}`}
                         alt="썸네일"
                         className="w-full h-full bg-[#ededed] object-cover transition-all duration-100 group-hover:duration-200 group-hover:transform group-hover:scale-105"
                         style={{

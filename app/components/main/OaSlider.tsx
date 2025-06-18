@@ -135,7 +135,7 @@ export default function OaSlider({
                     )}
                     <div className="w-full overflow-hidden">
                       <img
-                        src={`/images/${item.img}`}
+                        src={`/images/vod/${item.img}`}
                         alt="썸네일"
                         className="w-full h-full bg-[#ededed] object-cover transition-all duration-100 group-hover:duration-200 group-hover:transform group-hover:scale-105"
                         style={{ boxShadow: '2px 2px 6px rgba(0, 0, 0, 0.3)' }}

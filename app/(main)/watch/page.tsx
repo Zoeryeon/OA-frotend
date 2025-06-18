@@ -8,6 +8,15 @@ import WatchList from '@/app/components/watch/WatchList';
 import { useState } from 'react';
 
 export default function watch() {
+  async function getVod() {
+    const res = await fetch('http://localhost:3001/watch');
+
+    if (!res.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    return res.json();
+  }
+  const data = getVod();
   const [isSingleColumn, setIsSingleColumn] = useState(false);
 
   return (
@@ -18,7 +27,7 @@ export default function watch() {
           isSingleColumn={isSingleColumn}
           setIsSingleColumn={setIsSingleColumn}
         />
-        <WatchList isSingleColumn={isSingleColumn} />
+        <WatchList isSingleColumn={isSingleColumn} data={data} />
         <Counsel />
       </div>
     </main>

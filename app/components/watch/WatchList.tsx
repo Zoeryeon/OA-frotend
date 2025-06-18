@@ -3,138 +3,36 @@
 
 import Link from 'next/link';
 import { ordinaryArtist } from '@/app/components/fonts';
-import { useState } from 'react';
+import { use, useState } from 'react';
 
-const watch = [
-  {
-    id: 1,
-    href: '/watch/1',
-    age: null,
-    img: 'efc6b8a6193e036cdccb7a95adb49fc7.webp',
-    price: 'FREE',
-    cate: ['뮤지컬', '역사적 인물', '타임슬립'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-  {
-    id: 2,
-    href: '/watch/1',
-    age: null,
-    img: 'efc6b8a6193e036cdccb7a95adb49fc7.webp',
-    price: 'FREE',
-    cate: ['뮤지컬', '역사적 인물', '타임슬립'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-  {
-    id: 3,
-    href: '/watch/1',
-    age: null,
-    img: 'efc6b8a6193e036cdccb7a95adb49fc7.webp',
-    price: 'FREE',
-    cate: ['뮤지컬', '역사적 인물', '타임슬립'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-  {
-    id: 4,
-    href: '/watch/1',
-    age: null,
-    img: 'efc6b8a6193e036cdccb7a95adb49fc7.webp',
-    price: 'FREE',
-    cate: ['뮤지컬', '역사적 인물', '타임슬립'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-  {
-    id: 5,
-    href: '/watch/1',
-    age: null,
-    img: 'efc6b8a6193e036cdccb7a95adb49fc7.webp',
-    price: 'FREE',
-    cate: ['뮤지컬', '역사적 인물', '타임슬립'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-  {
-    id: 6,
-    href: '/watch/1',
-    age: null,
-    img: 'efc6b8a6193e036cdccb7a95adb49fc7.webp',
-    price: 'FREE',
-    cate: ['뮤지컬', '역사적 인물', '타임슬립'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-  {
-    id: 7,
-    href: '/watch/1',
-    age: null,
-    img: 'efc6b8a6193e036cdccb7a95adb49fc7.webp',
-    price: 'FREE',
-    cate: ['뮤지컬', '역사적 인물', '타임슬립'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-  {
-    id: 8,
-    href: '/watch/1',
-    age: null,
-    img: 'efc6b8a6193e036cdccb7a95adb49fc7.webp',
-    price: 'FREE',
-    cate: ['뮤지컬', '역사적 인물', '타임슬립'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-  {
-    id: 9,
-    href: '/watch/1',
-    age: null,
-    img: 'efc6b8a6193e036cdccb7a95adb49fc7.webp',
-    price: 'FREE',
-    cate: ['뮤지컬', '역사적 인물', '타임슬립'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-  {
-    id: 10,
-    href: '/watch/1',
-    age: null,
-    img: 'efc6b8a6193e036cdccb7a95adb49fc7.webp',
-    price: 'FREE',
-    cate: ['뮤지컬', '역사적 인물', '타임슬립'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-  {
-    id: 11,
-    href: '/watch/1',
-    age: null,
-    img: 'efc6b8a6193e036cdccb7a95adb49fc7.webp',
-    price: 'FREE',
-    cate: ['뮤지컬', '역사적 인물', '타임슬립'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-  {
-    id: 12,
-    href: '/watch/1',
-    age: null,
-    img: 'efc6b8a6193e036cdccb7a95adb49fc7.webp',
-    price: 'FREE',
-    cate: ['뮤지컬', '역사적 인물', '타임슬립'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-];
+type Vod = {
+  vod_id: number;
+  title: string;
+  summary: string;
+  img_url: string;
+  price: string;
+  age: string | null;
+  favorite: number;
+  created_at: Date;
+  is_interview: string;
+  category_id: number;
+  keyword: [];
+};
 
 export default function WatchList({
+  data,
   isSingleColumn,
 }: {
+  data: Promise<Vod[]>;
   isSingleColumn: boolean;
 }) {
-  const [visibleCount, setVisibleCount] = useState(6);
+  const vod = use(data);
+  // console.log(vod);
 
+  // 처음 보이는 개수
+  const [visibleCount, setVisibleCount] = useState(15);
+
+  // 더보기
   function handleLoadMore() {
     setVisibleCount((prevCount) => prevCount + 6);
   }
@@ -146,11 +44,11 @@ export default function WatchList({
           isSingleColumn ? 'grid-cols-1' : 'grid-cols-3 max-sm:grid-cols-2 '
         }`}
       >
-        {watch.slice(0, visibleCount).map((item) => (
-          <li key={item.id}>
+        {vod.slice(0, visibleCount).map((item) => (
+          <li key={item.vod_id}>
             <Link
-              href={item.href}
-              className="block border border-gray-400 rounded-[10px] overflow-hidden group dark:border-gray-600"
+              href="#"
+              className="block border border-gray-400 rounded-[10px] overflow-hidden group dark:border-gray-600 relative"
               style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.07)' }}
             >
               {item.age !== null && (
@@ -185,7 +83,7 @@ export default function WatchList({
               )}
               <div className="w-full overflow-hidden">
                 <img
-                  src={`/images/${item.img}`}
+                  src={item.img_url}
                   alt="썸네일"
                   className="w-full h-full bg-[#ededed] object-cover transition-all duration-100 group-hover:duration-200 group-hover:transform group-hover:scale-105"
                   style={{ boxShadow: '2px 2px 6px rgba(0, 0, 0, 0.3)' }}
@@ -196,12 +94,12 @@ export default function WatchList({
                   <p className="text-point1 bg-point2 block mb-[6px] py-[1px] px-[6px] rounded-[3px]">
                     {item.price}
                   </p>
-                  {item.cate.map((cate, index) => (
+                  {item.keyword.map((keyword, index) => (
                     <p
                       key={index}
                       className="bg-[#ededed] block mb-[6px] py-[1px] px-[6px] rounded-[3px] dark:bg-gray-600 dark:text-point1"
                     >
-                      {cate}
+                      {keyword}
                     </p>
                   ))}
                 </div>
@@ -223,7 +121,7 @@ export default function WatchList({
           </li>
         ))}
       </ul>
-      {visibleCount < watch.length && (
+      {visibleCount < vod.length && (
         <button
           type="button"
           className="border border-gray-600 w-full flex justify-center items-center h-[55px] rounded-[5px] gap-[10px] mt-[80px]"
