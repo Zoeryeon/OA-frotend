@@ -6,9 +6,6 @@ import { useState } from 'react';
 
 const sortOptionList = [
   {
-    name: '오아추천순',
-  },
-  {
     name: '인기순',
   },
   {
@@ -23,7 +20,6 @@ export default function SubMenu({
   setIsSingleColumn,
   isSingleColumn,
 }: {
-  // setIsSingleColumn: React.Dispatch<React.SetStateAction<boolean>>;
   setIsSingleColumn: (a: boolean) => void;
   isSingleColumn: boolean;
 }) {

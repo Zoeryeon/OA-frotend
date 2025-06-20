@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { ordinaryArtist } from '@/app/components/fonts';
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 type All = {
   vod_id: number;
@@ -22,6 +22,8 @@ type All = {
   keyword: [];
 };
 
+let scroll = 0;
+
 export default function WatchList({
   allList,
   isSingleColumn,
@@ -33,19 +35,15 @@ export default function WatchList({
   count: number;
   setCount: (a: number) => void;
 }) {
-  // 더보기 누르고 화면유지
-  const listEndRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (allList && listEndRef.current) {
-      listEndRef.current.scrollIntoView({ behavior: 'auto', block: 'nearest' });
-    }
-  }, [allList]);
-
   // 더보기 count
   function handleClick() {
     setCount(count + 1);
+    scroll = window.scrollY;
   }
+  // 더보기 눌렀을때 위치 고정
+  useEffect(() => {
+    window.scrollTo({ top: scroll });
+  }, []);
 
   return (
     <div className="px-[20px]">
@@ -54,9 +52,9 @@ export default function WatchList({
           isSingleColumn ? 'grid-cols-1' : 'grid-cols-3 max-sm:grid-cols-2 '
         }`}
       >
-        {allList.map((item) =>
+        {allList.map((item, index) =>
           item.source === 'vod' ? (
-            <li key={item.vod_id}>
+            <li key={index}>
               <Link
                 href="#"
                 className="block border border-gray-400 rounded-[10px] overflow-hidden group dark:border-gray-600 relative"
@@ -100,7 +98,7 @@ export default function WatchList({
                     style={{ boxShadow: '2px 2px 6px rgba(0, 0, 0, 0.3)' }}
                   />
                 </div>
-                <div className="flex flex-col h-[180px] border-t border-t-gray-400 px-[10px] pb-[15px] bg-white max-md:h-[130px] dark:bg-black dark:border-t-gray-600">
+                <div className="flex flex-col h-[180px] border-t border-t-gray-400 px-[10px] pb-[15px] bg-white max-md:h-[140px] dark:bg-black dark:border-t-gray-600">
                   <div className="mt-[15px] text-[13px] flex flex-wrap items-start gap-[5px] text-gray-600 tracking-tight w-full text-ellipsis break-all max-md:text-[11px]">
                     <p className="text-point1 bg-point2 block mb-[6px] py-[1px] px-[6px] rounded-[3px]">
                       {item.price}
@@ -116,7 +114,7 @@ export default function WatchList({
                   </div>
                   <h4 className="h-[50px] tracking-tighter text-[20px] font-semibold mb-[7px] text-gray-600 overflow-hidden text-ellipsis line-clamp-2 max-md:text-[16px] max-md:h-[43px] dark:text-point1">
                     {item.title}
-                    {item.vod_id}
+                    {item.favorite}
                   </h4>
                   <div className="flex mt-auto items-end h-[40px] justify-between gap-[10px] max-md:h-auto">
                     <p className="text-[#676767] overflow-hidden text-ellipsis line-clamp-2 dark:text-point1">
@@ -132,10 +130,10 @@ export default function WatchList({
               </Link>
             </li>
           ) : item.source === 'oaset' ? (
-            <li key={item.oaset_id}>
+            <li key={index}>
               <Link
                 href="#"
-                className=" block h-[373px] border border-gray-400 rounded-[10px] overflow-hidden group max-sm:rounded-[5px] dark:border-gray-600 relative"
+                className=" block border h-[373px] border-gray-400 rounded-[10px] overflow-hidden group max-md:h-[300px] dark:border-gray-600 relative"
                 style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.07)' }}
               >
                 <div className="min-w-[15px] h-[30px] whitespace-nowrap absolute z-10 left-[10px] top-[13px] max-sm:h-[24px]">
@@ -160,11 +158,11 @@ export default function WatchList({
                     SET
                   </em>
                 </div>
-                <div className="relative w-full h-full ">
+                <div className="relative w-full h-full rounded-[10px]">
                   <img
                     src={item.img_url}
                     alt="썸네일"
-                    className="w-full h-full bg-[#ededed] object-cover transition-all duration-100 group-hover:duration-200 group-hover:transform group-hover:scale-105"
+                    className=" w-full h-full bg-[#ededed] object-cover object-center transition-all duration-100 group-hover:duration-200 group-hover:transform group-hover:scale-105"
                     style={{ boxShadow: '2px 2px 6px rgba(0, 0, 0, 0.3)' }}
                   />
                 </div>
@@ -182,7 +180,7 @@ export default function WatchList({
                   </div>
                   <h4 className="h-[50px] tracking-tighter text-[18px] font-semibold mb-[5px] overflow-hidden text-ellipsis line-clamp-2 max-md:text-[16px] max-md:h-[43px]">
                     {item.title}
-                    {item.oaset_id}
+                    {item.favorite}
                   </h4>
                   <div className="flex mt-auto items-end h-[40px] justify-between gap-[10px] max-md:h-auto">
                     <p className="tracking-tight">{item.intro}</p>
@@ -206,7 +204,6 @@ export default function WatchList({
           className={`inline-flex not-italic ${ordinaryArtist.className} before:content-['\\e94b'] before:text-[24px]`}
         ></i>
       </button>
-      <div ref={listEndRef} />
     </div>
   );
 }
