@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { ordinaryArtist } from '@/app/components/fonts';
-import { useSearchParams } from 'next/navigation';
 
 const categories = [
   {

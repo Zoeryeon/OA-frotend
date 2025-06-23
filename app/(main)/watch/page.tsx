@@ -6,8 +6,9 @@ import Counsel from '@/app/components/watch/Counsel';
 import SubMenu from '@/app/components/watch/SubMenu';
 import WatchList from '@/app/components/watch/WatchList';
 import { useQuery } from '@tanstack/react-query';
-import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 type All = {
   vod_id: number;
@@ -26,19 +27,36 @@ type All = {
   keyword: [];
 };
 
-export default function watch() {
+export default function watch({
+  searchParams,
+}: {
+  searchParams: Promise<{ genre: string; type: string }>;
+}) {
+  // 주소
+  const paramsObj = use(searchParams);
+  const [params] = useState(new URLSearchParams(paramsObj));
+
+  const router = useRouter();
+
+  // ul 반응형
+  const [isSingleColumn, setIsSingleColumn] = useState(false);
+
   // 현재 선택된 장르를 관리하는 상태 (자식 컴포넌트에서 받아옵니다)
   const [currentGenre, setCurrentGenre] = useState('all');
+  // 현재 선택된 타입을 관리하는 상태
+  const [currentType, setCurrentType] = useState('all');
+  // 현재 선택된 정렬방식 관리하는 상태
+  const [currentSort, setCurrentSort] = useState('인기순');
   // 더보기 count
   const [count, setCount] = useState(0);
   // 누적 상태
   const [allList, setAllList] = useState<All[]>([]);
 
   const { data, isPending, isError, error } = useQuery({
-    queryKey: ['vod', currentGenre, count],
+    queryKey: ['vod', currentGenre, currentType, currentSort, count],
     queryFn: () =>
       fetch(
-        `http://localhost:3001/watch?genre=${currentGenre}&count=${count}`
+        `http://localhost:3001/watch?genre=${currentGenre}&type=${currentType}&sort=${currentSort}&count=${count}`
       ).then((res) => res.json()),
   });
 
@@ -53,20 +71,28 @@ export default function watch() {
     }
   }, [data, count]);
 
-  // ul 반응형
-  const [isSingleColumn, setIsSingleColumn] = useState(false);
+  useEffect(() => {
+    params.set('genre', currentGenre);
+    params.set('type', currentType);
+    router.replace(`?${params.toString()}`);
+  }, [currentGenre, currentType]);
 
   return (
-    <main className="bg-point1">
+    <main className="bg-point1 dark:bg-[#080808]">
       <div className="max-w-[1160px] mx-auto ">
         <CateMenu
           currentGenre={currentGenre}
           setCurrentGenre={setCurrentGenre}
         />
         <SubMenu
+          currentType={currentType}
+          setCurrentType={setCurrentType}
+          currentSort={currentSort}
+          setCurrentSort={setCurrentSort}
           isSingleColumn={isSingleColumn}
           setIsSingleColumn={setIsSingleColumn}
         />
+        <Link href="/watch/vod/create">vod쓰기</Link>
         {isPending ? (
           <p>로딩 중입니다...</p>
         ) : isError ? (

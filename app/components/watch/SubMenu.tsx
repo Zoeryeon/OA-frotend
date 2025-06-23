@@ -4,6 +4,20 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+const typeList = [
+  {
+    name: '전체유형',
+    type: 'all',
+  },
+  {
+    name: 'VOD',
+    type: 'vod',
+  },
+  {
+    name: 'OA SET',
+    type: 'oaset',
+  },
+];
 const sortOptionList = [
   {
     name: '인기순',
@@ -17,48 +31,57 @@ const sortOptionList = [
 ];
 
 export default function SubMenu({
-  setIsSingleColumn,
+  currentType,
+  setCurrentType,
+  currentSort,
+  setCurrentSort,
   isSingleColumn,
+  setIsSingleColumn,
 }: {
-  setIsSingleColumn: (a: boolean) => void;
+  currentType: string;
+  setCurrentType: (type: string) => void;
+  currentSort: string;
+  setCurrentSort: (sort: string) => void;
   isSingleColumn: boolean;
+  setIsSingleColumn: (a: boolean) => void;
 }) {
-  const [active, setActive] = useState('전체유형');
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(sortOptionList[0].name); // 기본 선택값
 
   return (
     <div className="flex px-[20px] pb-[80px] items-center justify-between w-full max-md:pb-[48px] max-sm:pb-[40px]">
       <ol className="flex gap-[10px] ">
-        {['전체유형', 'VOD', 'OA SET'].map((item, index) => (
-          <li key={item}>
+        {typeList.map((item, index) => (
+          <li key={index}>
             <Link
               href="#"
-              onClick={() => setActive(item)}
+              onClick={() => setCurrentType(item.type)}
               className={`pr-[10px] text-[18px] font-medium relative tracking-tight max-md:text-[16px] max-sm:text-[13px] max-sm:pr-[8px] ${
-                active === item ? 'text-gray-600' : 'text-gray-500'
+                currentType === item.type
+                  ? 'text-gray-600 dark:text-[#dedede]'
+                  : 'text-gray-500'
               } ${
                 index < 2
                   ? "before:content-[''] before:block before:absolute before:left-full before:top-[50%] before:-mt-[9px] before:h-[18px] before:border-l before:border-l-gray-400"
                   : ''
               }`}
             >
-              {item}
+              {item.name}
             </Link>
           </li>
         ))}
       </ol>
       <div className="flex gap-[5px] items-center">
         <div
-          className={`flex items-center content-center border h-[40px] bg-point1 w-[130px] px-[10px] relative cursor-pointer select-none max-md:h-[36px] max-md:text-[14px] max-md:w-auto max-sm:text-[13px] max-sm:pr-[4px] max-sm:pl-[7px] ${
+          className={`flex items-center content-center border h-[40px] bg-point1 w-[130px] px-[10px] relative cursor-pointer select-none max-md:h-[36px] max-md:text-[14px] max-md:w-auto max-sm:text-[13px] max-sm:pr-[4px] max-sm:pl-[7px] dark:bg-[#080808] ${
             isOpen
               ? 'border-point2 rounded-tr-[5px] rounded-tl-[5px]'
-              : 'border-gray-400 rounded-[5px]'
+              : 'border-gray-400 rounded-[5px] dark:border-gray-600 '
           }`}
           onClick={() => setIsOpen(!isOpen)}
         >
           <div className="flex justify-between gap-[5px] whitespace-nowrap w-full max-sm:gap-[3px]">
-            <span>{selected}</span> {/* 선택된 값 표시 */}
+            <span className="dark:text-point1">{currentSort}</span>{' '}
+            {/* 선택된 값 표시 */}
             <img
               src="/images/arrow_drop_down.svg"
               alt="메뉴버튼"
@@ -73,19 +96,20 @@ export default function SubMenu({
             {sortOptionList.map((item, i) => (
               <li
                 key={i}
-                className={`w-full h-[40px] items-center p-[10px] border-t border-t-black/5 hover:bg-black/5 max-md:h-[36px] max-md:py-0 max-md:content-center ${
-                  selected === item.name ? 'bg-black/5' : ''
-                }`}
                 onClick={() => {
-                  setSelected(item.name);
                   setIsOpen(false); // 선택 후 닫기
+                  setCurrentSort(item.name);
                 }}
+                className={`w-full h-[40px] items-center p-[10px] border-t border-t-black/5 hover:bg-black/5 max-md:h-[36px] max-md:py-0 max-md:content-center ${
+                  currentSort === item.name ? 'bg-black/5' : ''
+                }`}
               >
                 {item.name}
               </li>
             ))}
           </ol>
         </div>
+        {/* 모바일에 나오는 버튼 */}
         <button
           type="button"
           className="hidden w-[16px] h-[16px] max-sm:block"

@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { ordinaryArtist } from '@/app/components/fonts';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 type All = {
   vod_id: number;
@@ -57,7 +57,7 @@ export default function WatchList({
             <li key={index}>
               <Link
                 href="#"
-                className="block border border-gray-400 rounded-[10px] overflow-hidden group dark:border-gray-600 relative"
+                className="block border border-gray-400 rounded-[10px] overflow-hidden group dark:border-gray-600 relative aspect-[344.67/375.86]"
                 style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.07)' }}
               >
                 {item.age !== null && (
@@ -90,7 +90,7 @@ export default function WatchList({
                     </em>
                   </div>
                 )}
-                <div className="w-full overflow-hidden">
+                <div className="w-full overflow-hidden aspect-[16/9]">
                   <img
                     src={item.img_url}
                     alt="썸네일"
@@ -98,7 +98,7 @@ export default function WatchList({
                     style={{ boxShadow: '2px 2px 6px rgba(0, 0, 0, 0.3)' }}
                   />
                 </div>
-                <div className="flex flex-col h-[180px] border-t border-t-gray-400 px-[10px] pb-[15px] bg-white max-md:h-[140px] dark:bg-black dark:border-t-gray-600">
+                <div className="flex flex-col h-[180px] border-t border-t-gray-400 px-[10px] pb-[15px] bg-white max-md:h-[140px] dark:bg-black dark:border-t-gray-600 max-sm:h-[170px]">
                   <div className="mt-[15px] text-[13px] flex flex-wrap items-start gap-[5px] text-gray-600 tracking-tight w-full text-ellipsis break-all max-md:text-[11px]">
                     <p className="text-point1 bg-point2 block mb-[6px] py-[1px] px-[6px] rounded-[3px]">
                       {item.price}
@@ -112,7 +112,7 @@ export default function WatchList({
                       </p>
                     ))}
                   </div>
-                  <h4 className="h-[50px] tracking-tighter text-[20px] font-semibold mb-[7px] text-gray-600 overflow-hidden text-ellipsis line-clamp-2 max-md:text-[16px] max-md:h-[43px] dark:text-point1">
+                  <h4 className="h-[50px] tracking-tighter text-[20px] font-semibold mb-[7px] text-gray-600 overflow-hidden text-ellipsis line-clamp-2 max-md:text-[16px] max-md:h-[43px] dark:text-point1 max-sm:h-[50px]">
                     {item.title}
                     {item.favorite}
                   </h4>
@@ -133,7 +133,7 @@ export default function WatchList({
             <li key={index}>
               <Link
                 href="#"
-                className=" block border h-[373px] border-gray-400 rounded-[10px] overflow-hidden group max-md:h-[300px] dark:border-gray-600 relative"
+                className=" block border border-gray-400 rounded-[10px] overflow-hidden group dark:border-gray-600 relative aspect-[344.67/375.86]"
                 style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.07)' }}
               >
                 <div className="min-w-[15px] h-[30px] whitespace-nowrap absolute z-10 left-[10px] top-[13px] max-sm:h-[24px]">
@@ -180,7 +180,6 @@ export default function WatchList({
                   </div>
                   <h4 className="h-[50px] tracking-tighter text-[18px] font-semibold mb-[5px] overflow-hidden text-ellipsis line-clamp-2 max-md:text-[16px] max-md:h-[43px]">
                     {item.title}
-                    {item.favorite}
                   </h4>
                   <div className="flex mt-auto items-end h-[40px] justify-between gap-[10px] max-md:h-auto">
                     <p className="tracking-tight">{item.intro}</p>
@@ -199,7 +198,7 @@ export default function WatchList({
         className="border border-gray-600 w-full flex justify-center items-center h-[55px] rounded-[5px] gap-[10px] mt-[80px]"
         onClick={handleClick}
       >
-        {count}더보기
+        더보기
         <i
           className={`inline-flex not-italic ${ordinaryArtist.className} before:content-['\\e94b'] before:text-[24px]`}
         ></i>
