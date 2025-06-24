@@ -398,12 +398,12 @@ input[type='checkbox']:checked + label::before {
     content: '';
     width: 29px;
     height: 29px;
-    background: url(/images/checked-false.svg) no-repeat 50% 50% / 100%;
+    background: url(/images/check_box_no.svg) no-repeat 50% 50% / 100%;
     flex-shrink: 0;
   }
   /* :has - ios 15.4부터 지원 */
   .checkbox:has(input[type='checkbox']:checked)::before {
-    background: url(/images/checked-true.svg) no-repeat 50% 50% / 100%;
+    background: url(/images/check_box_yes.svg) no-repeat 50% 50% / 100%;
   }
 
   /* radio 공통 */
@@ -446,7 +446,7 @@ input[type='radio']:checked + label::before {
   }
   /* :has - ios 15.4부터 지원 */
   .radio:has(input[type='radio']:checked)::before {
-    background: url(/images/common/circle.svg) no-repeat 50% 50% / 14px;
+    background: url(/images/radio_button_checked.svg) no-repeat 50% 50% / 14px;
   }
 
   /* select 공통 */

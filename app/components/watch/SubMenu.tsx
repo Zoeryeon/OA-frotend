@@ -48,7 +48,7 @@ export default function SubMenu({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex px-[20px] pb-[80px] items-center justify-between w-full max-md:pb-[48px] max-sm:pb-[40px]">
+    <div className="flex px-[20px] pb-[50px] items-center justify-between w-full max-md:pb-[38px] max-sm:pb-[30px]">
       <ol className="flex gap-[10px] ">
         {typeList.map((item, index) => (
           <li key={index}>

@@ -92,7 +92,14 @@ export default function watch({
           isSingleColumn={isSingleColumn}
           setIsSingleColumn={setIsSingleColumn}
         />
-        <Link href="/watch/vod/create">vod쓰기</Link>
+        <div className="flex px-[20px] pb-[25px] items-center justify-end w-full max-md:pb-[20px] max-sm:pb-[15px]">
+          <Link
+            href="/watch/vod/create"
+            className="border border-gray-400 rounded-[5px] p-[8px] text-[12px] text-gray-500"
+          >
+            vod 작성하기
+          </Link>
+        </div>
         {isPending ? (
           <p>로딩 중입니다...</p>
         ) : isError ? (
