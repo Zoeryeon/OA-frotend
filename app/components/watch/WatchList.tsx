@@ -114,7 +114,6 @@ export default function WatchList({
                   </div>
                   <h4 className="h-[50px] tracking-tighter text-[20px] font-semibold mb-[7px] text-gray-600 overflow-hidden text-ellipsis line-clamp-2 max-md:text-[16px] max-md:h-[43px] dark:text-point1 max-sm:h-[50px]">
                     {item.title}
-                    {item.favorite}
                   </h4>
                   <div className="flex mt-auto items-end h-[40px] justify-between gap-[10px] max-md:h-auto">
                     <p className="text-[#676767] overflow-hidden text-ellipsis line-clamp-2 dark:text-point1">

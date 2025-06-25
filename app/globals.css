@@ -446,7 +446,7 @@ input[type='radio']:checked + label::before {
   }
   /* :has - ios 15.4부터 지원 */
   .radio:has(input[type='radio']:checked)::before {
-    background: url(/images/radio_button_checked.svg) no-repeat 50% 50% / 14px;
+    background: url(/images/radio_true.png) no-repeat 50% 50% / 12px;
   }
 
   /* select 공통 */

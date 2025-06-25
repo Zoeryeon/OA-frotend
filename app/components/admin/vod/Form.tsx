@@ -1,41 +1,67 @@
 // components/ admin/ vod/ Form.tsx
 'use client';
 
+import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+
+type Keyword = {
+  keyword_id: string;
+  keyword: string;
+};
+
 export default function Form({
   handleSubmit,
   genreSelected,
   setGenreSelected,
   ageSelected,
   setAgeSelected,
-  files,
-  handleRemoveFile,
-  totalSize,
-  handleFileUpload,
 }: {
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
   genreSelected: string;
   setGenreSelected: (value: string) => void;
   ageSelected: string;
   setAgeSelected: (age: string) => void;
-  files: any[];
-  handleRemoveFile: (index: number) => void;
-  totalSize: number;
-  handleFileUpload: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
+  const [pickKeyword, setPickKeyword] = useState<string[]>([]);
+  console.log(pickKeyword);
+
+  const { isPending, data, isError, error } = useQuery<Keyword[]>({
+    queryKey: ['keyword'],
+    queryFn: () =>
+      fetch('http://localhost:3001/keyword').then((res) => res.json()),
+  });
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.value);
   }
 
+  function toggleKeyword(keyword: string) {
+    // 키워드 제거
+    if (pickKeyword.includes(keyword)) {
+      setPickKeyword(pickKeyword.filter((k) => k !== keyword));
+      return;
+    } else {
+      // 최대 5개 제한
+      if (pickKeyword.length >= 5) {
+        alert('최대 5개의 키워드만 선택할 수 있습니다.');
+        return;
+      }
+    }
+    // 키워드 추가
+    setPickKeyword([...pickKeyword, keyword]);
+  }
+
   return (
     <form onSubmit={handleSubmit}>
-      <div className="flex justify-between items-center pb-[30px]">
+      <div className="flex justify-between items-center pb-[35px]">
         <div className="flex flex-col w-full">
           <label className="pr-[20px] pb-[10px]">장르</label>
           <select
             required
+            name="category"
             value={genreSelected}
             onChange={(e) => setGenreSelected(e.target.value)}
-            className={`border  py-[10px] px-[20px] rounded-[5px] ${
+            className={`border py-[10px] px-[20px] rounded-[5px] hover:border-point2 cursor-pointer ${
               genreSelected == ''
                 ? 'text-gray-400 border-gray-400'
                 : 'text-gray-600 border-point2'
@@ -55,9 +81,10 @@ export default function Form({
           <label className="pr-[20px] pb-[10px]">연령</label>
           <select
             required
+            name="age"
             value={ageSelected}
             onChange={(e) => setAgeSelected(e.target.value)}
-            className={`border py-[10px] px-[20px] rounded-[5px] ${
+            className={`border py-[10px] px-[20px] rounded-[5px] hover:border-point2 cursor-pointer ${
               ageSelected == ''
                 ? 'text-gray-400 border-gray-400'
                 : 'text-gray-600 border-point2'
@@ -78,7 +105,7 @@ export default function Form({
             <label className="radio pr-[10px]">
               <input
                 type="radio"
-                name="price"
+                name="priceType"
                 value="1"
                 className="sr-only"
                 defaultChecked
@@ -89,7 +116,7 @@ export default function Form({
             <label className="radio">
               <input
                 type="radio"
-                name="price"
+                name="priceType"
                 value="2"
                 className="sr-only"
                 onChange={handleChange}
@@ -97,80 +124,90 @@ export default function Form({
               유료
               <input
                 type="text"
+                name="price"
                 placeholder="가격을 입력하세요"
-                className="w-[140px] border-gray-400 rounded-[5px]"
+                className="w-[140px] border-gray-400 rounded-[5px] placeholder:text-[13px] hover:border-point2 focus:border-point2"
               />
               WoW~
             </label>
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-between pb-[30px]">
-        <label className="w-[80px]">해시태그</label>
+      <div className="flex items-center justify-between pb-[10px]">
+        <label className="w-[80px]">키워드</label>
         <input
           type="text"
-          placeholder="해시태그를 입력하세요 ex)#뮤지컬 #트렌드 #일하는방식"
-          className=" w-full placeholder:text-[12px]"
+          name="keyword"
+          value={pickKeyword}
+          readOnly
+          placeholder="키워드를 선택하세요(최대 5개)"
+          className=" w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
         />
       </div>
-      <div className="flex items-center justify-between pb-[30px]">
-        <label className="w-[80px]">제목</label>
-        <input
-          type="text"
-          placeholder="제목을 입력하세요"
-          className=" w-full placeholder:text-[12px]"
-        />
-      </div>
-      <div className="flex items-center justify-between pb-[30px]">
-        <label className="w-[80px]">요약</label>
-        <input
-          type="text"
-          placeholder="한 줄 소개를 입력하세요"
-          className="w-full placeholder:text-[12px]"
-        />
-      </div>
-      <div>
-        <ul className="w-full text-[14px] leading-[28px]">
-          {files.map((file, index) => (
-            <li
-              key={index}
-              className="flex w-full h-[40px] px-[16px] bg-point1 rounded-[10px] mb-[10px] relative items-center justify-between"
-            >
-              <span className="overflow-hidden whitespace-nowrap ">
-                {file.name}
-              </span>
-              <div className="shrink-0">
-                <span className="text-[#999] pr-[15px] pl-[10px]">
-                  {(file.size / 1024).toFixed(1)}KB
-                </span>
-                <button
-                  type="button"
-                  className="pr-[8px] h-[40px]"
-                  onClick={() => handleRemoveFile(index)}
-                >
-                  X
-                </button>
-              </div>
+      <div className=" pb-[35px]">
+        <ul className="flex flex-wrap gap-[15px]">
+          {data?.map((key) => (
+            <li key={key.keyword_id}>
+              <button
+                type="button"
+                onClick={() => toggleKeyword(key.keyword)}
+                className={`flex items-center py-[10px] px-[15px]  rounded-[5px] text-[14px] tracking-tight dark:bg-gray-600 dark:text-point1  ${
+                  pickKeyword.includes(key.keyword)
+                    ? 'bg-point2 text-white'
+                    : 'bg-[#ededed] text-gray-600 hover:text-point1 hover:bg-point2'
+                }`}
+              >
+                <span className="mr-2">{key.keyword}</span>
+                {pickKeyword.includes(key.keyword) && (
+                  <span
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleKeyword(key.keyword);
+                    }}
+                    className="cursor-pointer text-white text-[13px] hover:opacity-70"
+                  >
+                    ×
+                  </span>
+                )}
+              </button>
             </li>
           ))}
         </ul>
-        <label
-          htmlFor="fUpload"
-          className="h-[42px] block pr-[40px] cursor-pointer hover:underline"
-        >
-          + 썸네일 첨부하기 -
-          {totalSize ? (totalSize / 1024).toFixed(1) : ' 0.0'}KB/ 15MB
-        </label>
+      </div>
+      <div className="flex items-center justify-between pb-[35px]">
+        <label className="w-[80px]">요약</label>
         <input
-          id="fUpload"
-          type="file"
-          multiple
-          className="absolute w-0 h-0 p-0 block"
-          onChange={handleFileUpload}
+          type="text"
+          name="summary"
+          placeholder="한 줄 소개를 입력하세요"
+          className="w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
         />
       </div>
-      <div>
-        <button type="submit">vod 등록하기</button>
+      <div className="flex items-center justify-between pb-[35px]">
+        <label className="w-[80px]">제목</label>
+        <input
+          type="text"
+          name="title"
+          placeholder="제목을 입력하세요"
+          className=" w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
+        />
+      </div>
+      <div className="flex items-center justify-between pb-[35px]">
+        <label className="w-[80px]">이미지</label>
+        <input
+          type="text"
+          name="img"
+          placeholder="이미지경로를 입력하세요"
+          className=" w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
+        />
+      </div>
+      <div className="flex items-center justify-center">
+        <button
+          type="submit"
+          className="p-[15px] border border-gray-400 rounded-[5px] hover:bg-point2 hover:border-point2 hover:text-point1"
+        >
+          vod 등록하기
+        </button>
       </div>
     </form>
   );
