@@ -1,10 +1,10 @@
-// app/ (main)/ watch/ vod/ create/ Create.tsx
+// app/ (main)/ watch/ vod/ [id]/ edit/ VodEdit.tsx
 'use client';
 
-import Form from '@/app/components/admin/vod/Form';
+import EditForm from '@/app/components/admin/vod/EditForm';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { use, useState } from 'react';
 
 type Data = {
   category: string;
@@ -17,7 +17,12 @@ type Data = {
   img: string;
 };
 
-export default function Create() {
+export default function VodEdit({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = use(params);
   const [genreSelected, setGenreSelected] = useState('');
   const [ageSelected, setAgeSelected] = useState('');
   const router = useRouter();
@@ -50,8 +55,8 @@ export default function Create() {
     <main className="bg-point1 dark:bg-[#080808]">
       <div className="max-w-[1160px] mx-auto ">
         <div className="pt-[155px] px-[80px] pb-[80px] items-center w-full max-md:px-[20px] max-md:flex-col max-md:pt-[153px] max-md:pb-[48px] max-sm:pt-[145px] max-sm:pb-[40px]">
-          <h4 className="text-[28px] font-bold pb-[50px]">vod 작성하기</h4>
-          <Form
+          <h4 className="text-[28px] font-bold pb-[50px]">vod 수정하기{id}</h4>
+          <EditForm
             handleSubmit={handleSubmit}
             genreSelected={genreSelected}
             setGenreSelected={setGenreSelected}

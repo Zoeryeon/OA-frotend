@@ -1,4 +1,4 @@
-// components/ admin/ vod/ Form.tsx
+// components/ admin/ vod/ EditForm.tsx
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
@@ -9,7 +9,7 @@ type Keyword = {
   keyword: string;
 };
 
-export default function Form({
+export default function EditForm({
   handleSubmit,
   genreSelected,
   setGenreSelected,

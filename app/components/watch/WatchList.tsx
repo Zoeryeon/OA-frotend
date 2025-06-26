@@ -29,11 +29,13 @@ export default function WatchList({
   isSingleColumn,
   count,
   setCount,
+  editMode,
 }: {
   allList: All[];
   isSingleColumn: boolean;
   count: number;
   setCount: (a: number) => void;
+  editMode: boolean;
 }) {
   // 더보기 count
   function handleClick() {
@@ -54,7 +56,18 @@ export default function WatchList({
       >
         {allList.map((item, index) =>
           item.source === 'vod' ? (
-            <li key={index}>
+            <li key={index} className="relative">
+              {editMode && (
+                <Link
+                  href={`/watch/vod/${item.vod_id}/edit`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                  className="absolute top-2 right-2 z-20 bg-gray-600 opacity-70 text-xs px-2 py-1 rounded text-point1 hover:bg-point2"
+                >
+                  편집
+                </Link>
+              )}
               <Link
                 href="#"
                 className="block border border-gray-400 rounded-[10px] overflow-hidden group dark:border-gray-600 relative aspect-[344.67/375.86]"
@@ -92,7 +105,7 @@ export default function WatchList({
                 )}
                 <div className="w-full overflow-hidden aspect-[16/9]">
                   <img
-                    src={item.img_url}
+                    src={`http://localhost:3001${item.img_url}`}
                     alt="썸네일"
                     className="w-full h-full bg-[#ededed] object-cover transition-all duration-100 group-hover:duration-200 group-hover:transform group-hover:scale-105"
                     style={{ boxShadow: '2px 2px 6px rgba(0, 0, 0, 0.3)' }}

@@ -51,6 +51,8 @@ export default function watch({
   const [count, setCount] = useState(0);
   // 누적 상태
   const [allList, setAllList] = useState<All[]>([]);
+  // 수정
+  const [editMode, setEditMode] = useState(false);
 
   const { data, isPending, isError, error } = useQuery({
     queryKey: ['vod', currentGenre, currentType, currentSort, count],
@@ -92,13 +94,19 @@ export default function watch({
           isSingleColumn={isSingleColumn}
           setIsSingleColumn={setIsSingleColumn}
         />
-        <div className="flex px-[20px] pb-[25px] items-center justify-end w-full max-md:pb-[20px] max-sm:pb-[15px]">
+        <div className="flex px-[20px] pb-[25px] gap-[10px] items-center justify-end w-full max-md:pb-[20px] max-sm:pb-[15px]">
           <Link
             href="/watch/vod/create"
             className="border border-gray-400 rounded-[5px] p-[8px] text-[12px] text-gray-500"
           >
             vod 작성하기
           </Link>
+          <button
+            onClick={() => setEditMode((prev) => !prev)}
+            className="border border-gray-400 rounded-[5px] p-[8px] text-[12px] text-gray-500"
+          >
+            {editMode ? '편집 취소' : 'vod 수정하기'}
+          </button>
         </div>
         {isPending ? (
           <p>로딩 중입니다...</p>
@@ -110,6 +118,7 @@ export default function watch({
             allList={allList}
             count={count}
             setCount={setCount}
+            editMode={editMode}
           />
         )}
         <Counsel />
