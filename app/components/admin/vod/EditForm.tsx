@@ -1,21 +1,34 @@
 // components/ admin/ vod/ EditForm.tsx
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
-import { useState } from 'react';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import { useEffect, useState } from 'react';
 
 type Keyword = {
   keyword_id: string;
   keyword: string;
 };
 
+type vod = {
+  category_id: string;
+  age: string;
+  price: string;
+  summary: string;
+  title: string;
+  img_url: string;
+};
+
 export default function EditForm({
+  id,
+  vodData,
   handleSubmit,
   genreSelected,
   setGenreSelected,
   ageSelected,
   setAgeSelected,
 }: {
+  id: string;
+  vodData: vod[];
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
   genreSelected: string;
   setGenreSelected: (value: string) => void;
@@ -23,7 +36,13 @@ export default function EditForm({
   setAgeSelected: (age: string) => void;
 }) {
   const [pickKeyword, setPickKeyword] = useState<string[]>([]);
-  console.log(pickKeyword);
+
+  const [priceType, setPriceType] = useState<'1' | '2'>('1');
+  const [price, setPrice] = useState('');
+
+  const [title, setTitle] = useState('');
+  const [summary, setSummary] = useState('');
+  const [imgUrl, setImgUrl] = useState('');
 
   const { isPending, data, isError, error } = useQuery<Keyword[]>({
     queryKey: ['keyword'],
@@ -31,8 +50,31 @@ export default function EditForm({
       fetch('http://localhost:3001/keyword').then((res) => res.json()),
   });
 
+  const {
+    isPending: keyIsPending,
+    data: keyData,
+    isError: keyIsError,
+    error: keyError,
+  } = useQuery<Keyword[]>({
+    queryKey: ['keyword', id],
+    queryFn: () =>
+      fetch(`http://localhost:3001/keyword/${id}`).then((res) => res.json()),
+  });
+  console.log(keyData);
+
+  // 가격 가져오기
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    console.log(e.target.value);
+    const { name, value } = e.target;
+
+    if (name === 'priceType') {
+      setPriceType(value as '1' | '2');
+      if (value === '1') setPrice('');
+    }
+
+    if (name === 'price') {
+      const numeric = value.replace(/[^0-9]/g, '');
+      setPrice(numeric);
+    }
   }
 
   function toggleKeyword(keyword: string) {
@@ -49,6 +91,48 @@ export default function EditForm({
     }
     // 키워드 추가
     setPickKeyword([...pickKeyword, keyword]);
+  }
+
+  useEffect(() => {
+    if (vodData) {
+      // 제목, 요약, 이미지 URL 초기값 설정
+      setTitle(vodData[0].title);
+      setSummary(vodData[0].summary);
+      setImgUrl(vodData[0].img_url);
+
+      // 가격 타입과 가격 초기값 설정
+      if (vodData[0].price === 'FREE') {
+        setPriceType('1');
+        setPrice('');
+      } else {
+        // 'WoW~'를 제거하고 숫자만 추출
+        const numericPrice = vodData[0].price.replace(/[^0-9]/g, '') || '';
+        setPriceType('2');
+        setPrice(numericPrice);
+      }
+    }
+  }, [vodData]);
+
+  // 키워드 가져오기
+  useEffect(() => {
+    if (keyData) {
+      const selected = keyData.map((k) => k.keyword);
+      setPickKeyword(selected);
+    }
+  }, [keyData]);
+
+  // vod삭제하기
+  const { mutate } = useMutation({
+    // 자동완성에 나오는 타입을 복붙
+    mutationFn: () => {
+      return fetch(`http://localhost:3001/vod/${id}`, {
+        method: 'DELETE',
+      });
+    },
+  });
+
+  function handleDelete() {
+    mutate();
   }
 
   return (
@@ -108,7 +192,7 @@ export default function EditForm({
                 name="priceType"
                 value="1"
                 className="sr-only"
-                defaultChecked
+                checked={priceType === '1'}
                 onChange={handleChange}
               />
               무료
@@ -119,6 +203,7 @@ export default function EditForm({
                 name="priceType"
                 value="2"
                 className="sr-only"
+                checked={priceType === '2'}
                 onChange={handleChange}
               />
               유료
@@ -127,6 +212,9 @@ export default function EditForm({
                 name="price"
                 placeholder="가격을 입력하세요"
                 className="w-[140px] border-gray-400 rounded-[5px] placeholder:text-[13px] hover:border-point2 focus:border-point2"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                disabled={priceType !== '2'}
               />
               WoW~
             </label>
@@ -139,7 +227,7 @@ export default function EditForm({
           type="text"
           name="keyword"
           required
-          value={pickKeyword}
+          value={pickKeyword.join(',')}
           readOnly
           placeholder="키워드를 선택하세요(최대 5개)"
           className=" w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
@@ -182,6 +270,8 @@ export default function EditForm({
           name="summary"
           required
           placeholder="한 줄 소개를 입력하세요"
+          value={summary}
+          onChange={(e) => setSummary(e.target.value)}
           className="w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
         />
       </div>
@@ -192,6 +282,8 @@ export default function EditForm({
           name="title"
           required
           placeholder="제목을 입력하세요"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
           className=" w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
         />
       </div>
@@ -202,15 +294,24 @@ export default function EditForm({
           name="img"
           required
           placeholder="이미지경로를 입력하세요"
+          value={imgUrl}
+          onChange={(e) => setImgUrl(e.target.value)}
           className=" w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
         />
       </div>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center gap-[10px]">
         <button
           type="submit"
           className="p-[15px] border border-gray-400 rounded-[5px] hover:bg-point2 hover:border-point2 hover:text-point1"
         >
-          vod 등록하기
+          vod 수정하기
+        </button>
+        <button
+          type="button"
+          onClick={handleDelete}
+          className="p-[15px] border border-gray-400 rounded-[5px] hover:bg-point2 hover:border-point2 hover:text-point1"
+        >
+          vod 삭제하기
         </button>
       </div>
     </form>
