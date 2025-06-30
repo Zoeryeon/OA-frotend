@@ -180,7 +180,7 @@ export default function Header() {
         </Link>
         {showSubmenu && <Submenu showSubmenu={showSubmenu} />}
         <Link
-          href="/account/login"
+          href="/login"
           className="leading-[30px] relative z-0  text-gray-600 w-[46px] h-[46px] flex justify-center items-center before:bg-[#ededed] before:rounded-[50px] before:block before:h-[46px] before:w-[46px] before:absolute before:left-0 before:top-0 before:-z-1 max-md:hidden"
         >
           <RandomImg num={num} />

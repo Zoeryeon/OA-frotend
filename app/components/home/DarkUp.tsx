@@ -30,7 +30,7 @@ export default function DarkUp({ isFixed }: { isFixed: boolean }) {
     <div
       className={`flex right-0 z-9 mix-blend-exclusion ${
         isFixed
-          ? 'absolute bottom-[180px] max-md:bottom-[195px] max-sm:bottom-[250px]'
+          ? 'absolute bottom-[160px] max-md:bottom-[195px] max-sm:bottom-[250px]'
           : 'fixed bottom-[80px]'
       }`}
     >

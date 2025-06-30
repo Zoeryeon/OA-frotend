@@ -53,15 +53,15 @@ export default function Form({
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="flex justify-between items-center pb-[35px]">
-        <div className="flex flex-col w-full">
-          <label className="pr-[20px] pb-[10px]">장르</label>
+      <div className="flex justify-between items-center pb-[35px] max-md:flex-col max-md:pb-[20px]">
+        <div className="flex flex-col w-full max-md:flex-row max-md:items-center">
+          <label className="pr-[20px] pb-[10px] max-md:w-[80px]">장르</label>
           <select
             required
             name="category"
             value={genreSelected}
             onChange={(e) => setGenreSelected(e.target.value)}
-            className={`border py-[10px] px-[20px] rounded-[5px] hover:border-point2 cursor-pointer ${
+            className={`border py-[10px] px-[20px] rounded-[5px] hover:border-point2 cursor-pointer max-md:w-full ${
               genreSelected == ''
                 ? 'text-gray-400 border-gray-400'
                 : 'text-gray-600 border-point2'
@@ -77,14 +77,14 @@ export default function Form({
             <option value="5">인터뷰</option>
           </select>
         </div>
-        <div className="flex flex-col w-full pl-[30px]">
-          <label className="pr-[20px] pb-[10px]">연령</label>
+        <div className="flex flex-col w-full pl-[30px] max-md:pl-0 max-md:mt-[20px] max-md:flex-row max-md:items-center">
+          <label className="pr-[20px] pb-[10px] max-md:w-[80px]">연령</label>
           <select
             name="age"
             required
             value={ageSelected}
             onChange={(e) => setAgeSelected(e.target.value)}
-            className={`border py-[10px] px-[20px] rounded-[5px] hover:border-point2 cursor-pointer ${
+            className={`border py-[10px] px-[20px] rounded-[5px] hover:border-point2 cursor-pointer max-md:w-full ${
               ageSelected == ''
                 ? 'text-gray-400 border-gray-400'
                 : 'text-gray-600 border-point2'
@@ -99,9 +99,9 @@ export default function Form({
             <option value="4">없음</option>
           </select>
         </div>
-        <div className="flex flex-col w-full pl-[30px]">
-          <label className="pr-[20px] pb-[5px]">가격</label>
-          <div className="flex items-center">
+        <div className="flex flex-col w-full pl-[30px] max-md:pl-0 max-md:mt-[20px] max-md:flex-row max-md:items-center">
+          <label className="pr-[20px] pb-[5px] max-md:w-[80px]">가격</label>
+          <div className="flex items-center max-md:w-full">
             <label className="radio pr-[10px]">
               <input
                 type="radio"
@@ -145,7 +145,7 @@ export default function Form({
           className=" w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
         />
       </div>
-      <div className=" pb-[35px]">
+      <div className=" pb-[35px] max-md:pb-[20px]">
         <ul className="flex flex-wrap gap-[15px]">
           {data?.map((key) => (
             <li key={key.keyword_id}>
@@ -175,7 +175,7 @@ export default function Form({
           ))}
         </ul>
       </div>
-      <div className="flex items-center justify-between pb-[35px]">
+      <div className="flex items-center justify-between pb-[35px] max-md:pb-[20px]">
         <label className="w-[80px]">요약</label>
         <input
           type="text"
@@ -185,7 +185,7 @@ export default function Form({
           className="w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
         />
       </div>
-      <div className="flex items-center justify-between pb-[35px]">
+      <div className="flex items-center justify-between pb-[35px] max-md:pb-[20px]">
         <label className="w-[80px]">제목</label>
         <input
           type="text"

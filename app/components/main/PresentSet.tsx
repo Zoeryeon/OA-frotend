@@ -55,241 +55,37 @@ const slideData = [
   },
 ];
 
-const slideData2 = [
-  {
-    id: 1,
-    href: '/watch/vod/53',
-    image: '00b3c7e66da92db34928290d1cd1c47e.webp',
-    tags: ['25 WoW~', '트렌드', '일하는 방식', '인사이트'],
-    title: '공연 예술과 기술, 그리고 소통의 방식',
-    author: 'OA PLUS+ Vol.2',
-    date: '2025.06.11',
-  },
-  {
-    id: 2,
-    href: '/watch/vod/53',
-    image: 'b2c1594a45a0a149e7b931e9ae60c0c6.webp',
-    tags: ['25 WoW~', '트렌드', '일하는 방식', '인사이트'],
-    title: '창작에서의 기술 활용, 새로운 만남',
-    author: 'OA PLUS+ Vol.2',
-    date: '2025.06.10',
-  },
-  {
-    id: 3,
-    href: '/watch/vod/53',
-    image: '7674dc18cfe8fef4c3711dd1b381ce39.webp',
-    tags: ['25 WoW~', '창·제작', '일하는 방식', '글로벌'],
-    title: '작곡가로 커리어를 쌓는 노하우',
-    author: 'OA PLUS+ Vol.2',
-    date: '2025.06.09',
-  },
-  {
-    id: 4,
-    href: '/watch/vod/53',
-    image: '3200c921d2012ff6c247da660e330e42.webp',
-    tags: ['25 WoW~', '글로벌', '일하는 방식', '인사이트'],
-    title: '공연예술제를 만들기 위해 꼭 알아야 할 체크리스트',
-    author: 'OA PLUS+ Vol.2',
-    date: '2025.06.08',
-  },
-  {
-    id: 5,
-    href: '/watch/vod/53',
-    image: '258133d65a77ac9ca36b5878dbf0e4af.webp',
-    tags: ['25 WoW~', '글로벌', '일하는 방식', '인사이트'],
-    title: '소외감을 넘어, 회복을 꿈꾸는 연출가 정현준',
-    author: 'OA PLUS+ Vol.2',
-    date: '2025.06.07',
-  },
-  {
-    id: 6,
-    href: '/watch/vod/53',
-    image: '011a8e3831b84352846c408b42d25210.webp',
-    tags: ['25 WoW~', '백스테이지', '창·제작', '일하는 방식'],
-    title: '불안감을 공감으로 바꾸는 음악감독 정혜진',
-    author: 'OA PLUS+ Vol.2',
-    date: '2025.06.06',
-  },
-  {
-    id: 7,
-    href: '/watch/vod/53',
-    image: 'a112c97baddf462e168a5dd0dded11b4.webp',
-    tags: ['25 WoW~', '인사이트', '창·제작', '일하는 방식'],
-    title: '새로운 장르를 개척하는 용감, 음악감독 신창렬',
-    author: 'OA PLUS+ Vol.2',
-    date: '2025.06.05',
-  },
-  {
-    id: 8,
-    href: '/watch/vod/53',
-    image: '101e82ee5f2b343d1e16dcc7972dbd16.webp',
-    tags: ['25 WoW~', '창·제작', '일하는 방식', '백스테이지'],
-    title: '연출과 드라마투르그, 다르기에 더 단단한 유대감',
-    author: 'OA PLUS+ Vol.2',
-    date: '2025.06.04',
-  },
-  {
-    id: 9,
-    href: '/watch/vod/53',
-    image: '30d51c8f01195f8124279d5716c00788.webp',
-    tags: ['25 WoW~', '예술경영', '일하는 방식', '인사이트'],
-    title: '체계적인 극단 운영을 위한 총괄 프로듀서의 역할',
-    author: 'OA PLUS+ Vol.1',
-    date: '2025.06.03',
-  },
-  {
-    id: 10,
-    href: '/watch/vod/53',
-    image: 'a00c733f3d7a8492015ca8f3645602a2.webp',
-    tags: ['25 WoW~', '글로벌', '기획·마케팅', '예술경영'],
-    title: '무용 국제 교류의 중심, 시댄스 페스티벌의 모든 것',
-    author: 'OA PLUS+ Vol.1',
-    date: '2025.06.02',
-  },
-  {
-    id: 11,
-    href: '/watch/vod/53',
-    image: 'c3abb10dacf115d8e896456de78679df.webp',
-    tags: ['25 WoW~', '창·제작', '일하는 방식', '글로벌'],
-    title: '영화와 게임에 생동감을 더하는 미디어 음악가 Antonio',
-    author: 'OA PLUS+ Vol.1',
-    date: '2025.06.01',
-  },
-  {
-    id: 12,
-    href: '/watch/vod/53',
-    image: '5f3377b1837657fdbbf54ce69338def2.webp',
-    tags: ['25 WoW~', '창·제작', '일하는 방식', '인사이트'],
-    title: "작품과 사람을 이끄는 '사랑받는 연출가' 고선웅",
-    author: 'OA PLUS+ Vol.1',
-    date: '2025.05.31',
-  },
-  {
-    id: 13,
-    href: '/watch/vod/53',
-    image: 'ad15f8392ac79271288eab5dd4c01db3.webp',
-    tags: ['25 WoW~', '글로벌', '기획·마케팅', '일하는 방식'],
-    title: '예술가에서 문화예술기획자로, 뉴욕에서 살아남기',
-    author: 'OA PLUS+ Vol.1',
-    date: '2025.05.30',
-  },
-  {
-    id: 14,
-    href: '/watch/vod/53',
-    image: '64a2d9e10d944ce97c1b7ebaba86396b.webp',
-    tags: ['25 WoW~', '창·제작', '트렌드', '백스테이지'],
-    title: '예술을 더 빛나게 하는 기술, 메타버스 공연 제작기',
-    author: 'OA PLUS+ Vol.1',
-    date: '2025.05.29',
-  },
-  {
-    id: 15,
-    href: '/watch/vod/53',
-    image: '300549b4b4bfac2d49c037aff58e36fd.webp',
-    tags: ['25 WoW~', '글로벌', '기획·마케팅', '일하는 방식'],
-    title: '예술을 더 빛나게 하는 기술, 메타버스 공연 제작기',
-    author: 'OA PLUS+ Vol.1',
-    date: '2025.05.28',
-  },
-  {
-    id: 16,
-    href: '/watch/vod/53',
-    image: '8d2fd41b0d0606f76bc6e8da2ef5fdf9.webp',
-    tags: ['25 WoW~', '글로벌', '예술경영', '인사이트'],
-    title: '지속가능성을 높이는 미국 비영리 예술기관의 운영방식',
-    author: 'OA PLUS+ Vol.1',
-    date: '2025.05.27',
-  },
-  {
-    id: 17,
-    href: '/watch/vod/53',
-    image: '62dbe030aea22bfd6e08e2fc1438ebf9.webp',
-    tags: ['25 WoW~', '창·제작', '백스테이지', '일하는 방식'],
-    title: '서로의 영감이 되다, 예술가 삼남매의 기하학적 협업 방식 Vol.1',
-    author: 'OA PLUS+ Vol.1',
-    date: '2025.05.26',
-  },
-  {
-    id: 18,
-    href: '/watch/vod/53',
-    image: '30643b5f07e7dbf7ae5a9d088c27fc5c.webp',
-    tags: ['25 WoW~', '창·제작', '백스테이지', '일하는 방식'],
-    title: '서로의 영감이 되다, 예술가 삼남매의 기하학적 협업 방식 Vol.2',
-    author: 'OA PLUS+ Vol.1',
-    date: '2025.05.25',
-  },
-  {
-    id: 19,
-    href: '/watch/vod/53',
-    image: '104db4255c76648ede7398f852fd8775.webp',
-    tags: ['25 WoW~', '창·제작', '일하는 방식'],
-    title: '데이터 활용으로 성공가능성을 높이는 공연기획',
-    author: 'OA PLUS+ Vol.1',
-    date: '2025.05.24',
-  },
-  {
-    id: 20,
-    href: '/watch/vod/53',
-    image: 'b2434ac7746825d9908fa0f478fde4b0.webp',
-    tags: ['25 WoW~', '일하는 방식', '인사이트'],
-    title: '예술로 하고싶은 것 다 하는 프로N잡러 되기',
-    author: 'OA PLUS+ Vol.1',
-    date: '2025.05.23',
-  },
-  {
-    id: 21,
-    href: '/watch/vod/53',
-    image: 'd44e79e21d8dec5d5436691e2daa5ac3.webp',
-    tags: ['25 WoW~', '창·제작', '일하는 방식'],
-    title: '장면을 몸으로 형상화하는 안무감독이 일하는 법',
-    author: 'OA PLUS+ Vol.1',
-    date: '2025.05.22',
-  },
-  {
-    id: 22,
-    href: '/watch/vod/53',
-    image: 'a13ecf4ffeb4ca3700170e57da465e86.webp',
-    tags: ['25 WoW~', '글로벌', '창·제작'],
-    title: 'K-콘텐츠의 성공적인 해외 시장 진출 비결',
-    author: 'OA PLUS+ Vol.1',
-    date: '2025.05.21',
-  },
-  {
-    id: 23,
-    href: '/watch/vod/53',
-    image: 'a409015785189663eb04cfde40e43d4e.webp',
-    tags: ['25 WoW~', '창·제작', '기획·마케팅', '예술경영'],
-    title: '아찔한 첫 공연의 기억, 나의 첫 공연 제작기',
-    author: 'OA PLUS+ Vol.1',
-    date: '2025.05.20',
-  },
-  {
-    id: 24,
-    href: '/watch/vod/53',
-    image: 'f2ef5272ca232e8d1f5640489012df3c.webp',
-    tags: ['25 WoW~', '트렌드', '백스테이지'],
-    title: '특별한 몰입의 경험을 주는 AR/XR 공연 제작기',
-    author: 'OA PLUS+ Vol.1',
-    date: '2025.05.19',
-  },
-];
+type VodData = {
+  vod_id: number;
+  title: string;
+  summary: string;
+  img_url: string;
+  price: string;
+  age: string | null;
+  favorite: number;
+  created_at: Date;
+  is_interview: string;
+  category_id: number;
+  intro: string;
+  source: string;
+  keyword: [];
+};
 
-export default function PresentSet() {
+export default function PresentSet({ data }: { data: VodData[] }) {
   // 두번째 스와이프 active
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // 데이터 랜덤 돌리기
   const [randomSlide, setRandomSlide] = useState<typeof slideData>([]);
-  const [randomSlide2, setRandomSlide2] = useState<typeof slideData2>([]);
+  const [randomSlide2, setRandomSlide2] = useState<typeof data>([]);
 
   useEffect(() => {
     setRandomSlide([...slideData].sort(() => Math.random() - 0.5).slice(0, 4));
   }, []);
 
   useEffect(() => {
-    setRandomSlide2(
-      [...slideData2].sort(() => Math.random() - 0.5).slice(0, 5)
-    );
-  }, [activeIndex]);
+    setRandomSlide2(data?.sort(() => Math.random() - 0.5).slice(0, 5));
+  }, [data, activeIndex]);
 
   return (
     <div className="pt-[80px] max-md:pt-[48px] max-sm:pt-[40px]">
@@ -341,15 +137,15 @@ export default function PresentSet() {
           <Swiper
             className={`${styles.subslider} sub-slider`}
             modules={[Navigation]}
-            slidesPerView="auto"
+            slidesPerView={3}
             navigation
-            key={randomSlide2.length}
+            key={randomSlide2?.length}
           >
-            {randomSlide2.map((slide) => (
-              <SwiperSlide key={slide.id} className="">
+            {randomSlide2?.map((slide) => (
+              <SwiperSlide key={slide.vod_id}>
                 <div className="flex overflow-hidden">
                   <Link
-                    href={slide.href}
+                    href="#"
                     className="block border border-gray-400 rounded-[10px] overflow-hidden group dark:border-gray-600"
                     style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.07)' }}
                   >
@@ -379,7 +175,7 @@ export default function PresentSet() {
                     {/* 이미지 부분 */}
                     <div className="w-full overflow-hidden">
                       <img
-                        src={`/images/vod/${slide.image}`}
+                        src={`http://localhost:3001${slide.img_url}`}
                         alt="썸네일"
                         className="w-full h-full bg-[#ededed] object-cover transition-all duration-100 group-hover:duration-200 group-hover:transform group-hover:scale-105"
                         style={{
@@ -389,18 +185,16 @@ export default function PresentSet() {
                     </div>
                     {/* 콘텐츠 정보 부분 */}
                     <div className="flex flex-col h-[180px] border-t border-t-gray-400 px-[10px] pb-[15px] bg-white max-md:h-[130px] dark:bg-black dark:border-t-gray-600">
-                      {/* 태그들을 map으로 처리 */}
                       <div className="mt-[15px] text-[13px] flex flex-wrap items-start gap-[5px] text-gray-600 tracking-tight w-full text-ellipsis break-all max-md:text-[11px]">
-                        {slide.tags.map((tag, index) => (
+                        <p className="text-point1 bg-point2 block mb-[6px] py-[1px] px-[6px] rounded-[3px]">
+                          {slide.price}
+                        </p>
+                        {slide.keyword?.map((keyword, index) => (
                           <p
                             key={index}
-                            className={`block mb-[6px] py-[1px] px-[6px] rounded-[3px] ${
-                              index === 0
-                                ? 'text-point1 bg-point2'
-                                : 'bg-[#ededed] dark:bg-gray-600 dark:text-point1'
-                            }`}
+                            className="bg-[#ededed] block mb-[6px] py-[1px] px-[6px] rounded-[3px] dark:bg-gray-600 dark:text-point1"
                           >
-                            {tag}
+                            {keyword}
                           </p>
                         ))}
                       </div>
@@ -411,7 +205,7 @@ export default function PresentSet() {
                       {/* 작성자와 좋아요 버튼 */}
                       <div className="flex mt-auto items-end h-[40px] justify-between gap-[10px]">
                         <p className="text-[#676767] overflow-hidden text-ellipsis line-clamp-2 max-md:h-auto">
-                          {slide.author}
+                          {slide.summary}
                         </p>
                         <i
                           className={`inline-flex not-italic ${ordinaryArtist.className} before:content-['\\e949'] before:text-[18px] before:text-point2 before:font-bold`}

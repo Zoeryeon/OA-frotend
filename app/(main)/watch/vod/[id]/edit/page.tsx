@@ -3,8 +3,10 @@
 
 import EditForm from '@/app/components/admin/vod/EditForm';
 import { useMutation, useQuery } from '@tanstack/react-query';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { use, useEffect, useState } from 'react';
+import { ordinaryArtist } from '@/app/components/fonts';
 
 type Data = {
   category: string;
@@ -67,16 +69,16 @@ export default function VodEdit({
   // 숫자를 문자로 바꾸기
   useEffect(() => {
     if (vodData) {
-      setGenreSelected(String(vodData[0].category_id));
+      setGenreSelected(String(vodData[0]?.category_id));
 
       // 연령 처리
-      if (vodData[0].age === 'All') {
+      if (vodData[0]?.age === 'All') {
         setAgeSelected('1');
-      } else if (vodData[0].age === '12') {
+      } else if (vodData[0]?.age === '12') {
         setAgeSelected('2');
-      } else if (vodData[0].age === '15') {
+      } else if (vodData[0]?.age === '15') {
         setAgeSelected('3');
-      } else if (vodData[0].age === null) {
+      } else if (vodData[0]?.age === null) {
         setAgeSelected('4');
       }
     }
@@ -86,7 +88,19 @@ export default function VodEdit({
     <main className="bg-point1 dark:bg-[#080808]">
       <div className="max-w-[1160px] mx-auto ">
         <div className="pt-[155px] px-[80px] pb-[80px] items-center w-full max-md:px-[20px] max-md:flex-col max-md:pt-[153px] max-md:pb-[48px] max-sm:pt-[145px] max-sm:pb-[40px]">
-          <h4 className="text-[28px] font-bold pb-[50px]">vod 수정하기{id}</h4>
+          <Link
+            href="/watch"
+            className="inline-flex items-center mb-[20px] group max-md:text-[12px]"
+          >
+            <i
+              className={`inline-flex not-italic pl-[6px] leading-0 transition-transform duration-200 group-hover:-translate-x-2 ${ordinaryArtist.className} before:content-['\\e90b'] before:text-[40px] before:text-gray-600 before:font-medium before:transform 
+              before:rotate-180`}
+            ></i>
+            뒤로가기
+          </Link>
+          <h4 className="text-[28px] font-bold pb-[50px] max-md:text-[24px] max-sm:text-[22px] max-sm:pb-[30px]">
+            vod 수정하기{id}
+          </h4>
           <EditForm
             id={id}
             vodData={vodData}

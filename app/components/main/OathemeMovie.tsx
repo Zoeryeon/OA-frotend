@@ -8,6 +8,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import styles from './OathemeMovie.module.css';
 import Link from 'next/link';
+import { useQuery } from '@tanstack/react-query';
 
 const MovieData = [
   {

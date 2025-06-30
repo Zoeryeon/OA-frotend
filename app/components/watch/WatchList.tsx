@@ -116,7 +116,7 @@ export default function WatchList({
                     <p className="text-point1 bg-point2 block mb-[6px] py-[1px] px-[6px] rounded-[3px]">
                       {item.price}
                     </p>
-                    {item.keyword.map((keyword, index) => (
+                    {item.keyword?.map((keyword, index) => (
                       <p
                         key={index}
                         className="bg-[#ededed] block mb-[6px] py-[1px] px-[6px] rounded-[3px] dark:bg-gray-600 dark:text-point1"
