@@ -6,7 +6,7 @@ import Counsel from '@/app/components/watch/Counsel';
 import SubMenu from '@/app/components/watch/SubMenu';
 import WatchList from '@/app/components/watch/WatchList';
 import { useQuery } from '@tanstack/react-query';
-import { use, useEffect, useState } from 'react';
+import { use, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -71,7 +71,7 @@ export default function watch({
     } else if (data && count >= 1) {
       setAllList([...allList, ...data]);
     }
-  }, [data, count]);
+  }, [data, count, currentSort]);
 
   useEffect(() => {
     params.set('genre', currentGenre);

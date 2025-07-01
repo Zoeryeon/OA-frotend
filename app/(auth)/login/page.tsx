@@ -8,10 +8,10 @@ export default function Login() {
     <main className="bg-point1 dark:bg-[#080808]">
       <div className="max-w-[1160px] mx-auto">
         <div className="px-[20px]">
-          <div className="flex pt-[140px] pb-[80px] border-b border-gray-400">
-            <div className="pr-[80px] w-[20%]">
-              <h2 className="text-[30px] font-bold">로그인</h2>
-              <ul className="mt-[20px] text-[17px]">
+          <div className="flex pt-[140px] pb-[80px] border-b border-gray-400 max-md:flex-col max-md:pb-[48px]">
+            <div className="pr-[80px] w-[20%] max-md:w-full">
+              <h2 className="text-[30px] font-bold max-md:pb-[40px]">로그인</h2>
+              <ul className="mt-[20px] text-[17px] max-md:flex max-md:gap-[20px] max-md:pb-[80px]">
                 <li className="mb-[15px]">
                   <Link href="#" className="relative">
                     이메일 찾기
@@ -50,7 +50,7 @@ export default function Login() {
                 </li>
               </ul>
             </div>
-            <form className="w-[80%]">
+            <form className="w-[80%] max-md:w-full">
               <ul className="w-full max-w-[480px]">
                 <li className="flex items-center w-full relative pt-[5px] pb-[10px] max-md:pb-[20px]">
                   <label className="min-w-[110px] text-[13px]">
@@ -141,8 +141,8 @@ export default function Login() {
               </button>
             </form>
           </div>
-          <div className="flex py-[80px] border-b border-gray-400">
-            <div className="pr-[80px] w-[20%]">
+          <div className="flex py-[80px] border-b border-gray-400 max-md:py-[48px] max-md:flex-col">
+            <div className="pr-[80px] w-[20%] max-md:w-full max-md:pb-[80px]">
               <h2 className="text-[30px] font-bold">소셜로그인</h2>
               <p className="mt-[20px]">
                 해외사용자는 소셜로그인을 사용 할 수 없어요
@@ -181,8 +181,8 @@ export default function Login() {
               </div>
             </button>
           </div>
-          <div className="flex py-[80px]">
-            <div className="pr-[80px] w-[20%]">
+          <div className="flex py-[80px] max-md:flex-col max-md:pt-[48px] max-md:pb-[80px]">
+            <div className="pr-[80px] w-[20%] max-md:w-full max-md:pb-[80px]">
               <h2 className="text-[30px] font-bold">회원가입</h2>
               <p className="mt-[20px]">아직 오아라이브 회원이 아니신가요?</p>
             </div>
