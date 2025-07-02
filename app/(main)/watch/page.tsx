@@ -6,7 +6,7 @@ import Counsel from '@/app/components/watch/Counsel';
 import SubMenu from '@/app/components/watch/SubMenu';
 import WatchList from '@/app/components/watch/WatchList';
 import { useQuery } from '@tanstack/react-query';
-import { use, useEffect, useRef, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -93,6 +93,7 @@ export default function watch({
           setCurrentSort={setCurrentSort}
           isSingleColumn={isSingleColumn}
           setIsSingleColumn={setIsSingleColumn}
+          setCount={setCount}
         />
         <div className="flex px-[20px] pb-[25px] gap-[10px] items-center justify-end w-full max-md:pb-[20px] max-sm:pb-[15px]">
           <Link

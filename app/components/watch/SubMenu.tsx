@@ -37,6 +37,7 @@ export default function SubMenu({
   setCurrentSort,
   isSingleColumn,
   setIsSingleColumn,
+  setCount,
 }: {
   currentType: string;
   setCurrentType: (type: string) => void;
@@ -44,6 +45,7 @@ export default function SubMenu({
   setCurrentSort: (sort: string) => void;
   isSingleColumn: boolean;
   setIsSingleColumn: (a: boolean) => void;
+  setCount: (a: number) => void;
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -99,6 +101,7 @@ export default function SubMenu({
                 onClick={() => {
                   setIsOpen(false); // 선택 후 닫기
                   setCurrentSort(item.name);
+                  setCount(0);
                 }}
                 className={`w-full h-[40px] items-center p-[10px] border-t border-t-black/5 hover:bg-black/5 max-md:h-[36px] max-md:py-0 max-md:content-center ${
                   currentSort === item.name ? 'bg-black/5' : ''
