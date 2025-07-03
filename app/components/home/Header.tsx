@@ -186,7 +186,12 @@ export default function Header() {
           <RandomImg num={num} />
         </Link>
       </div>
-      <Search isVisible={isVisible} isShadow={isShadow} setShadow={setShadow} />
+      <Search
+        isVisible={isVisible}
+        setIsVisible={setIsVisible}
+        isShadow={isShadow}
+        setShadow={setShadow}
+      />
     </header>
   );
 }

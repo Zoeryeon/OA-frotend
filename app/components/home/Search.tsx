@@ -1,11 +1,13 @@
 //app /components /home /Search.tsx
 
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import Link from 'next/link';
 import { ordinaryArtist } from '@/app/components/fonts';
+import { useRouter } from 'next/navigation';
 
 type SearchProps = {
   isVisible: boolean;
+  setIsVisible: Dispatch<SetStateAction<boolean>>;
   isShadow: boolean;
   setShadow: Dispatch<SetStateAction<boolean>>;
 };
@@ -39,9 +41,24 @@ const category = [
 
 export default function Search({
   isVisible,
+  setIsVisible,
   isShadow,
   setShadow,
 }: SearchProps) {
+  const [keyword, setKeyword] = useState('');
+  const router = useRouter();
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (keyword.trim()) {
+        router.push(`/search?keyword=${encodeURIComponent(keyword)}`);
+        setIsVisible(false); //검색창닫기
+        setKeyword(''); //입력창 초기화
+      }
+    }
+  };
+
   return (
     <div className="absolute left-0 top-[75px] w-full z-10">
       {isVisible && (
@@ -61,6 +78,9 @@ export default function Search({
                   <input
                     type="search"
                     placeholder="검색어를 입력해주세요"
+                    value={keyword}
+                    onChange={(e) => setKeyword(e.target.value)}
+                    onKeyDown={handleKeyDown}
                     className="text-[20px] font-medium shrink w-full border-0 pl-0 placeholder:text-[17px] placeholder:font-semibold placeholder:text-gray-500 placeholder:tracking-tight max-md:text-[18px] max-md:placeholder:text-[15px] "
                   />
                 </label>
@@ -74,7 +94,7 @@ export default function Search({
                   {keywords.map((keyword, index) => (
                     <li key={index}>
                       <Link
-                        href={`/search?/keywrod=${keyword}`}
+                        href={`/search?keywrod=${keyword}`}
                         className="block py-[10px] px-[15px] bg-[#ededed] rounded-[5px] text-[14px] text-gray-600 tracking-tight dark:bg-gray-600 dark:text-point1"
                       >
                         {keyword}

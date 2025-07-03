@@ -42,7 +42,7 @@ export default function watch({
   const [isSingleColumn, setIsSingleColumn] = useState(false);
 
   // 현재 선택된 장르를 관리하는 상태 (자식 컴포넌트에서 받아옵니다)
-  const [currentGenre, setCurrentGenre] = useState('all');
+  const [currentGenre, setCurrentGenre] = useState(paramsObj.genre);
   // 현재 선택된 타입을 관리하는 상태
   const [currentType, setCurrentType] = useState('all');
   // 현재 선택된 정렬방식 관리하는 상태
