@@ -4,21 +4,22 @@ import { ordinaryArtist } from '@/app/components/fonts';
 type TitleProps = {
   searchedKeyword: string;
   inputKeyword: string;
-  setInputKeyword: (value: string) => void;
   handleKeyUp: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  resultCount: number;
 };
 
 export default function Title({
   searchedKeyword,
   inputKeyword,
-  setInputKeyword,
   handleKeyUp,
+  resultCount,
 }: TitleProps) {
   return (
     <div className="pt-[64px] px-[64px]">
       <h3 className="text-[28px] font-semibold text-center">
         <strong className="text-point2 font-semibold">{searchedKeyword}</strong>
-        에 대해 총 <strong className="text-point2 font-semibold">27</strong>
+        에 대해 총{' '}
+        <strong className="text-point2 font-semibold">{resultCount}</strong>
         개가 검색됐어요
       </h3>
       <div className="w-full h-[188px] bg-point1 max-md:fixed dark:bg-black dark:border-t-black py-[64px]">
@@ -30,8 +31,7 @@ export default function Title({
             <input
               type="search"
               placeholder="검색어를 입력해주세요"
-              value={inputKeyword}
-              onChange={(e) => setInputKeyword(e.target.value)}
+              defaultValue={inputKeyword}
               onKeyUp={handleKeyUp}
               className="text-[20px] font-medium shrink w-full border-0 pl-0 placeholder:text-[17px] placeholder:font-semibold placeholder:text-gray-500 placeholder:tracking-tight max-md:text-[18px] max-md:placeholder:text-[15px] "
             />

@@ -9,10 +9,16 @@ import Title from '@/app/components/search/Title';
 import VodSearch from '@/app/components/search/VodSearch';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 
-export default function Search() {
-  const searchParams = useSearchParams();
+export default function Search({
+  searchParams,
+}: {
+  searchParams: Promise<{ keyword: string }>;
+}) {
+  const paramsObj = use(searchParams);
+  const [params] = useState(new URLSearchParams(paramsObj));
+
   // form에 입력하는 값
   const [inputKeyword, setInputKeyword] = useState('');
   // 제목에 들어가는 값
@@ -24,20 +30,23 @@ export default function Search() {
 
   const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      if (inputKeyword.trim()) {
-        const encoded = encodeURIComponent(inputKeyword.trim());
-        router.push(`/search?keyword=${encoded}`);
-        setSearchedKeyword(inputKeyword); // 결과 제목에 반영
-        setInputKeyword(''); // 입력창 초기화
+      const value = e.currentTarget.value;
+      setInputKeyword(value);
+
+      if (value.trim()) {
+        // const encoded = encodeURIComponent(inputKeyword.trim());
+        router.push(`/search?keyword=${value}`);
+        setSearchedKeyword(value); // 결과 제목에 반영
+        e.currentTarget.value = '';
       }
     }
   };
 
   useEffect(() => {
-    const newKeyword = searchParams.get('keyword') || '';
+    const newKeyword = params.get('keyword') || '';
     setSearchedKeyword(newKeyword);
-    setInputKeyword(''); // 입력창은 항상 비우기
-  }, [searchParams]);
+    console.log(data, '----');
+  }, [params]);
 
   const { data, isPending, isError, error } = useQuery({
     queryKey: ['search', inputKeyword],
@@ -46,8 +55,7 @@ export default function Search() {
         (res) => res.json()
       ),
   });
-  // console.log(data);
-  // 다시 확인해보기
+  const resultCount = data ? data.length : 0;
 
   return (
     <main className="bg-point1 dark:bg-[#080808]">
@@ -56,8 +64,8 @@ export default function Search() {
           <Title
             searchedKeyword={searchedKeyword}
             inputKeyword={inputKeyword}
-            setInputKeyword={setInputKeyword}
             handleKeyUp={handleKeyUp}
+            resultCount={resultCount}
           />
           <SearchCate selected={selected} setSelected={setSelected} />
           <VodSearch />
