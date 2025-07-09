@@ -1,5 +1,4 @@
 // app/(main)/laout.tsx
-'use client';
 
 import Header from '@/app/components/home/Header';
 import Footer from '@/app/components/home/Footer';

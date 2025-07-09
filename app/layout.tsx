@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { notosanskr } from '@/app/components/fonts';
 import TanStackProvider from '@/providers/TanStackProvider';
-import ThemeProvider from '@/app/components/ThemeProvider';
 
 export const metadata: Metadata = {
   title: {
@@ -21,11 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <ThemeProvider>
-        <body className={notosanskr.className}>
-          <TanStackProvider>{children}</TanStackProvider>
-        </body>
-      </ThemeProvider>
+      <body className={notosanskr.className}>
+        <TanStackProvider>{children}</TanStackProvider>
+      </body>
     </html>
   );
 }
