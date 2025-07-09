@@ -50,7 +50,7 @@ const linklist = [
     genre: 'null',
   },
   {
-    href: '/oatheme/%EB%8F%99%EC%95%84-%EC%BD%A9%EC%BF%A0%EB%A5%B4',
+    href: '/oatheme',
     imgSrc: '/images/category_ico_0G08.webp',
     alt: '동아콩쿠르',
     label: '동아콩쿠르',
