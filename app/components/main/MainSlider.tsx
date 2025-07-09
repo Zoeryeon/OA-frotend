@@ -40,7 +40,7 @@ export default function MainSlider() {
       >
         <SwiperSlide>
           <Link
-            href="/watch/vod/연극-장도"
+            href="/watch"
             className="flex flex-col w-full h-full bg-[url(/images/2ab67ac133853b5fd484eb93a615308c.jpg)] bg-cover bg-center bg-no-repeat items-center text-center max-md:bg-[auto_100%]"
           >
             <div
@@ -374,7 +374,7 @@ export default function MainSlider() {
         </SwiperSlide>
         <SwiperSlide>
           <Link
-            href="/oatheme/창무국제공연예술제"
+            href="/oatheme"
             className="flex flex-col w-full h-full bg-[url(/images/93bd25a7919528a0fcfc9c88430975c2.jpg)] bg-cover bg-center bg-no-repeat items-center text-center max-md:bg-[auto_100%]"
           >
             <div
@@ -709,13 +709,13 @@ export default function MainSlider() {
         </SwiperSlide>
         <SwiperSlide>
           <Link
-            href="/event/oaplus/vol2"
+            href="#"
             className="flex w-full h-full bg-[url(/images/7259b95773af92d0af4f3f38d2ef88a6.jpg)] bg-cover bg-center bg-no-repeat"
           ></Link>
         </SwiperSlide>
         <SwiperSlide>
           <Link
-            href="/cs-center/notice/read/1582"
+            href="#"
             className="flex w-full h-full bg-[url(/images/9b6ff8dff9d070e4a5ef7b8492b550c4.jpg)] bg-cover bg-center bg-no-repeat"
           ></Link>
           <img

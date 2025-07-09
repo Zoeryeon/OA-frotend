@@ -43,14 +43,14 @@ const categories = [
 ];
 const linklist = [
   {
-    href: '/watch/oaplus',
+    href: '#',
     imgSrc: '/images/category_ico_0G06.webp',
     alt: '오아플러스',
     label: '오아플러스',
     genre: 'null',
   },
   {
-    href: '/oatheme',
+    href: '#',
     imgSrc: '/images/category_ico_0G08.webp',
     alt: '동아콩쿠르',
     label: '동아콩쿠르',

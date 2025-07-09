@@ -12,70 +12,60 @@ import Link from 'next/link';
 const MovieData = [
   {
     id: 1,
-    href: '/oatheme',
     title: '동아 콩쿠르',
     eng: 'DONG-A Competion',
     img: '117e89daf14219b94d2e569a0c547e51.webp',
   },
   {
     id: 2,
-    href: '/oatheme',
     title: '브리즈 뮤지컬 컴퍼니',
     eng: 'BREEZE the active musical team',
     img: '1f62fe21642fe7a08e63100d2534fc75.webp',
   },
   {
     id: 3,
-    href: '/oatheme',
     title: '[OA Originals] 웹뮤지컬 ‘골드보이’',
     eng: '[OA Originals] Web Musical ‘GOLD BOY’',
     img: '0444672b44588b8758035bb6effd5626.webp',
   },
   {
     id: 4,
-    href: '/oatheme',
     title: '극공작소 마방진',
     eng: 'Playfactory Mabangzen',
     img: '5ae4e70fed67c59254583574a51692fa.webp',
   },
   {
     id: 5,
-    href: '/oatheme',
     title: '서울세계무용축제',
     eng: 'SIDance',
     img: '79f09611bb430586ab7bab0690779646.webp',
   },
   {
     id: 6,
-    href: '/oatheme',
     title: '신진연극인페스티벌',
     eng: 'New Artists Festival',
     img: 'cd3c80c9cf769bd62c7659ded329cff4.webp',
   },
   {
     id: 7,
-    href: '/oatheme',
     title: '서울연극제',
     eng: 'Seoul Theater Festival',
     img: '20ae720e3a7f8889d702fc04bd2c4660.webp',
   },
   {
     id: 8,
-    href: '/oatheme',
     title: '오아라이브 페스티벌',
     eng: 'OALIVE Festival',
     img: '1f40efa8485cae30b649018cbf55c472.webp',
   },
   {
     id: 9,
-    href: '/oatheme',
     title: '창무국제공연예술제',
     eng: 'ChangMu International Performing Arts Festival',
     img: '48f8100a9416cad8716bdb4210795519.webp',
   },
   {
     id: 10,
-    href: '/oatheme',
     title: '아이엠컬처 10주년',
     eng: 'imculture 10th',
     img: '6ca43c5400d82982ea2ed01e3869e8b8.webp',
@@ -116,7 +106,7 @@ export default function OathemeMovie() {
             {MovieData.map((item) => (
               <SwiperSlide key={item.id}>
                 <Link
-                  href={item.href}
+                  href="/oatheme"
                   className=" block h-[336px] border border-gray-400 rounded-[10px] overflow-hidden group max-sm:rounded-[5px] dark:border-gray-600"
                   style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.07)' }}
                 >

@@ -45,15 +45,14 @@ export default function Search({
   useEffect(() => {
     const newKeyword = params.get('keyword') || '';
     setSearchedKeyword(newKeyword);
-    console.log(data, '----');
   }, [params]);
 
   const { data, isPending, isError, error } = useQuery({
     queryKey: ['search', inputKeyword],
     queryFn: () =>
-      fetch(`http://localhost:3001/search?keyword=${inputKeyword}`).then(
-        (res) => res.json()
-      ),
+      fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/search?keyword=${inputKeyword}`
+      ).then((res) => res.json()),
   });
 
   const resultCount = data ? data.length : 0;

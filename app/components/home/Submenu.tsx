@@ -6,14 +6,14 @@ import { useEffect, useState } from 'react';
 import { ordinaryArtist } from '@/app/components/fonts';
 
 const linksGroup1 = [
-  { href: '/account/login', icon: '\\e940', label: '내 상영관', iconSize: 35 },
-  { href: '/account/login', icon: '\\e919', label: '내 상영관', iconSize: 45 },
+  { href: '/login', icon: '\\e940', label: '내 상영관', iconSize: 35 },
+  { href: '/login', icon: '\\e919', label: '내 상영관', iconSize: 45 },
 ];
 
 const linksGroup2 = [
   { href: '/watch', label: '관람하기' },
   { href: '/oatheme', label: '오뗌 극장' },
-  { href: '/watch/oaplus', label: '오아플러스' },
+  { href: '#', label: '오아플러스' },
   { href: '/watch/free', label: 'FREE' },
   { href: '/account/login', label: '로그인' },
 ];
@@ -49,14 +49,14 @@ export default function Submenu({ showSubmenu }: { showSubmenu: boolean }) {
       <div className="block">
         <div className="w-[80px] h-[80px] mx-auto">
           <Link
-            href="/account/login"
+            href="/login"
             className="bg-[#ededed] w-full h-full flex content-center items-center bg-center bg-cover rounded-[50px]"
           >
             <RandomImg num={num} />
           </Link>
         </div>
         <p className="mt-[15px]">
-          <Link href="/account/login" className="font-semibold text-gray-600">
+          <Link href="/login" className="font-semibold text-gray-600">
             로그인해주세요
           </Link>
         </p>

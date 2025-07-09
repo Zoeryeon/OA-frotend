@@ -8,45 +8,39 @@ export default function FooterList() {
     <div className="flex justify-between max-md:flex-col-reverse">
       <ul className="flex text-[11px] tracking-tight max-md:mt-[10px] max-md:flex-wrap">
         <li className="pr-[20px]">
-          <Link href="/cs-center" className="dark:text-point1 dark:font-light">
+          <Link href="#" className="dark:text-point1 dark:font-light">
             고객센터
           </Link>
         </li>
         <li className="pr-[20px]">
-          <Link href="/terms/use" className="dark:text-point1 dark:font-light">
+          <Link href="#" className="dark:text-point1 dark:font-light">
             서비스 이용약관
           </Link>
         </li>
         <li className="pr-[20px]">
-          <Link href="/terms/privacy">
+          <Link href="#">
             <strong className="font-medium dark:text-point1">
               개인정보 처리방침
             </strong>
           </Link>
         </li>
         <li className="pr-[20px]">
-          <Link
-            href="javascript:;"
-            className="dark:text-point1 dark:font-light"
-          >
+          <Link href="#" className="dark:text-point1 dark:font-light">
             아티스트센터
           </Link>
         </li>
         <li className="pr-[20px]">
-          <Link href="/whatsoa" className="dark:text-point1 dark:font-light">
+          <Link href="#" className="dark:text-point1 dark:font-light">
             서비스 소개
           </Link>
         </li>
         <li className="pr-[20px]">
-          <Link
-            href="/cs-center/contact"
-            className="dark:text-point1 dark:font-light"
-          >
+          <Link href="#" className="dark:text-point1 dark:font-light">
             제휴/제안
           </Link>
         </li>
         <li className="pr-[20px]">
-          <Link href="/event" className="dark:text-point1 dark:font-light">
+          <Link href="#" className="dark:text-point1 dark:font-light">
             이벤트
           </Link>
         </li>

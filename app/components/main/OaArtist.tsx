@@ -21,7 +21,7 @@ export default function OaArtist() {
           </p>
         </div>
         <Link
-          href="/whatsoa#forArtist"
+          href="#"
           className="mt-[80px] w-[190px] h-[50px] relative max-md:self-end"
         >
           <svg

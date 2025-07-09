@@ -32,8 +32,8 @@ const category = [
   { name: '무용', href: '/watch?genre=dance' },
   { name: '음악', href: '/watch?genre=music' },
   { name: '오뗌 극장', href: '/oatheme' },
-  { name: '오아플러스', href: '/watch/oaplus' },
-  { name: '동아콩쿠르', href: '/oatheme/donga' },
+  { name: '오아플러스', href: '#' },
+  { name: '동아콩쿠르', href: '#' },
 ];
 
 export default function Search({

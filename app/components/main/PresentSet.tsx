@@ -111,7 +111,7 @@ export default function PresentSet({ data }: { data: VodData[] }) {
           >
             {randomSlide.map((slide) => (
               <SwiperSlide key={slide.id}>
-                <Link href="/watch/vod/53" className="block">
+                <Link href="/watch" className="block">
                   <div className="h-[320px] overflow-hidden max-sm:h-[133px]">
                     <img
                       src={`/images/oaset/${slide.img}`}

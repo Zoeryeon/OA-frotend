@@ -40,13 +40,13 @@ const categories = [
     label: '오뗌극장',
   },
   {
-    href: '/watch/oaplus',
+    href: '#',
     imgSrc: '/images/category_ico_0G06.webp',
     alt: '오아플러스',
     label: '오아플러스',
   },
   {
-    href: '/oatheme',
+    href: '#',
     imgSrc: '/images/category_ico_0G08.webp',
     alt: '동아콩쿠르',
     label: '동아콩쿠르',
