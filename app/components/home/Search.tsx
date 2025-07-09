@@ -33,10 +33,7 @@ const category = [
   { name: '음악', href: '/watch?genre=music' },
   { name: '오뗌 극장', href: '/oatheme' },
   { name: '오아플러스', href: '/watch/oaplus' },
-  {
-    name: '동아콩쿠르',
-    href: '/oatheme/%EB%8F%99%EC%95%84-%EC%BD%A9%EC%BF%A0%EB%A5%B4',
-  },
+  { name: '동아콩쿠르', href: '/oatheme/donga' },
 ];
 
 export default function Search({

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const menuItems = [
-  { label: '관람하기', href: '/watch?genre=all' },
+  { label: '관람하기', href: '/watch?genre=all&type=all' },
   { label: '오뗌 극장', href: '/oatheme' },
   { label: '오아플러스', href: '/watch/oaplus' },
   { label: 'FREE', href: '/watch/free' },
