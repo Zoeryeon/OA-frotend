@@ -23,7 +23,7 @@ type All = {
   keyword: [];
 };
 
-export default function free({
+export default function Free({
   searchParams,
 }: {
   searchParams: Promise<{ genre: string; type: string }>;

@@ -147,36 +147,42 @@ export default function Form({
           className=" w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
         />
       </div>
-      <div className=" pb-[35px] max-md:pb-[20px]">
-        <ul className="flex flex-wrap gap-[15px]">
-          {data?.map((key) => (
-            <li key={key.keyword_id}>
-              <button
-                type="button"
-                onClick={() => toggleKeyword(key.keyword)}
-                className={`flex items-center py-[10px] px-[15px]  rounded-[5px] text-[14px] tracking-tight dark:bg-gray-600 dark:text-point1  ${
-                  pickKeyword.includes(key.keyword)
-                    ? 'bg-point2 text-white'
-                    : 'bg-[#ededed] text-gray-600 hover:text-point1 hover:bg-point2'
-                }`}
-              >
-                <span className="">{key.keyword}</span>
-                {pickKeyword.includes(key.keyword) && (
-                  <span
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleKeyword(key.keyword);
-                    }}
-                    className="cursor-pointer text-point1 hover:opacity-70 ml-[3px]"
-                  >
-                    ×
-                  </span>
-                )}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {isPending ? (
+        <p>로딩 중입니다...</p>
+      ) : isError ? (
+        <p>에러 발생: {error.message}</p>
+      ) : (
+        <div className=" pb-[35px] max-md:pb-[20px]">
+          <ul className="flex flex-wrap gap-[15px]">
+            {data?.map((key) => (
+              <li key={key.keyword_id}>
+                <button
+                  type="button"
+                  onClick={() => toggleKeyword(key.keyword)}
+                  className={`flex items-center py-[10px] px-[15px]  rounded-[5px] text-[14px] tracking-tight dark:bg-gray-600 dark:text-point1  ${
+                    pickKeyword.includes(key.keyword)
+                      ? 'bg-point2 text-white'
+                      : 'bg-[#ededed] text-gray-600 hover:text-point1 hover:bg-point2'
+                  }`}
+                >
+                  <span className="">{key.keyword}</span>
+                  {pickKeyword.includes(key.keyword) && (
+                    <span
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleKeyword(key.keyword);
+                      }}
+                      className="cursor-pointer text-point1 hover:opacity-70 ml-[3px]"
+                    >
+                      ×
+                    </span>
+                  )}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
       <div className="flex items-center justify-between pb-[35px] max-md:pb-[20px]">
         <label className="w-[80px]">요약</label>
         <input

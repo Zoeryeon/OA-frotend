@@ -54,7 +54,7 @@ export default function Header() {
     let prevScrollY = 0;
 
     function handleScroll() {
-      let currentScrollY = window.scrollY;
+      const currentScrollY = window.scrollY;
 
       // 아래로 스크롤시 헤더 안보이게
       if (currentScrollY > prevScrollY && currentScrollY > 50) {

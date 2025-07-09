@@ -27,7 +27,7 @@ type All = {
   keyword: [];
 };
 
-export default function watch({
+export default function Watch({
   searchParams,
 }: {
   searchParams: Promise<{ genre: string; type: string }>;
