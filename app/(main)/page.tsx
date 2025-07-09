@@ -13,15 +13,29 @@ export default function Home() {
   const { data, isPending, isError, error } = useQuery({
     queryKey: ['vod'],
     queryFn: () =>
-      fetch(`http://localhost:3001/home-vod`).then((res) => res.json()),
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/home-vod`).then((res) =>
+        res.json()
+      ),
   });
 
   return (
     <main className="bg-point1 dark:bg-[#080808]">
       <MainSlider />
       <CategoryMenu />
-      <OaSliderLap data={data} />
-      <PresentSet data={data} />
+      {isPending ? (
+        <p>로딩 중입니다...</p>
+      ) : isError ? (
+        <p>에러 발생: {error.message}</p>
+      ) : (
+        <OaSliderLap data={data} />
+      )}
+      {isPending ? (
+        <p>로딩 중입니다...</p>
+      ) : isError ? (
+        <p>에러 발생: {error.message}</p>
+      ) : (
+        <PresentSet data={data} />
+      )}
       <OathemeMovie />
       <OaArtist />
     </main>

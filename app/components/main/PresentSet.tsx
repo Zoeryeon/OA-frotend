@@ -3,7 +3,6 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import type { Swiper as SwiperType } from 'swiper'; // 타입만 import
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -175,7 +174,7 @@ export default function PresentSet({ data }: { data: VodData[] }) {
                     {/* 이미지 부분 */}
                     <div className="w-full overflow-hidden">
                       <img
-                        src={`http://localhost:3001${slide.img_url}`}
+                        src={`${process.env.NEXT_PUBLIC_API_URL}${slide.img_url}`}
                         alt="썸네일"
                         className="w-full h-full bg-[#ededed] object-cover transition-all duration-100 group-hover:duration-200 group-hover:transform group-hover:scale-105"
                         style={{

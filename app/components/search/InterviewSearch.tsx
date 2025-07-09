@@ -78,7 +78,7 @@ export default function InterviewSearch() {
               )}
               <div className="w-full overflow-hidden aspect-[16/9]">
                 <img
-                  src={`http://localhost:3001${item.img_url}`}
+                  src={`${process.env.NEXT_PUBLIC_API_URL}${item.img_url}`}
                   alt="썸네일"
                   className="w-full h-full bg-[#ededed] object-cover transition-all duration-100 group-hover:duration-200 group-hover:transform group-hover:scale-105"
                   style={{ boxShadow: '2px 2px 6px rgba(0, 0, 0, 0.3)' }}

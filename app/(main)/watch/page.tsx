@@ -58,7 +58,7 @@ export default function watch({
     queryKey: ['vod', currentGenre, currentType, currentSort, count],
     queryFn: () =>
       fetch(
-        `http://localhost:3001/watch?genre=${currentGenre}&type=${currentType}&sort=${currentSort}&count=${count}`
+        `${process.env.NEXT_PUBLIC_API_URL}/watch?genre=${currentGenre}&type=${currentType}&sort=${currentSort}&count=${count}`
       ).then((res) => res.json()),
   });
 

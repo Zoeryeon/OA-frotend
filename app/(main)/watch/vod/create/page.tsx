@@ -27,7 +27,7 @@ export default function Create() {
   const { mutate } = useMutation({
     // 자동완성에 나오는 user타입을 복붙
     mutationFn: (data: Partial<Data>) => {
-      return fetch('http://localhost:3001/vod', {
+      return fetch(`${process.env.NEXT_PUBLIC_API_URL}/vod`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,7 +43,6 @@ export default function Create() {
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
-    console.log(data);
     mutate(data);
     router.push('/watch');
   };

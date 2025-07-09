@@ -47,7 +47,9 @@ export default function EditForm({
   const { isPending, data, isError, error } = useQuery<Keyword[]>({
     queryKey: ['keyword'],
     queryFn: () =>
-      fetch('http://localhost:3001/keyword').then((res) => res.json()),
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/keyword`).then((res) =>
+        res.json()
+      ),
   });
 
   const {
@@ -58,9 +60,10 @@ export default function EditForm({
   } = useQuery<Keyword[]>({
     queryKey: ['keyword', id],
     queryFn: () =>
-      fetch(`http://localhost:3001/keyword/${id}`).then((res) => res.json()),
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/${id}`).then((res) =>
+        res.json()
+      ),
   });
-  console.log(keyData);
 
   // 가격 가져오기
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -125,7 +128,7 @@ export default function EditForm({
   const { mutate } = useMutation({
     // 자동완성에 나오는 타입을 복붙
     mutationFn: () => {
-      return fetch(`http://localhost:3001/vod/${id}`, {
+      return fetch(`${process.env.NEXT_PUBLIC_API_URL}/vod/${id}`, {
         method: 'DELETE',
       });
     },
@@ -135,6 +138,10 @@ export default function EditForm({
     mutate();
     window.location.href = '/watch';
   }
+
+  // 랜더링조건처리
+  if (keyIsPending) return <p>로딩 중입니다...</p>;
+  if (keyIsError) return <p>에러 발생: {keyError.message}</p>;
 
   return (
     <form onSubmit={handleSubmit}>
@@ -234,36 +241,42 @@ export default function EditForm({
           className=" w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
         />
       </div>
-      <div className=" pb-[35px] max-md:pb-[20px]">
-        <ul className="flex flex-wrap gap-[15px]">
-          {data?.map((key) => (
-            <li key={key.keyword_id}>
-              <button
-                type="button"
-                onClick={() => toggleKeyword(key.keyword)}
-                className={`flex items-center py-[10px] px-[15px]  rounded-[5px] text-[14px] tracking-tight dark:bg-gray-600 dark:text-point1  ${
-                  pickKeyword.includes(key.keyword)
-                    ? 'bg-point2 text-white'
-                    : 'bg-[#ededed] text-gray-600 hover:text-point1 hover:bg-point2'
-                }`}
-              >
-                <span className="">{key.keyword}</span>
-                {pickKeyword.includes(key.keyword) && (
-                  <span
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleKeyword(key.keyword);
-                    }}
-                    className="cursor-pointer text-point1 hover:opacity-70 ml-[3px]"
-                  >
-                    ×
-                  </span>
-                )}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {isPending ? (
+        <p>로딩 중입니다...</p>
+      ) : isError ? (
+        <p>에러 발생: {error.message}</p>
+      ) : (
+        <div className=" pb-[35px] max-md:pb-[20px]">
+          <ul className="flex flex-wrap gap-[15px]">
+            {data?.map((key) => (
+              <li key={key.keyword_id}>
+                <button
+                  type="button"
+                  onClick={() => toggleKeyword(key.keyword)}
+                  className={`flex items-center py-[10px] px-[15px]  rounded-[5px] text-[14px] tracking-tight dark:bg-gray-600 dark:text-point1  ${
+                    pickKeyword.includes(key.keyword)
+                      ? 'bg-point2 text-white'
+                      : 'bg-[#ededed] text-gray-600 hover:text-point1 hover:bg-point2'
+                  }`}
+                >
+                  <span className="">{key.keyword}</span>
+                  {pickKeyword.includes(key.keyword) && (
+                    <span
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleKeyword(key.keyword);
+                      }}
+                      className="cursor-pointer text-point1 hover:opacity-70 ml-[3px]"
+                    >
+                      ×
+                    </span>
+                  )}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
       <div className="flex items-center justify-between pb-[35px] max-md:pb-[20px]">
         <label className="w-[80px]">요약</label>
         <input

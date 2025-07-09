@@ -28,7 +28,9 @@ export default function Form({
   const { isPending, data, isError, error } = useQuery<Keyword[]>({
     queryKey: ['keyword'],
     queryFn: () =>
-      fetch('http://localhost:3001/keyword').then((res) => res.json()),
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/keyword`).then((res) =>
+        res.json()
+      ),
   });
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {

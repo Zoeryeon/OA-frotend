@@ -50,7 +50,7 @@ export default function free({
     queryKey: ['free', currentGenre, currentSort, count],
     queryFn: () =>
       fetch(
-        `http://localhost:3001/watch/free?genre=${currentGenre}&sort=${currentSort}&count=${count}`
+        `${process.env.NEXT_PUBLIC_API_URL}/watch/free?genre=${currentGenre}&sort=${currentSort}&count=${count}`
       ).then((res) => res.json()),
   });
 
@@ -64,8 +64,6 @@ export default function free({
       setAllList([...allList, ...data]);
     }
   }, [data, count]);
-
-  console.log(allList);
 
   useEffect(() => {
     params.set('genre', currentGenre);
@@ -86,12 +84,18 @@ export default function free({
           isSingleColumn={isSingleColumn}
           setIsSingleColumn={setIsSingleColumn}
         />
-        <VodList
-          isSingleColumn={isSingleColumn}
-          allList={allList}
-          count={count}
-          setCount={setCount}
-        />
+        {isPending ? (
+          <p>로딩 중입니다...</p>
+        ) : isError ? (
+          <p>에러 발생: {error.message}</p>
+        ) : (
+          <VodList
+            isSingleColumn={isSingleColumn}
+            allList={allList}
+            count={count}
+            setCount={setCount}
+          />
+        )}
       </div>
     </main>
   );

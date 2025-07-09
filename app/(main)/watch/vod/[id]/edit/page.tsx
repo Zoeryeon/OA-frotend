@@ -38,14 +38,16 @@ export default function VodEdit({
   } = useQuery({
     queryKey: ['vod'],
     queryFn: () =>
-      fetch(`http://localhost:3001/vod/${id}`).then((res) => res.json()),
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/vod/${id}`).then((res) =>
+        res.json()
+      ),
   });
 
   // vod 수정요청
   const { mutate } = useMutation({
     // 자동완성에 나오는 타입을 복붙
     mutationFn: (data: Partial<Data>) => {
-      return fetch(`http://localhost:3001/vod/${id}`, {
+      return fetch(`${process.env.NEXT_PUBLIC_API_URL}/vod/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -61,7 +63,6 @@ export default function VodEdit({
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
-    console.log(data);
     mutate(data);
     router.push('/watch');
   };
@@ -101,15 +102,21 @@ export default function VodEdit({
           <h4 className="text-[28px] font-bold pb-[50px] max-md:text-[24px] max-sm:text-[22px] max-sm:pb-[30px]">
             vod 수정하기{id}
           </h4>
-          <EditForm
-            id={id}
-            vodData={vodData}
-            handleSubmit={handleSubmit}
-            genreSelected={genreSelected}
-            setGenreSelected={setGenreSelected}
-            ageSelected={ageSelected}
-            setAgeSelected={setAgeSelected}
-          />
+          {isPending ? (
+            <p>로딩 중입니다...</p>
+          ) : isError ? (
+            <p>에러 발생: {error.message}</p>
+          ) : (
+            <EditForm
+              id={id}
+              vodData={vodData}
+              handleSubmit={handleSubmit}
+              genreSelected={genreSelected}
+              setGenreSelected={setGenreSelected}
+              ageSelected={ageSelected}
+              setAgeSelected={setAgeSelected}
+            />
+          )}
         </div>
       </div>
     </main>

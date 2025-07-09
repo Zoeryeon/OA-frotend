@@ -8,7 +8,7 @@ import SearchCate from '@/app/components/search/SearchCate';
 import Title from '@/app/components/search/Title';
 import VodSearch from '@/app/components/search/VodSearch';
 import { useQuery } from '@tanstack/react-query';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { use, useEffect, useState } from 'react';
 
 export default function Search({
@@ -62,12 +62,18 @@ export default function Search({
     <main className="bg-point1 dark:bg-[#080808]">
       <div className="max-w-[1160px] mx-auto ">
         <div className="px-[20px] pt-[80px] pb-[48px]">
-          <Title
-            searchedKeyword={searchedKeyword}
-            inputKeyword={inputKeyword}
-            handleKeyUp={handleKeyUp}
-            resultCount={resultCount}
-          />
+          {isPending ? (
+            <p>로딩 중입니다...</p>
+          ) : isError ? (
+            <p>에러 발생: {error.message}</p>
+          ) : (
+            <Title
+              searchedKeyword={searchedKeyword}
+              inputKeyword={inputKeyword}
+              handleKeyUp={handleKeyUp}
+              resultCount={resultCount}
+            />
+          )}
           <SearchCate selected={selected} setSelected={setSelected} />
           <VodSearch />
           <OasetSearch />
