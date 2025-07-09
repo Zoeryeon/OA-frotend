@@ -45,7 +45,7 @@ export default function VodSearch() {
   return (
     <div>
       <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px]">
-        OA SET <span className="text-point2">5</span>
+        VOD <span className="text-point2">5</span>
       </h3>
       <ul className="grid gap-[40px] max-sm:gap-y-[15px] max-sm:gap-x-[10px] grid-cols-3 max-sm:grid-cols-2">
         {vodList.map((item, index) => (

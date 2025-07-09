@@ -55,6 +55,7 @@ export default function Search({
         (res) => res.json()
       ),
   });
+
   const resultCount = data ? data.length : 0;
 
   return (
