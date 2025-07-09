@@ -11,7 +11,7 @@ import { useQuery } from '@tanstack/react-query';
 
 export default function Home() {
   const { data, isPending, isError, error } = useQuery({
-    queryKey: ['vod'],
+    queryKey: ['home-vod'],
     queryFn: () =>
       fetch(`${process.env.NEXT_PUBLIC_API_URL}/home-vod`).then((res) =>
         res.json()
