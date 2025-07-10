@@ -145,15 +145,17 @@ export default function EditForm({
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="flex justify-between items-center pb-[35px] max-md:flex-col max-md:pb-[20px]">
+      <div className="flex justify-between items-center pb-[35px] max-md:flex-col max-md:pb-[20px] max-sm:pb-[10px]">
         <div className="flex flex-col w-full max-md:flex-row max-md:items-center">
-          <label className="pr-[20px] pb-[10px] max-md:w-[80px]">장르</label>
+          <label className="pr-[20px] pb-[10px] max-md:w-[80px] max-sm:text-[13px] max-sm:pb-0">
+            장르
+          </label>
           <select
             required
             name="category"
             value={genreSelected}
             onChange={(e) => setGenreSelected(e.target.value)}
-            className={`border py-[10px] px-[20px] rounded-[5px] hover:border-point2 cursor-pointer max-md:w-full ${
+            className={`border py-[10px] px-[20px] rounded-[5px] hover:border-point2 cursor-pointer max-md:w-full max-sm:text-[12px] ${
               genreSelected == ''
                 ? 'text-gray-400 border-gray-400'
                 : 'text-gray-600 border-point2'
@@ -169,14 +171,16 @@ export default function EditForm({
             <option value="5">인터뷰</option>
           </select>
         </div>
-        <div className="flex flex-col w-full pl-[30px] max-md:pl-0 max-md:mt-[20px] max-md:flex-row max-md:items-center">
-          <label className="pr-[20px] pb-[10px] max-md:w-[80px]">연령</label>
+        <div className="flex flex-col w-full pl-[30px] max-md:pl-0 max-md:mt-[20px] max-md:flex-row max-md:items-center max-sm:mt-[10px]">
+          <label className="pr-[20px] pb-[10px] max-md:w-[80px] max-sm:text-[13px] max-sm:pb-0">
+            연령
+          </label>
           <select
             name="age"
             required
             value={ageSelected}
             onChange={(e) => setAgeSelected(e.target.value)}
-            className={`border py-[10px] px-[20px] rounded-[5px] hover:border-point2 cursor-pointer max-md:w-full ${
+            className={`border py-[10px] px-[20px] rounded-[5px] hover:border-point2 cursor-pointer max-md:w-full max-sm:text-[12px] ${
               ageSelected == ''
                 ? 'text-gray-400 border-gray-400'
                 : 'text-gray-600 border-point2'
@@ -191,10 +195,12 @@ export default function EditForm({
             <option value="4">없음</option>
           </select>
         </div>
-        <div className="flex flex-col w-full pl-[30px] max-md:pl-0 max-md:mt-[20px] max-md:flex-row max-md:items-center">
-          <label className="pr-[20px] pb-[5px] max-md:w-[80px]">가격</label>
-          <div className="flex items-center max-md:w-full">
-            <label className="radio pr-[10px]">
+        <div className="flex flex-col w-full pl-[30px] max-md:pl-0 max-md:mt-[20px] max-md:flex-row max-md:items-center max-sm:mt-[10px]">
+          <label className="pr-[20px] pb-[5px] max-md:w-[80px] max-sm:text-[13px] max-sm:pb-0">
+            가격
+          </label>
+          <div className="flex items-center max-md:w-full max-sm:flex-col max-sm:items-start max-sm:gap-y-[5px]">
+            <label className="radio pr-[10px] max-sm:text-[12px]">
               <input
                 type="radio"
                 name="priceType"
@@ -205,7 +211,7 @@ export default function EditForm({
               />
               무료
             </label>
-            <label className="radio">
+            <label className="radio max-sm:text-[12px]">
               <input
                 type="radio"
                 name="priceType"
@@ -219,7 +225,7 @@ export default function EditForm({
                 type="text"
                 name="price"
                 placeholder="가격을 입력하세요"
-                className="w-[140px] border-gray-400 rounded-[5px] placeholder:text-[13px] hover:border-point2 focus:border-point2"
+                className="w-[140px] max-sm:w-[80px] border-gray-400 rounded-[5px] placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px]  hover:border-point2 focus:border-point2"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 disabled={priceType !== '2'}
@@ -230,7 +236,7 @@ export default function EditForm({
         </div>
       </div>
       <div className="flex items-center justify-between pb-[10px]">
-        <label className="w-[80px]">키워드</label>
+        <label className="w-[80px] max-sm:text-[13px]">키워드</label>
         <input
           type="text"
           name="keyword"
@@ -238,7 +244,7 @@ export default function EditForm({
           value={pickKeyword.join(',')}
           readOnly
           placeholder="키워드를 선택하세요(최대 5개)"
-          className=" w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
+          className=" w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2 max-sm:text-[12px] max-sm:placeholder:text-[11px]"
         />
       </div>
       {isPending ? (
@@ -247,13 +253,13 @@ export default function EditForm({
         <p>에러 발생: {error.message}</p>
       ) : (
         <div className=" pb-[35px] max-md:pb-[20px]">
-          <ul className="flex flex-wrap gap-[15px]">
+          <ul className="flex flex-wrap gap-[15px] max-sm:gap-[8px]">
             {data?.map((key) => (
               <li key={key.keyword_id}>
                 <button
                   type="button"
                   onClick={() => toggleKeyword(key.keyword)}
-                  className={`flex items-center py-[10px] px-[15px]  rounded-[5px] text-[14px] tracking-tight dark:bg-gray-600 dark:text-point1  ${
+                  className={`flex items-center py-[10px] px-[15px]  rounded-[5px] text-[14px] tracking-tight max-sm:text-[12px] max-sm:py-[6px] max-sm:px-[8px] dark:bg-gray-600 dark:text-point1  ${
                     pickKeyword.includes(key.keyword)
                       ? 'bg-point2 text-white'
                       : 'bg-[#ededed] text-gray-600 hover:text-point1 hover:bg-point2'
@@ -278,7 +284,7 @@ export default function EditForm({
         </div>
       )}
       <div className="flex items-center justify-between pb-[35px] max-md:pb-[20px]">
-        <label className="w-[80px]">요약</label>
+        <label className="w-[80px] max-sm:text-[13px]">요약</label>
         <input
           type="text"
           name="summary"
@@ -286,11 +292,11 @@ export default function EditForm({
           placeholder="한 줄 소개를 입력하세요"
           value={summary}
           onChange={(e) => setSummary(e.target.value)}
-          className="w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
+          className="w-full placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
         />
       </div>
       <div className="flex items-center justify-between pb-[35px] max-md:pb-[20px]">
-        <label className="w-[80px]">제목</label>
+        <label className="w-[80px] max-sm:text-[13px]">제목</label>
         <input
           type="text"
           name="title"
@@ -298,11 +304,11 @@ export default function EditForm({
           placeholder="제목을 입력하세요"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className=" w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
+          className=" w-full placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
         />
       </div>
       <div className="flex items-center justify-between pb-[35px]">
-        <label className="w-[80px]">이미지</label>
+        <label className="w-[80px] max-sm:text-[13px]">이미지</label>
         <input
           type="text"
           name="img"
@@ -310,20 +316,20 @@ export default function EditForm({
           placeholder="이미지경로를 입력하세요"
           value={imgUrl}
           onChange={(e) => setImgUrl(e.target.value)}
-          className=" w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
+          className=" w-full placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
         />
       </div>
       <div className="flex items-center justify-center gap-[10px]">
         <button
           type="submit"
-          className="p-[15px] border border-gray-400 rounded-[5px] hover:bg-point2 hover:border-point2 hover:text-point1"
+          className="p-[15px] border border-gray-400 rounded-[5px] max-sm:text-[13px] max-sm:p-[10px] hover:bg-point2 hover:border-point2 hover:text-point1"
         >
           vod 수정하기
         </button>
         <button
           type="button"
           onClick={handleDelete}
-          className="p-[15px] border border-gray-400 rounded-[5px] hover:bg-point2 hover:border-point2 hover:text-point1"
+          className="p-[15px] border border-gray-400 rounded-[5px] max-sm:text-[13px] max-sm:p-[10px] hover:bg-point2 hover:border-point2 hover:text-point1"
         >
           vod 삭제하기
         </button>

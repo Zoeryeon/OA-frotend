@@ -22,8 +22,8 @@ export default function Gnb() {
               href={item.href}
               className={`leading-[30px] relative text-gray-600 left-0 top-0 whitespace-nowrap  max-md:px-[10px] max-md:leading-[30px] max-md:flex dark:text-point1 ${
                 pathname === item.href
-                  ? "text-point2 after:content-[''] after:block after:w-full after:absolute after:left-0 after:top-full after:bg-point2 after:h-[1px] max-md:after:left-[10px] max-md:after:right-[10px] max-md:after:w-[55px] max-md:after:h-[2px] max-md:after:bottom-0"
-                  : "after:content-[''] after:block after:w-0 after:absolute after:left-[50%] after:top-full after:bg-point2 after:h-[1px] after:transition-all after:duration-150 hover:text-point2 hover:after:w-full hover:after:left-0 hover:after:transition-all hover:after:duration-300 max-md:after:hidden max-md:hover:text-inherit max-md:hover:after:w-0 max-md:hover:after:lefe-[50%]"
+                  ? "text-point2 after:content-[''] after:block after:w-full after:absolute after:left-0 after:top-full after:bg-point2 after:h-[1px] max-md:after:right-[10px] max-md:after:w-[55px] max-md:after:h-[2px] max-md:after:bottom-0"
+                  : "after:content-[''] after:block after:w-0 after:absolute after:left-[50%] after:top-full after:bg-point2 after:h-[1px] after:transition-all after:duration-150 hover:text-point2 hover:after:w-full hover:after:left-0 hover:after:transition-all hover:after:duration-300 max-md:after:hidden max-md:hover:text-inherit max-md:hover:after:w-0 max-md:hover:after:left-[50%]"
               }`}
             >
               {item.label}

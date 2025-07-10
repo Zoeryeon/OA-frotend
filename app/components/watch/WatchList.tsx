@@ -70,7 +70,7 @@ export default function WatchList({
               )}
               <Link
                 href="#"
-                className="block border border-gray-400 rounded-[10px] overflow-hidden group dark:border-gray-600 relative aspect-[344.67/375.86]"
+                className="block border border-gray-400 rounded-[10px] overflow-hidden group dark:border-gray-600 relative aspect-[344.67/375.86] max-sm:aspect-auto"
                 style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.07)' }}
               >
                 {item.age !== null && (
@@ -103,7 +103,7 @@ export default function WatchList({
                     </em>
                   </div>
                 )}
-                <div className="w-full overflow-hidden aspect-[16/9]">
+                <div className="w-full overflow-hidden aspect-[16/9] max-sm:aspect-[87/49]">
                   <img
                     src={`${process.env.NEXT_PUBLIC_API_URL}${item.img_url}`}
                     alt="썸네일"
@@ -111,8 +111,8 @@ export default function WatchList({
                     style={{ boxShadow: '2px 2px 6px rgba(0, 0, 0, 0.3)' }}
                   />
                 </div>
-                <div className="flex flex-col h-[180px] border-t border-t-gray-400 px-[10px] pb-[15px] bg-white max-md:h-[140px] dark:bg-black dark:border-t-gray-600 max-sm:h-[170px]">
-                  <div className="mt-[15px] text-[13px] flex flex-wrap items-start gap-[5px] text-gray-600 tracking-tight w-full text-ellipsis break-all max-md:text-[11px]">
+                <div className="flex flex-col h-[180px] border-t border-t-gray-400 px-[10px] pb-[15px] bg-white max-md:h-[140px] dark:bg-black dark:border-t-gray-600 max-sm:h-[170px] max-[500px]:h-[180px] max-[450px]:h-[190px]">
+                  <div className="mt-[15px] text-[13px] flex flex-wrap items-start gap-[5px] text-gray-600 tracking-tight w-full text-ellipsis break-all max-md:text-[11px] max-sm:mt-[10px]">
                     <p className="text-point1 bg-point2 block mb-[6px] py-[1px] px-[6px] rounded-[3px]">
                       {item.price}
                     </p>
@@ -125,7 +125,7 @@ export default function WatchList({
                       </p>
                     ))}
                   </div>
-                  <h4 className="h-[50px] tracking-tighter text-[20px] font-semibold mb-[7px] text-gray-600 overflow-hidden text-ellipsis line-clamp-2 max-md:text-[16px] max-md:h-[43px] dark:text-point1 max-sm:h-[50px]">
+                  <h4 className="h-[50px] tracking-tighter text-[20px] font-semibold mb-[7px] text-gray-600 overflow-hidden text-ellipsis line-clamp-2 max-md:text-[16px] max-md:h-[43px] dark:text-point1 max-sm:h-[40px]">
                     {item.title}
                   </h4>
                   <div className="flex mt-auto items-end h-[40px] justify-between gap-[10px] max-md:h-auto">
@@ -145,7 +145,7 @@ export default function WatchList({
             <li key={index}>
               <Link
                 href="#"
-                className=" block border border-gray-400 rounded-[10px] overflow-hidden group dark:border-gray-600 relative aspect-[344.67/375.86]"
+                className=" block border border-gray-400 rounded-[10px] overflow-hidden group dark:border-gray-600 relative aspect-[344.67/375.86] max-sm:aspect-[14/15] max-[650px]:aspect-[14/17] max-[550px]:aspect-[14/18] max-[500px]:aspect-[14/20] max-[400px]:aspect-[12/20] max-[360px]:aspect-[11/21] max-[340px]:aspect-[11/22]"
                 style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.07)' }}
               >
                 <div className="min-w-[15px] h-[30px] whitespace-nowrap absolute z-10 left-[10px] top-[13px] max-sm:h-[24px]">

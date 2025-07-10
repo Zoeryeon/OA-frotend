@@ -50,8 +50,8 @@ export default function SubMenu({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex px-[20px] pb-[50px] items-center justify-between w-full max-md:pb-[38px] max-sm:pb-[30px]">
-      <ol className="flex gap-[10px] ">
+    <div className="flex px-[20px] pb-[50px] items-center justify-between w-full max-md:pb-[38px] max-sm:pb-[30px] max-[355px]:flex-col">
+      <ol className="flex gap-[10px] max-[355px]:pb-[20px] max-[355px]:items-start">
         {typeList.map((item, index) => (
           <li key={index}>
             <Link
@@ -81,7 +81,7 @@ export default function SubMenu({
           }`}
           onClick={() => setIsOpen(!isOpen)}
         >
-          <div className="flex justify-between gap-[5px] whitespace-nowrap w-full max-sm:gap-[3px]">
+          <div className="flex justify-between gap-[5px] whitespace-nowrap w-full min-w-[82px] max-sm:gap-[3px]">
             <span className="dark:text-point1">{currentSort}</span>{' '}
             {/* 선택된 값 표시 */}
             <img
@@ -91,7 +91,7 @@ export default function SubMenu({
             />
           </div>
           <ol
-            className={`absolute top-full -left-[1px] -right-[1px] flex-wrap bg-point1 w-auto rounded-br-[5px] rounded-bl-[5px] z-10 h-auto border border-point2 border-t-0 ${
+            className={`absolute top-full -left-[1px] -right-[1px] flex-wrap bg-point1 min-w-[82px] w-auto rounded-br-[5px] rounded-bl-[5px] z-10 h-auto border border-point2 border-t-0 ${
               isOpen ? 'flex' : 'hidden'
             }`}
           >

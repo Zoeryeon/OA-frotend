@@ -100,7 +100,7 @@ export default function VodEdit({
             뒤로가기
           </Link>
           <h4 className="text-[28px] font-bold pb-[50px] max-md:text-[24px] max-sm:text-[22px] max-sm:pb-[30px]">
-            vod 수정하기{id}
+            vod 수정하기
           </h4>
           {isPending ? (
             <p>로딩 중입니다...</p>

@@ -53,6 +53,7 @@ export default function OaSlider({
           modules={[Navigation]}
           spaceBetween={0}
           slidesPerView={1}
+          resizeObserver={false}
           loop={true} // 무한 반복 설정
           navigation
           breakpoints={{

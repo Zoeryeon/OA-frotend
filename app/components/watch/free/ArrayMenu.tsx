@@ -25,7 +25,7 @@ export default function ArrayMenu({
 
   return (
     <div className="flex px-[20px] pb-[50px] items-center justify-between w-full max-md:pb-[38px] max-sm:pb-[30px]">
-      <div className="pb-[65px] ml-auto">
+      <div className="pb-[65px] ml-auto max-sm:flex max-sm:gap-[10px] max-sm:items-center max-sm:pb-[10px]">
         <div
           className={`items-center content-center border h-[40px] bg-point1 w-[130px] px-[10px] relative cursor-pointer select-none max-md:h-[36px] max-md:text-[14px] max-md:w-auto max-sm:text-[13px] max-sm:pr-[4px] max-sm:pl-[7px] dark:bg-[#080808] ${
             isOpen

@@ -25,6 +25,7 @@ export default function MainSlider() {
         spaceBetween={30}
         slidesPerView={1}
         allowTouchMove={false}
+        resizeObserver={false}
         loop={true} // 무한 반복 설정
         autoplay={{
           delay: 3000, // 3초마다 슬라이드 이동

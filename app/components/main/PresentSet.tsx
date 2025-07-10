@@ -103,6 +103,7 @@ export default function PresentSet({ data }: { data: VodData[] }) {
             modules={[Navigation]}
             spaceBetween={10}
             slidesPerView={1}
+            resizeObserver={false}
             loop={true} // 무한 반복 설정
             navigation
             onSlideChange={(swiper) => {
@@ -136,8 +137,19 @@ export default function PresentSet({ data }: { data: VodData[] }) {
           <Swiper
             className={`${styles.subslider} sub-slider`}
             modules={[Navigation]}
-            slidesPerView={3}
+            slidesPerView={1}
+            resizeObserver={false}
             navigation
+            breakpoints={{
+              768: {
+                spaceBetween: 10,
+                slidesPerView: 2,
+              },
+              1024: {
+                spaceBetween: 40,
+                slidesPerView: 3,
+              },
+            }}
             key={randomSlide2?.length}
           >
             {randomSlide2?.map((slide) => (
