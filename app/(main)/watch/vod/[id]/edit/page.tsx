@@ -64,7 +64,7 @@ export default function VodEdit({
     const data = Object.fromEntries(formData.entries());
 
     mutate(data);
-    router.push('/watch');
+    router.push('/watch?genre=all&type=all');
   };
 
   // 숫자를 문자로 바꾸기
