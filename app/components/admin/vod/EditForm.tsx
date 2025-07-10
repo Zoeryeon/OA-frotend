@@ -136,7 +136,7 @@ export default function EditForm({
 
   function handleDelete() {
     mutate();
-    window.location.href = '/watch';
+    window.location.href = '/watch?genre=all&type=all';
   }
 
   // 랜더링조건처리
