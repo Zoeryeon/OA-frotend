@@ -60,7 +60,7 @@ export default function EditForm({
   } = useQuery<Keyword[]>({
     queryKey: ['keyword', id],
     queryFn: () =>
-      fetch(`${process.env.NEXT_PUBLIC_API_URL}/${id}`).then((res) =>
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/keyword/${id}`).then((res) =>
         res.json()
       ),
   });
