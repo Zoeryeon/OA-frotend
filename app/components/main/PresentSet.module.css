@@ -73,3 +73,12 @@
     margin-right: 10px;
   }
 }
+
+@media (max-width: 580px) {
+  .subslider [class*='swiper-slide'] {
+    width: 80%;
+  }
+  .subslider [class*='swiper-button'] {
+    display: none;
+  }
+}

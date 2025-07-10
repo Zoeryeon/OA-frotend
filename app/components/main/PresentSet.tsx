@@ -88,7 +88,7 @@ export default function PresentSet({ data }: { data: VodData[] }) {
 
   return (
     <div className="pt-[80px] max-md:pt-[48px] max-sm:pt-[40px]">
-      <div className="max-w-[1280px] px-[20px] mx-auto">
+      <div className="max-w-[1280px] px-[20px] mx-auto max-md:px-0 ">
         <div className="text-center px-[80px] pb-[24px] max-md:px-0">
           <h3 className="text-[30px] font-semibold tracking-tight max-md:text-[28px] max-sm:text-[22px] dark:text-point1">
             오아 종합 선물 세트
@@ -101,11 +101,16 @@ export default function PresentSet({ data }: { data: VodData[] }) {
           <Swiper
             className={styles.presentslider}
             modules={[Navigation]}
-            spaceBetween={10}
+            spaceBetween={0}
             slidesPerView={1}
             resizeObserver={false}
             loop={true} // 무한 반복 설정
             navigation
+            breakpoints={{
+              768: {
+                spaceBetween: 10,
+              },
+            }}
             onSlideChange={(swiper) => {
               setActiveIndex(swiper.realIndex); // 현재 슬라이드 인덱스 업데이트
             }}
@@ -133,17 +138,17 @@ export default function PresentSet({ data }: { data: VodData[] }) {
             ))}
           </Swiper>
         </div>
-        <div className="relative mt-[30px] max-w-[1160px] px-[20px] mx-auto">
+        <div className="relative mt-[30px] max-w-[1160px] px-[20px] mx-auto max-[580px]:mt-[20px]">
           <Swiper
             className={`${styles.subslider} sub-slider`}
             modules={[Navigation]}
-            slidesPerView={1}
+            slidesPerView={1.3}
             resizeObserver={false}
             navigation
             breakpoints={{
               768: {
-                spaceBetween: 10,
-                slidesPerView: 2,
+                spaceBetween: 40,
+                slidesPerView: 3,
               },
               1024: {
                 spaceBetween: 40,
@@ -195,7 +200,7 @@ export default function PresentSet({ data }: { data: VodData[] }) {
                       />
                     </div>
                     {/* 콘텐츠 정보 부분 */}
-                    <div className="flex flex-col h-[180px] border-t border-t-gray-400 px-[10px] pb-[15px] bg-white max-md:h-[130px] dark:bg-black dark:border-t-gray-600">
+                    <div className="flex flex-col h-[180px] border-t border-t-gray-400 px-[10px] pb-[15px] bg-white max-md:h-[130px] dark:bg-black dark:border-t-gray-600 max-sm:h-[170px]">
                       <div className="mt-[15px] text-[13px] flex flex-wrap items-start gap-[5px] text-gray-600 tracking-tight w-full text-ellipsis break-all max-md:text-[11px]">
                         <p className="text-point1 bg-point2 block mb-[6px] py-[1px] px-[6px] rounded-[3px]">
                           {slide.price}
