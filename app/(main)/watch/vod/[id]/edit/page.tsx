@@ -90,7 +90,7 @@ export default function VodEdit({
       <div className="max-w-[1160px] mx-auto ">
         <div className="pt-[155px] px-[80px] pb-[80px] items-center w-full max-md:px-[20px] max-md:flex-col max-md:pt-[153px] max-md:pb-[48px] max-sm:pt-[145px] max-sm:pb-[40px]">
           <Link
-            href="/watch"
+            href={`${process.env.NEXT_PUBLIC_API_URL}/watch`}
             className="inline-flex items-center mb-[20px] group max-md:text-[12px]"
           >
             <i
