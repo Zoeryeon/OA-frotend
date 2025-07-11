@@ -3,10 +3,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const menuItems = [
-  { label: '관람하기', href: '/watch?genre=all&type=all' },
-  { label: '오뗌 극장', href: '/oatheme' },
-  { label: '오아플러스', href: '#' },
-  { label: 'FREE', href: '/watch/free' },
+  { label: '관람하기', href: '/watch?genre=all&type=all', menu: '/watch' },
+  { label: '오뗌 극장', href: '/oatheme', menu: '/oatheme' },
+  { label: '오아플러스', href: '#', menu: '#' },
+  { label: 'FREE', href: '/watch/free', menu: '/watch/free' },
 ];
 
 export default function Gnb() {
@@ -21,8 +21,8 @@ export default function Gnb() {
             <Link
               href={item.href}
               className={`leading-[30px] relative text-gray-600 left-0 top-0 whitespace-nowrap  max-md:px-[10px] max-md:leading-[30px] max-md:flex dark:text-point1 ${
-                pathname === item.href
-                  ? "text-point2 after:content-[''] after:block after:w-full after:absolute after:left-0 after:top-full after:bg-point2 after:h-[1px] max-md:after:right-[10px] max-md:after:w-[55px] max-md:after:h-[2px] max-md:after:bottom-0"
+                pathname === item.menu
+                  ? "text-point2 after:content-[''] after:block  after:absolute after:left-0 after:top-full after:bg-point2 after:h-[1px] max-md:after:right-[10px]  max-md:after:h-[2px] max-md:after:bottom-0 max-md:after:left-[10px]"
                   : "after:content-[''] after:block after:w-0 after:absolute after:left-[50%] after:top-full after:bg-point2 after:h-[1px] after:transition-all after:duration-150 hover:text-point2 hover:after:w-full hover:after:left-0 hover:after:transition-all hover:after:duration-300 max-md:after:hidden max-md:hover:text-inherit max-md:hover:after:w-0 max-md:hover:after:left-[50%]"
               }`}
             >

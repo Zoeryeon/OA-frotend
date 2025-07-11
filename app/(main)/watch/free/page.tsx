@@ -72,31 +72,29 @@ export default function Free({
 
   return (
     <main className="bg-point1 dark:bg-[#080808]">
-      <div className="max-w-[1160px] mx-auto">
-        <WorryBe />
-        <GenreMenu
-          currentGenre={currentGenre}
-          setCurrentGenre={setCurrentGenre}
-        />
-        <ArrayMenu
-          currentSort={currentSort}
-          setCurrentSort={setCurrentSort}
+      <WorryBe />
+      <GenreMenu
+        currentGenre={currentGenre}
+        setCurrentGenre={setCurrentGenre}
+      />
+      <ArrayMenu
+        currentSort={currentSort}
+        setCurrentSort={setCurrentSort}
+        isSingleColumn={isSingleColumn}
+        setIsSingleColumn={setIsSingleColumn}
+      />
+      {isPending ? (
+        <p>로딩 중입니다...</p>
+      ) : isError ? (
+        <p>에러 발생: {error.message}</p>
+      ) : (
+        <VodList
           isSingleColumn={isSingleColumn}
-          setIsSingleColumn={setIsSingleColumn}
+          allList={allList}
+          count={count}
+          setCount={setCount}
         />
-        {isPending ? (
-          <p>로딩 중입니다...</p>
-        ) : isError ? (
-          <p>에러 발생: {error.message}</p>
-        ) : (
-          <VodList
-            isSingleColumn={isSingleColumn}
-            allList={allList}
-            count={count}
-            setCount={setCount}
-          />
-        )}
-      </div>
+      )}
     </main>
   );
 }

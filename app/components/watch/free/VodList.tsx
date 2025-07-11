@@ -43,7 +43,7 @@ export default function VodList({
   }, []);
 
   return (
-    <div className="px-[20px]">
+    <div className="max-w-[1160px] mx-auto px-[20px]">
       <ul
         className={`grid gap-[40px] max-sm:gap-y-[15px] max-sm:gap-x-[10px] ${
           isSingleColumn ? 'grid-cols-1' : 'grid-cols-3 max-sm:grid-cols-2 '

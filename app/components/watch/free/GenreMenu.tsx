@@ -55,7 +55,7 @@ export default function GenreMenu({
   };
 
   return (
-    <div className="pt-[155px] px-[80px] pb-[80px] items-center justify-center w-full flex max-md:px-[20px] max-md:flex-col max-md:pt-[153px] max-md:pb-[48px] max-sm:pt-[44px] max-sm:pb-[40px] max-sm:px-[20px]">
+    <div className="max-w-[1160px] mx-auto p-[64px] items-center justify-center w-full flex max-md:px-[20px] max-md:py-[48px] max-md:flex-col max-sm:py-[40px]">
       <ol className="flex flex-wrap items-center justify-center gap-[36px] max-md:w-full max-md:gap-y-[20px] max-md:gap-x-0">
         {categories.map((category, index) => (
           <li key={index} className="max-md:w-[25%]">
@@ -64,7 +64,7 @@ export default function GenreMenu({
               onClick={() => setCurrentGenre(category.genre)}
             >
               <div
-                className={`w-[70px] h-[70px] rounded-[5px] bg-[#fcfcfc] max-sm:w-[54px] max-sm:h-[54px] dark:bg-gray-600
+                className={`w-[70px] h-[70px] rounded-[5px] bg-[#fcfcfc] max-md:w-[64px] max-sm:w-[54px] max-sm:h-[54px] dark:bg-gray-600
                   ${
                     isActive(category.genre) ? 'border-[2px] border-point2' : ''
                   }`}
