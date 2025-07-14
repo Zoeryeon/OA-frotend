@@ -11,6 +11,12 @@ import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { use, useEffect, useState } from 'react';
 
+type Item = {
+  vod_id?: number;
+  oaset_id?: number;
+  is_interview?: string;
+};
+
 export default function Search({
   searchParams,
 }: {
@@ -56,6 +62,13 @@ export default function Search({
   });
 
   const resultCount = data ? data.length : 0;
+  const vodCount = data ? data.filter((item: Item) => item.vod_id).length : 0;
+  const oaCount = data ? data.filter((item: Item) => item.oaset_id).length : 0;
+  const interCount = data
+    ? data.filter((item: Item) => item.is_interview === 'Y').length
+    : 0;
+
+  const vodList = data ? data.filter((item: Item) => item.vod_id) : [];
 
   return (
     <main className="bg-point1 dark:bg-[#080808]">
@@ -73,8 +86,15 @@ export default function Search({
               resultCount={resultCount}
             />
           )}
-          <SearchCate selected={selected} setSelected={setSelected} />
-          <VodSearch />
+          <SearchCate
+            selected={selected}
+            setSelected={setSelected}
+            resultCount={resultCount}
+            vodCount={vodCount}
+            oaCount={oaCount}
+            interCount={interCount}
+          />
+          <VodSearch vodCount={vodCount} vodList={vodList} />
           <OasetSearch />
           <OaplusSearch />
           <InterviewSearch />
