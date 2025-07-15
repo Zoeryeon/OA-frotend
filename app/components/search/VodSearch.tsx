@@ -2,44 +2,6 @@
 import { ordinaryArtist } from '@/app/components/fonts';
 import Link from 'next/link';
 
-const vodList = [
-  {
-    id: 1,
-    age: '12',
-    img_url: '/images/vod/6460080aadde21fcb63f86b91a496f07.webp',
-    price: '12 WoW~',
-    keyword: ['뮤지컬', '연극', '시간'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-  {
-    id: 2,
-    age: '12',
-    img_url: '/images/vod/6460080aadde21fcb63f86b91a496f07.webp',
-    price: '12 WoW~',
-    keyword: ['뮤지컬', '연극', '시간'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-  {
-    id: 3,
-    age: '12',
-    img_url: '/images/vod/6460080aadde21fcb63f86b91a496f07.webp',
-    price: '12 WoW~',
-    keyword: ['뮤지컬', '연극', '시간'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-  {
-    id: 4,
-    age: '12',
-    img_url: '/images/vod/6460080aadde21fcb63f86b91a496f07.webp',
-    price: '12 WoW~',
-    keyword: ['뮤지컬', '연극', '시간'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-];
 type vod = {
   vod_id: number;
   title: string;
