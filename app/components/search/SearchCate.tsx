@@ -6,6 +6,7 @@ export default function SearchCate({
   resultCount,
   vodCount,
   oaCount,
+  plusCount,
   interCount,
 }: {
   selected: string;
@@ -13,6 +14,7 @@ export default function SearchCate({
   resultCount: number;
   vodCount: number;
   oaCount: number;
+  plusCount: number;
   interCount: number;
 }) {
   return (
@@ -113,7 +115,7 @@ export default function SearchCate({
               <path d="M1.2,10.8c.2-.4.2-.8.5-1.1s.8-.7,1.3-.9c.7-.4,1.7-.9,2.5-.9,1.5,0,2.8.9,4.3,1s1.7-.1,2.6-.4,1.5-.5,2.1-.9,1.3-1.5,1.5-2.4h-1.2c0,2,0,3.9,0,5.8l1.2-.3c-.2-.6-.2-1.2-.7-1.7s-.8-.6-1.3-.8c-.9-.4-1.9-.7-2.8-.9s-1.5-.1-2.3,0-.8.2-1.2.4-.5.3-.7.3c-1.1.3-2.5,0-3.5-.5s-1.9-1.3-2.3-2.4-1.2-.1-1.2.2v5.5c0,.5,1.2.3,1.2-.1v-5.5L0,5.4c.3.9.9,1.8,1.7,2.3s2.3.9,3.5,1,1.2,0,1.7,0,1.2-.5,1.8-.7c1.1-.4,2.3,0,3.4.4s1.2.4,1.7.7.8,1.1,1,1.9,1.2.1,1.2-.3c0-1.8,0-3.6,0-5.4s-1.1-.2-1.2.1c-.2.7-.6,1.6-1.2,2s-1.6.7-2.4.8-1.6,0-2.4-.4c-1.5-.5-3-.7-4.4-.2s-2.6,1-3.5,1.9-.5.5-.6.9,0,.2-.1.3,0,.3,0,.2c-.2.5,1,.4,1.1,0Z"></path>
             </svg>
             오아플러스
-            <span>0</span>
+            <span>{plusCount}</span>
           </button>
         </li>
         <li className="text-[15px]">

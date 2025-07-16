@@ -15,19 +15,25 @@ type vod = {
 };
 
 export default function VodSearch({
+  selected,
   vodCount,
-  vodList,
+  data,
 }: {
+  selected: string;
   vodCount: number;
-  vodList: vod[];
+  data: vod[];
 }) {
+  if (vodCount === 0) return null;
+
+  const vodData = selected === 'vod' ? data : data.slice(0, 9);
+
   return (
     <div>
       <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px]">
         VOD <span className="text-point2">{vodCount}</span>
       </h3>
       <ul className="grid gap-[40px] max-sm:gap-y-[15px] max-sm:gap-x-[10px] grid-cols-3 max-sm:grid-cols-2">
-        {vodList.slice(0, 9).map((item, index) => (
+        {vodData.map((item, index) => (
           <li key={index} className="relative">
             <Link
               href="#"
@@ -104,15 +110,17 @@ export default function VodSearch({
           </li>
         ))}
       </ul>
-      <button
-        type="button"
-        className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px]"
-      >
-        VOD 더보기
-        <i
-          className={`inline-flex not-italic items-center ${ordinaryArtist.className} before:content-['\\e93c'] before:text-[24px] before:text-gray-600`}
-        ></i>
-      </button>
+      {data.length > 9 && (
+        <button
+          type="button"
+          className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px]"
+        >
+          VOD 더보기
+          <i
+            className={`inline-flex not-italic items-center ${ordinaryArtist.className} before:content-['\\e93c'] before:text-[24px] before:text-gray-600`}
+          ></i>
+        </button>
+      )}
     </div>
   );
 }

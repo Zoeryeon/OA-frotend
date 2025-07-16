@@ -2,44 +2,33 @@
 import { ordinaryArtist } from '@/app/components/fonts';
 import Link from 'next/link';
 
-const oaplusList = [
-  {
-    id: 1,
-    age: '12',
-    img_url: '/images/vod/6460080aadde21fcb63f86b91a496f07.webp',
-    price: '12 WoW~',
-    keyword: ['뮤지컬', '연극', '시간'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-  {
-    id: 2,
-    age: '12',
-    img_url: '/images/vod/6460080aadde21fcb63f86b91a496f07.webp',
-    price: '12 WoW~',
-    keyword: ['뮤지컬', '연극', '시간'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-  {
-    id: 3,
-    age: '12',
-    img_url: '/images/vod/6460080aadde21fcb63f86b91a496f07.webp',
-    price: '12 WoW~',
-    keyword: ['뮤지컬', '연극', '시간'],
-    title: '별 헤는 밤',
-    summary: '별 하나에 음악소리',
-  },
-];
+type oaplus = {
+  vod_id: number;
+  title: string;
+  summary: string;
+  img_url: string;
+  price: string;
+  age: string | null;
+  favorite: number;
+  created_at: Date;
+  keyword: [];
+};
 
-export default function OaplusSearch() {
+export default function OaplusSearch({
+  plusCount,
+  plusList,
+}: {
+  plusCount: number;
+  plusList: oaplus[];
+}) {
+  if (plusCount === 0) return null;
   return (
     <div>
       <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px]">
-        오아플러스 <span className="text-point2">5</span>
+        오아플러스 <span className="text-point2">{plusCount}</span>
       </h3>
       <ul className="grid gap-[40px] max-sm:gap-y-[15px] max-sm:gap-x-[10px] grid-cols-3 max-sm:grid-cols-2">
-        {oaplusList.map((item, index) => (
+        {plusList.slice(0, 3).map((item, index) => (
           <li key={index} className="relative">
             <Link
               href="#"
@@ -116,15 +105,17 @@ export default function OaplusSearch() {
           </li>
         ))}
       </ul>
-      <button
-        type="button"
-        className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px]"
-      >
-        오아플러스 더보기
-        <i
-          className={`inline-flex not-italic items-center ${ordinaryArtist.className} before:content-['\\e93c'] before:text-[24px] before:text-gray-600`}
-        ></i>
-      </button>
+      {plusList.length > 3 && (
+        <button
+          type="button"
+          className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px]"
+        >
+          오아플러스 더보기
+          <i
+            className={`inline-flex not-italic items-center ${ordinaryArtist.className} before:content-['\\e93c'] before:text-[24px] before:text-gray-600`}
+          ></i>
+        </button>
+      )}
     </div>
   );
 }

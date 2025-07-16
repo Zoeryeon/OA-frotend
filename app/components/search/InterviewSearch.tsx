@@ -31,15 +31,33 @@ const interviewList = [
     summary: '별 하나에 음악소리',
   },
 ];
+type inter = {
+  vod_id: number;
+  title: string;
+  summary: string;
+  img_url: string;
+  price: string;
+  age: string | null;
+  favorite: number;
+  created_at: Date;
+  keyword: [];
+};
 
-export default function InterviewSearch() {
+export default function InterviewSearch({
+  interCount,
+  interList,
+}: {
+  interCount: number;
+  interList: inter[];
+}) {
+  if (interCount === 0) return null;
   return (
     <div>
       <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px]">
-        인터뷰 <span className="text-point2">5</span>
+        인터뷰 <span className="text-point2">{interCount}</span>
       </h3>
       <ul className="grid gap-[40px] max-sm:gap-y-[15px] max-sm:gap-x-[10px] grid-cols-3 max-sm:grid-cols-2">
-        {interviewList.map((item, index) => (
+        {interList.slice(0, 3).map((item, index) => (
           <li key={index} className="relative">
             <Link
               href="#"
@@ -116,15 +134,17 @@ export default function InterviewSearch() {
           </li>
         ))}
       </ul>
-      <button
-        type="button"
-        className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px]"
-      >
-        인터뷰 더보기
-        <i
-          className={`inline-flex not-italic items-center ${ordinaryArtist.className} before:content-['\\e93c'] before:text-[24px] before:text-gray-600`}
-        ></i>
-      </button>
+      {interList.length > 3 && (
+        <button
+          type="button"
+          className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px]"
+        >
+          인터뷰 더보기
+          <i
+            className={`inline-flex not-italic items-center ${ordinaryArtist.className} before:content-['\\e93c'] before:text-[24px] before:text-gray-600`}
+          ></i>
+        </button>
+      )}
     </div>
   );
 }

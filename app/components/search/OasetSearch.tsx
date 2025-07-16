@@ -2,44 +2,30 @@
 import { ordinaryArtist } from '@/app/components/fonts';
 import Link from 'next/link';
 
-const oaList = [
-  {
-    id: 1,
-    img_url: '/images/oaset/fc5985bf045888542064a90afb80a1e4.webp',
-    price: '50 W0W~',
-    title: '내 작품으로 세상과 교감하고 싶다면',
-    intro: '오아플러스 큐레이션',
-  },
-  {
-    id: 2,
-    img_url: '/images/oaset/fc5985bf045888542064a90afb80a1e4.webp',
-    price: '50 W0W~',
-    title: '내 작품으로 세상과 교감하고 싶다면',
-    intro: '오아플러스 큐레이션',
-  },
-  {
-    id: 3,
-    img_url: '/images/oaset/fc5985bf045888542064a90afb80a1e4.webp',
-    price: '50 W0W~',
-    title: '내 작품으로 세상과 교감하고 싶다면',
-    intro: '오아플러스 큐레이션',
-  },
-  {
-    id: 4,
-    img_url: '/images/oaset/fc5985bf045888542064a90afb80a1e4.webp',
-    price: '50 W0W~',
-    title: '내 작품으로 세상과 교감하고 싶다면',
-    intro: '오아플러스 큐레이션',
-  },
-];
-export default function OasetSearch() {
+type oaset = {
+  oaset_id: number;
+  price: string;
+  title: string;
+  intro: string;
+  img_url: string;
+  favorite: number;
+  created_at: Date;
+};
+export default function OasetSearch({
+  oaCount,
+  oaList,
+}: {
+  oaCount: number;
+  oaList: oaset[];
+}) {
+  if (oaCount === 0) return null;
   return (
     <div>
       <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px]">
-        OA SET <span className="text-point2">5</span>
+        OA SET <span className="text-point2">{oaCount}</span>
       </h3>
       <ul className="grid gap-[40px] max-sm:gap-y-[15px] max-sm:gap-x-[10px] grid-cols-3 max-sm:grid-cols-2">
-        {oaList.map((item, index) => (
+        {oaList.slice(0, 9).map((item, index) => (
           <li key={index}>
             <Link
               href="#"
@@ -88,7 +74,7 @@ export default function OasetSearch() {
                     {item.price}
                   </p>
                 </div>
-                <h4 className="h-[30px] tracking-tighter text-[18px] font-semibold mb-[5px] overflow-hidden text-ellipsis line-clamp-2 max-md:text-[16px] max-md:h-[43px]">
+                <h4 className="h-[45px] tracking-tighter text-[18px] font-semibold mb-[5px] overflow-hidden text-ellipsis line-clamp-2 max-md:text-[16px]">
                   {item.title}
                 </h4>
                 <div className="flex mt-auto items-end h-[40px] justify-between gap-[10px] max-md:h-auto">
@@ -102,15 +88,17 @@ export default function OasetSearch() {
           </li>
         ))}
       </ul>
-      <button
-        type="button"
-        className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px]"
-      >
-        OA SET 더보기
-        <i
-          className={`inline-flex not-italic items-center ${ordinaryArtist.className} before:content-['\\e93c'] before:text-[24px] before:text-gray-600`}
-        ></i>
-      </button>
+      {oaList.length > 9 && (
+        <button
+          type="button"
+          className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px]"
+        >
+          OA SET 더보기
+          <i
+            className={`inline-flex not-italic items-center ${ordinaryArtist.className} before:content-['\\e93c'] before:text-[24px] before:text-gray-600`}
+          ></i>
+        </button>
+      )}
     </div>
   );
 }
