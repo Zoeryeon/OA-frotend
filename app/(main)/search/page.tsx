@@ -1,6 +1,7 @@
 // app /(main) /search /page.tsx
 'use client';
 
+import Pagination from '@/app/components/Pagination';
 import InterviewSearch from '@/app/components/search/InterviewSearch';
 import OaplusSearch from '@/app/components/search/OaplusSearch';
 import OasetSearch from '@/app/components/search/OasetSearch';
@@ -21,20 +22,27 @@ type Item = {
 export default function Search({
   searchParams,
 }: {
-  searchParams: Promise<{ keyword: string }>;
+  searchParams: Promise<{ keyword: string; page: string }>;
 }) {
   const paramsObj = use(searchParams);
   const [params] = useState(new URLSearchParams(paramsObj));
+
+  const [page, setPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(0);
 
   // form에 입력하는 값
   const [inputKeyword, setInputKeyword] = useState('');
   // 제목에 들어가는 값
   const [searchedKeyword, setSearchedKeyword] = useState('');
-
+  // 검색 카테고리
   const [selected, setSelected] = useState('all');
 
   const router = useRouter();
+  // 데이터 개수
+  const [vodCount, setVodCount] = useState(0);
+  const [oaCount, setOaCount] = useState(0);
 
+  // 검색어 입력 후 엔터
   const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       const value = e.currentTarget.value;
@@ -48,47 +56,45 @@ export default function Search({
     }
   };
 
+  // 데이터 가져오기
   const { data, isPending, isError, error } = useQuery({
-    queryKey: ['search', inputKeyword, selected],
+    queryKey: ['search', inputKeyword, selected, page],
     queryFn: () =>
       fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/search?keyword=${inputKeyword}&select=${selected}`
+        `${process.env.NEXT_PUBLIC_API_URL}/search?keyword=${inputKeyword}&select=${selected}&page=${page}`
       ).then((res) => res.json()),
   });
 
+  // 메인에서 키워드 검색해서 들어올때
   useEffect(() => {
     const newKeyword = params.get('keyword') || '';
     setSearchedKeyword(newKeyword);
   }, [params]);
 
-  // 검색 결과 갯수
-  const resultCount = data ? data.length : 0;
-  const vodCount = data
-    ? data.filter((item: Item) => item.source === 'vod').length
-    : 0;
-  const oaCount = data
-    ? data.filter((item: Item) => item.source === 'oaset').length
-    : 0;
-  const plusCount = data
-    ? data.filter((item: Item) => item.summary?.includes('OA PLUS')).length
-    : 0;
-  const interCount = data
-    ? data.filter((item: Item) => item.is_interview === 'Y').length
-    : 0;
+  // data 상태 변경시 totalPage 계산
+  useEffect(() => {
+    // data 없으면 NaN이므로 0으로 초기화
+    setTotalPage(Math.ceil(data?.total / 12) || 0);
+  }, [data]);
 
-  // 검색 결과 리스트
-  // const vodList = data
-  //   ? data.filter((item: Item) => item.source === 'vod')
-  //   : [];
-  const oaList = data
-    ? data.filter((item: Item) => item.source === 'oaset')
-    : [];
-  const plusList = data
-    ? data.filter((item: Item) => item.summary?.includes('OA PLUS'))
-    : [];
-  const interList = data
-    ? data.filter((item: Item) => item.is_interview === 'Y')
-    : [];
+  // 데이터 개수
+  useEffect(() => {
+    if (selected === 'all') {
+      const vodNum = data?.data.filter(
+        (item: Item) => item.source === 'vod'
+      ).length;
+      setVodCount(vodNum);
+
+      const oaNum = data?.data.filter(
+        (item: Item) => item.source === 'oaset'
+      ).length;
+      setOaCount(oaNum);
+    }
+  }, [data]);
+
+  // 데이터분류
+  const vodList = data?.data.filter((item: Item) => item.source === 'vod');
+  const oaList = data?.data.filter((item: Item) => item.source === 'oaset');
 
   return (
     <main className="bg-point1 dark:bg-[#080808]">
@@ -103,29 +109,32 @@ export default function Search({
               searchedKeyword={searchedKeyword}
               inputKeyword={inputKeyword}
               handleKeyUp={handleKeyUp}
-              resultCount={resultCount}
+              resultCount={data?.total}
             />
           )}
           <SearchCate
             selected={selected}
             setSelected={setSelected}
-            resultCount={resultCount}
+            resultCount={data?.total}
             vodCount={vodCount}
             oaCount={oaCount}
-            plusCount={plusCount}
-            interCount={interCount}
+            plusCount={data?.total}
+            interCount={data?.total}
           />
           {(selected === 'all' || selected === 'vod') && (
-            <VodSearch selected={selected} vodCount={vodCount} data={data} />
+            <VodSearch selected={selected} vodCount={vodCount} data={vodList} />
           )}
-          {(selected === 'all' || selected === 'oa') && (
-            <OasetSearch oaCount={oaCount} oaList={oaList} />
+          {(selected === 'all' || selected === 'oaset') && (
+            <OasetSearch selected={selected} oaCount={oaCount} data={oaList} />
           )}
-          {(selected === 'all' || selected === 'plus') && (
+          {/* {(selected === 'all' || selected === 'plus') && (
             <OaplusSearch plusCount={plusCount} plusList={plusList} />
           )}
           {(selected === 'all' || selected === 'interview') && (
             <InterviewSearch interCount={interCount} interList={interList} />
+          )} */}
+          {selected !== 'all' && data?.length > 0 && (
+            <Pagination page={page} setPage={setPage} totalPage={totalPage} />
           )}
         </div>
       </div>

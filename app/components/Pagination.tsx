@@ -1,5 +1,6 @@
 // app/ui/Pagination.tsx
 import { useEffect, useState } from 'react';
+import { ordinaryArtist } from '@/app/components/fonts';
 import { generatePagination } from '@/app/_lib/utils';
 
 export default function Pagination({
@@ -23,7 +24,7 @@ export default function Pagination({
       <button
         type="button"
         onClick={() => setPage(page - 1)}
-        className="btn leading-[28px] px-[10px] text-[14px] disabled:opacity-50"
+        className={`btn leading-[28px] px-[10px] text-[14px] disabled:opacity-50`}
         disabled={page === 1}
       >
         이전

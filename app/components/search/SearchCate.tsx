@@ -17,6 +17,7 @@ export default function SearchCate({
   plusCount: number;
   interCount: number;
 }) {
+  console.log(vodCount, oaCount);
   return (
     <div>
       <ul className="flex flex-wrap justify-start mx-auto gap-[15px] pb-[8px] w-fit">
@@ -72,11 +73,11 @@ export default function SearchCate({
         <li className="text-[15px]">
           <button
             className={`flex w-[120px] items-center justify-between p-[12px] gatp-[10px] rounded-[100px] shadow-[0_2px_6px_rgba(0,0,0,0.15)] ${
-              selected === 'oa'
+              selected === 'oaset'
                 ? 'bg-point2 text-point1'
                 : 'bg-point1 text-gray-600'
             }`}
-            onClick={() => setSelected('oa')}
+            onClick={() => setSelected('oaset')}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

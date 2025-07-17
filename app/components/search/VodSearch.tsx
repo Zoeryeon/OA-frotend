@@ -23,9 +23,9 @@ export default function VodSearch({
   vodCount: number;
   data: vod[];
 }) {
-  if (vodCount === 0) return null;
+  // if (vodCount === 0) return null;
 
-  const vodData = selected === 'vod' ? data : data.slice(0, 9);
+  const vodData = selected === 'vod' ? data : data?.slice(0, 9);
 
   return (
     <div>
@@ -33,7 +33,7 @@ export default function VodSearch({
         VOD <span className="text-point2">{vodCount}</span>
       </h3>
       <ul className="grid gap-[40px] max-sm:gap-y-[15px] max-sm:gap-x-[10px] grid-cols-3 max-sm:grid-cols-2">
-        {vodData.map((item, index) => (
+        {vodData?.map((item, index) => (
           <li key={index} className="relative">
             <Link
               href="#"
@@ -110,7 +110,7 @@ export default function VodSearch({
           </li>
         ))}
       </ul>
-      {data.length > 9 && (
+      {selected === 'all' && data?.length > 9 && (
         <button
           type="button"
           className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px]"

@@ -12,20 +12,25 @@ type oaset = {
   created_at: Date;
 };
 export default function OasetSearch({
+  selected,
   oaCount,
-  oaList,
+  data,
 }: {
+  selected: string;
   oaCount: number;
-  oaList: oaset[];
+  data: oaset[];
 }) {
-  if (oaCount === 0) return null;
+  // if (oaCount === 0) return null;
+
+  const oaData = selected === 'oaset' ? data : data?.slice(0, 6);
+
   return (
     <div>
       <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px]">
         OA SET <span className="text-point2">{oaCount}</span>
       </h3>
       <ul className="grid gap-[40px] max-sm:gap-y-[15px] max-sm:gap-x-[10px] grid-cols-3 max-sm:grid-cols-2">
-        {oaList.slice(0, 9).map((item, index) => (
+        {oaData?.map((item, index) => (
           <li key={index}>
             <Link
               href="#"
@@ -88,7 +93,7 @@ export default function OasetSearch({
           </li>
         ))}
       </ul>
-      {oaList.length > 9 && (
+      {selected === 'all' && data?.length > 9 && (
         <button
           type="button"
           className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px]"
