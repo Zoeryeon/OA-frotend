@@ -1364,6 +1364,6 @@ input[type='radio']:checked + label::before {
   }
 
   .icon-search::before {
-    content: '\e90f';
+    content: '\e90f' !important;
   }
 }
