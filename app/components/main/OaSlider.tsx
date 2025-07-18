@@ -135,7 +135,7 @@ export default function OaSlider({
                         {item.summary}
                       </p>
                       <i
-                        className={`inline-flex not-italic ${ordinaryArtist.className} before:content-['\\e949'] before:text-[18px] before:text-point2 before:font-bold`}
+                        className={`inline-flex not-italic ${ordinaryArtist.className} before:content-['\\\e949'] before:text-[18px] before:text-point2 before:font-bold`}
                       >
                         <span className="sr-only">좋아요 하트</span>
                       </i>
