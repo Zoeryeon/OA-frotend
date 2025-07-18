@@ -156,7 +156,7 @@ export default function Header() {
         <Gnb />
         <Link
           href="#"
-          className={`inline-flex items-center justify-center flex-wrap flex-row ml-auto mr-[5px] ${ordinaryArtist.className} before:content-['\\\e90f'] before:text-[40px] before:text-gray-600 max-md:block max-md:mt-[10px] dark:before:text-point1`}
+          className={`inline-flex items-center justify-center flex-wrap flex-row ml-auto mr-[5px] ${ordinaryArtist.className} before:content-["\\e90f"] before:text-[40px] before:text-gray-600 max-md:block max-md:mt-[10px] dark:before:text-point1`}
           onClick={() => setIsVisible((prev) => !prev)}
         >
           <span className="hidden">
