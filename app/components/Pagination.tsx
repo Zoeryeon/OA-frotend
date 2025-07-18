@@ -1,6 +1,5 @@
 // app/ui/Pagination.tsx
 import { useEffect, useState } from 'react';
-import { ordinaryArtist } from '@/app/components/fonts';
 import { generatePagination } from '@/app/_lib/utils';
 
 export default function Pagination({
