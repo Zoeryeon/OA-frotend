@@ -127,12 +127,12 @@ export default function Search({
           {(selected === 'all' || selected === 'oaset') && (
             <OasetSearch selected={selected} oaCount={oaCount} data={oaList} />
           )}
-          {/* {(selected === 'all' || selected === 'plus') && (
-            <OaplusSearch plusCount={plusCount} plusList={plusList} />
+          {(selected === 'all' || selected === 'plus') && (
+            <OaplusSearch plusCount={data?.total} plusList={oaList} />
           )}
           {(selected === 'all' || selected === 'interview') && (
-            <InterviewSearch interCount={interCount} interList={interList} />
-          )} */}
+            <InterviewSearch interCount={data?.total} interList={oaList} />
+          )}
           {selected !== 'all' && data?.length > 0 && (
             <Pagination page={page} setPage={setPage} totalPage={totalPage} />
           )}
