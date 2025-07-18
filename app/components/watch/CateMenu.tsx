@@ -119,7 +119,7 @@ export default function CateMenu({
               <p className="text-center text-[14px] max-sm:text-[13px] dark:text-point1">
                 {link.label}
                 <i
-                  className={`bg-[#ededed] rounded-[5px] not-italic ${ordinaryArtist.className} before:content-['\\e93b'] before:text-[15px]`}
+                  className={`bg-[#ededed] rounded-[5px] not-italic icon-link ${ordinaryArtist.className} before:text-[15px]`}
                 ></i>
               </p>
             </Link>

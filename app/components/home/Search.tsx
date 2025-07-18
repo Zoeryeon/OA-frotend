@@ -70,7 +70,7 @@ export default function Search({
               >
                 <label className="relative px-[20px] flex items-center w-full h-[40px] gap-[10px]">
                   <i
-                    className={`w-[24px] inline-flex items-center not-italic justify-center flex-wrap flex-row ${ordinaryArtist.className} before:content-['\\e90f'] before:text-[40px] before:text-gray-600 dark:before:text-point1`}
+                    className={`w-[24px] inline-flex items-center not-italic justify-center flex-wrap flex-row icon-search ${ordinaryArtist.className} before:text-[40px] before:text-gray-600 dark:before:text-point1`}
                   ></i>
                   <input
                     type="search"
@@ -111,7 +111,7 @@ export default function Search({
                       >
                         {item.name}
                         <i
-                          className={`inline-flex items-center justify-center flex-wrap flex-row not-italic ${ordinaryArtist.className} before:content-['\\e93b'] before:text-[14px] before:text-white before:font-semibold`}
+                          className={`inline-flex items-center justify-center flex-wrap flex-row not-italic icon-link ${ordinaryArtist.className} before:text-[14px] before:text-white before:font-semibold`}
                         >
                           <span className="hidden">바로가기</span>
                         </i>

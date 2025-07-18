@@ -1,6 +1,6 @@
 // app/ui/Pagination.tsx
-import { useEffect, useState } from 'react';
-import { generatePagination } from '@/app/_lib/utils';
+
+import { ordinaryArtist } from '@/app/components/fonts';
 
 export default function Pagination({
   page,
@@ -11,49 +11,25 @@ export default function Pagination({
   setPage: (num: number) => void;
   page: number;
 }) {
-  const [pageArr, setPageArr] = useState<(number | string)[]>([]);
-
-  useEffect(() => {
-    const arr = generatePagination(page, totalPage);
-    setPageArr(arr);
-  }, [page, totalPage]);
-
   return (
-    <div className="flex gap-x-[5px]">
+    <div className="flex mt-[64px] justify-center">
       <button
         type="button"
         onClick={() => setPage(page - 1)}
-        className={`btn leading-[28px] px-[10px] text-[14px] disabled:opacity-50`}
+        className={`btn leading-[28px] border-0 px-0 icon-pageL ${ordinaryArtist.className} before:text-[40px] before:text-gray-600`}
         disabled={page === 1}
-      >
-        이전
-      </button>
-      {pageArr.map((item, i) => {
-        if (item === '...') {
-          return <span key={i}>...</span>;
-        } else {
-          return (
-            <button
-              type="button"
-              key={i}
-              onClick={() => setPage(item as number)}
-              className={`${
-                page === item ? 'bg-point1 text-white' : 'text-black'
-              } btn leading-[28px] px-[10px] text-[14px]`}
-            >
-              {item}
-            </button>
-          );
-        }
-      })}
+      ></button>
+
+      <p className="flex items-center h-[40px] text-[18px]">
+        <strong className="text-[30px]">{page}</strong> / <em>{totalPage}</em>
+      </p>
+
       <button
         type="button"
         onClick={() => setPage(page + 1)}
-        className="btn leading-[28px] px-[10px] text-[14px] disabled:opacity-50"
+        className={`btn leading-[28px] border-0 px-0 icon-pageR ${ordinaryArtist.className} before:text-[40px] before:text-gray-600`}
         disabled={page === totalPage}
-      >
-        다음
-      </button>
+      ></button>
     </div>
   );
 }

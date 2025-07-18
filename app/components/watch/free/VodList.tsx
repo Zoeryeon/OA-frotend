@@ -116,7 +116,7 @@ export default function VodList({
                     {item.summary}
                   </p>
                   <i
-                    className={`inline-flex not-italic ${ordinaryArtist.className} before:content-['\\e949'] before:text-[18px] before:text-point2 before:font-bold`}
+                    className={`inline-flex not-italic icon-heart ${ordinaryArtist.className} before:text-[18px] before:text-point2 before:font-bold`}
                   >
                     <span className="sr-only">좋아요 하트</span>
                   </i>
@@ -134,7 +134,7 @@ export default function VodList({
         >
           더보기
           <i
-            className={`inline-flex not-italic ${ordinaryArtist.className} before:content-['\\e94b'] before:text-[24px]`}
+            className={`inline-flex not-italic icon-puls ${ordinaryArtist.className} before:text-[24px]`}
           ></i>
         </button>
       </div>

@@ -135,7 +135,7 @@ export default function Login() {
                 <div className="absolute left-[25px] top-0 flex items-center justify-center h-[50px] text-gray-600">
                   <em>로그인</em>
                   <i
-                    className={`inline-flex not-italic pl-[24px] leading-0 ${ordinaryArtist.className} before:content-['\\e90b'] before:text-[40px] before:text-gray-600 before:font-medium`}
+                    className={`inline-flex not-italic pl-[24px] leading-0 icon-right ${ordinaryArtist.className} before:text-[40px] before:text-gray-600 before:font-medium`}
                   ></i>
                 </div>
               </button>
@@ -175,7 +175,7 @@ export default function Login() {
               </svg>
               <div className="absolute left-[25px] top-0 flex items-center justify-center h-[50px] text-gray-600">
                 <i
-                  className={`inline-flex not-italic pl-[5px] leading-0 ${ordinaryArtist.className} before:content-['\\e906'] before:text-[36px] before:text-gray-600 before:font-medium`}
+                  className={`inline-flex not-italic pl-[5px] leading-0 icon-kakao ${ordinaryArtist.className} before:text-[36px] before:text-gray-600 before:font-medium`}
                 ></i>
                 <em>카카오 로그인</em>
               </div>
@@ -214,7 +214,7 @@ export default function Login() {
               <div className="absolute left-[25px] top-0 flex items-center justify-center h-[50px] text-gray-600">
                 <em>이메일로 간편 가입</em>
                 <i
-                  className={`inline-flex not-italic pl-[24px] leading-0 ${ordinaryArtist.className} before:content-['\\e90b'] before:text-[36px] before:text-gray-600 before:font-medium`}
+                  className={`inline-flex not-italic pl-[24px] leading-0 icon-right ${ordinaryArtist.className} before:text-[36px] before:text-gray-600 before:font-medium`}
                 ></i>
               </div>
             </button>

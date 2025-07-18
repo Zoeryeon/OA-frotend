@@ -16,10 +16,12 @@ type vod = {
 
 export default function VodSearch({
   selected,
+  setSelected,
   vodCount,
   data,
 }: {
   selected: string;
+  setSelected: (a: string) => void;
   vodCount: number;
   data: vod[];
 }) {
@@ -100,7 +102,7 @@ export default function VodSearch({
                     {item.summary}
                   </p>
                   <i
-                    className={`inline-flex not-italic ${ordinaryArtist.className} before:content-['\\e949'] before:text-[18px] before:text-point2 before:font-bold`}
+                    className={`inline-flex not-italic icon-heart ${ordinaryArtist.className} before:text-[18px] before:text-point2 before:font-bold`}
                   >
                     <span className="sr-only">좋아요 하트</span>
                   </i>
@@ -113,11 +115,12 @@ export default function VodSearch({
       {selected === 'all' && data?.length > 9 && (
         <button
           type="button"
+          onClick={() => setSelected('vod')}
           className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px]"
         >
           VOD 더보기
           <i
-            className={`inline-flex not-italic items-center ${ordinaryArtist.className} before:content-['\\e93c'] before:text-[24px] before:text-gray-600`}
+            className={`inline-flex not-italic items-center icon-more ${ordinaryArtist.className} before:text-[24px] before:text-gray-600`}
           ></i>
         </button>
       )}

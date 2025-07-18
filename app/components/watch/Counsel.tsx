@@ -47,7 +47,7 @@ export default function Counsel() {
           <div className="absolute left-[25px] top-0 flex items-center justify-center h-[50px] text-point1">
             <em>카카오톡 상담</em>
             <i
-              className={`inline-flex not-italic pl-[24px] leading-0 ${ordinaryArtist.className} before:content-['\\e90b'] before:text-[40px] before:text-point1 before:font-medium`}
+              className={`inline-flex not-italic pl-[24px] leading-0 icon-kakao ${ordinaryArtist.className} before:text-[40px] before:text-point1 before:font-medium`}
             ></i>
           </div>
         </Link>

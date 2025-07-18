@@ -1366,4 +1366,46 @@ input[type='radio']:checked + label::before {
   .icon-search::before {
     content: '\e90f' !important;
   }
+  .icon-right::before {
+    content: '\e90b' !important;
+  }
+  .icon-kakao::before {
+    content: '\e906' !important;
+  }
+  .icon-insta::before {
+    content: '\e907' !important;
+  }
+  .icon-x::before {
+    content: '\e95a' !important;
+  }
+  .icon-youtube::before {
+    content: '\e909' !important;
+  }
+  .icon-blog::before {
+    content: '\e959' !important;
+  }
+  .icon-heart::before {
+    content: '\e949' !important;
+  }
+  .icon-more::before {
+    content: '\e93c' !important;
+  }
+  .icon-puls::before {
+    content: '\e94b' !important;
+  }
+  .icon-link::before {
+    content: '\e93b' !important;
+  }
+  .icon-movie::before {
+    content: '\e940' !important;
+  }
+  .icon-my::before {
+    content: '\e919' !important;
+  }
+  .icon-pageL::before {
+    content: '\e904' !important;
+  }
+  .icon-pageR::before {
+    content: '\e905' !important;
+  }
 }

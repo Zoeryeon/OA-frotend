@@ -26,7 +26,7 @@ export default function Title({
         <div className="w-[calc(100%-160px)] max-w-[calc(1280px/2-160px)] mx-auto relative py-[10px] rounded-[15px] h-[60px] max-md:w-full max-md:max-w-full max-md:mx-0 dark:bg-gray-600 shadow-[0px_2px_6px_rgba(0,0,0,0.15)]">
           <label className="relative px-[20px] flex items-center w-full h-[40px] gap-[10px]">
             <i
-              className={`w-[24px] inline-flex items-center not-italic justify-center flex-wrap flex-row ${ordinaryArtist.className} before:content-['\\e90f'] before:text-[40px] before:text-gray-600 dark:before:text-point1`}
+              className={`w-[24px] inline-flex items-center not-italic justify-center flex-wrap flex-row icon-search ${ordinaryArtist.className} before:text-[40px] before:text-gray-600 dark:before:text-point1`}
             ></i>
             <input
               type="search"

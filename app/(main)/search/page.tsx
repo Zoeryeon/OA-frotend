@@ -41,6 +41,8 @@ export default function Search({
   // 데이터 개수
   const [vodCount, setVodCount] = useState(0);
   const [oaCount, setOaCount] = useState(0);
+  const [plusCount, setPlusCount] = useState(0);
+  const [interCount, setInterCount] = useState(0);
 
   // 검색어 입력 후 엔터
   const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -69,6 +71,7 @@ export default function Search({
   useEffect(() => {
     const newKeyword = params.get('keyword') || '';
     setSearchedKeyword(newKeyword);
+    setInputKeyword(newKeyword);
   }, [params]);
 
   // data 상태 변경시 totalPage 계산
@@ -89,12 +92,28 @@ export default function Search({
         (item: Item) => item.source === 'oaset'
       ).length;
       setOaCount(oaNum);
+
+      const plusNum = data?.data.filter((item: Item) =>
+        item.summary?.includes('OA')
+      ).length;
+      setPlusCount(plusNum);
+
+      const interNum = data?.data.filter(
+        (item: Item) => item.is_interview === 'Y'
+      ).length;
+      setInterCount(interNum);
     }
   }, [data]);
 
   // 데이터분류
-  const vodList = data?.data.filter((item: Item) => item.source === 'vod');
-  const oaList = data?.data.filter((item: Item) => item.source === 'oaset');
+  const vodList = data?.data?.filter((item: Item) => item.source === 'vod');
+  const oaList = data?.data?.filter((item: Item) => item.source === 'oaset');
+  const plustList = data?.data?.filter((item: Item) =>
+    item.summary?.includes('OA')
+  );
+  const interList = data?.data?.filter(
+    (item: Item) => item.is_interview === 'Y'
+  );
 
   return (
     <main className="bg-point1 dark:bg-[#080808]">
@@ -118,22 +137,42 @@ export default function Search({
             resultCount={data?.total}
             vodCount={vodCount}
             oaCount={oaCount}
-            plusCount={data?.total}
-            interCount={data?.total}
+            plusCount={plusCount}
+            interCount={interCount}
           />
           {(selected === 'all' || selected === 'vod') && (
-            <VodSearch selected={selected} vodCount={vodCount} data={vodList} />
+            <VodSearch
+              selected={selected}
+              setSelected={setSelected}
+              vodCount={vodCount}
+              data={vodList}
+            />
           )}
           {(selected === 'all' || selected === 'oaset') && (
-            <OasetSearch selected={selected} oaCount={oaCount} data={oaList} />
+            <OasetSearch
+              selected={selected}
+              setSelected={setSelected}
+              oaCount={oaCount}
+              data={oaList}
+            />
           )}
           {(selected === 'all' || selected === 'plus') && (
-            <OaplusSearch plusCount={data?.total} plusList={oaList} />
+            <OaplusSearch
+              selected={selected}
+              setSelected={setSelected}
+              plusCount={plusCount}
+              data={plustList}
+            />
           )}
           {(selected === 'all' || selected === 'interview') && (
-            <InterviewSearch interCount={data?.total} interList={oaList} />
+            <InterviewSearch
+              selected={selected}
+              setSelected={setSelected}
+              interCount={interCount}
+              data={interList}
+            />
           )}
-          {selected !== 'all' && data?.length > 0 && (
+          {selected !== 'all' && data?.data?.length > 0 && (
             <Pagination page={page} setPage={setPage} totalPage={totalPage} />
           )}
         </div>

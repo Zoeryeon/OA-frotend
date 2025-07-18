@@ -54,6 +54,15 @@
   transform: rotateZ(0);
 }
 
+.icon-heart::before {
+  content: '\e949';
+  font-family: 'ordinaryArtist';
+}
+.icon-moreP::before {
+  content: '\e94d';
+  font-family: 'ordinaryArtist';
+}
+
 @media (max-width: 1024px) {
   .subslider [class*='swiper-slide'] {
     width: calc(100% / 2 - (20px / 2));

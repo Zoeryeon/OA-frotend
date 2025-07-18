@@ -56,7 +56,7 @@ export default function Create() {
             className="inline-flex items-center mb-[20px] group max-md:text-[12px]"
           >
             <i
-              className={`inline-flex not-italic pl-[6px] leading-0 transition-transform duration-200 group-hover:-translate-x-2 ${ordinaryArtist.className} before:content-['\\e90b'] before:text-[40px] before:text-gray-600 before:font-medium before:transform 
+              className={`inline-flex not-italic pl-[6px] leading-0 transition-transform duration-200 group-hover:-translate-x-2 icon-right ${ordinaryArtist.className} before:text-[40px] before:text-gray-600 before:font-medium before:transform 
               before:rotate-180`}
             ></i>
             뒤로가기

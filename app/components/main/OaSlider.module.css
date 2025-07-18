@@ -30,7 +30,7 @@
   transform: rotateZ(0);
 }
 
-.icon-font::before {
+.icon-heart::before {
   content: '\e949';
   font-family: 'ordinaryArtist';
 }

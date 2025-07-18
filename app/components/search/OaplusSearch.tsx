@@ -15,20 +15,27 @@ type oaplus = {
 };
 
 export default function OaplusSearch({
+  selected,
+  setSelected,
   plusCount,
-  plusList,
+  data,
 }: {
+  selected: string;
+  setSelected: (a: string) => void;
   plusCount: number;
-  plusList: oaplus[];
+  data: oaplus[];
 }) {
   if (plusCount === 0) return null;
+
+  const plusData = selected === 'plus' ? data : data?.slice(0, 3);
+
   return (
     <div>
       <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px]">
         오아플러스 <span className="text-point2">{plusCount}</span>
       </h3>
       <ul className="grid gap-[40px] max-sm:gap-y-[15px] max-sm:gap-x-[10px] grid-cols-3 max-sm:grid-cols-2">
-        {plusList.slice(0, 3).map((item, index) => (
+        {plusData?.slice(0, 3).map((item, index) => (
           <li key={index} className="relative">
             <Link
               href="#"
@@ -95,7 +102,7 @@ export default function OaplusSearch({
                     {item.summary}
                   </p>
                   <i
-                    className={`inline-flex not-italic ${ordinaryArtist.className} before:content-['\\e949'] before:text-[18px] before:text-point2 before:font-bold`}
+                    className={`inline-flex not-italic icon-heart ${ordinaryArtist.className} before:text-[18px] before:text-point2 before:font-bold`}
                   >
                     <span className="sr-only">좋아요 하트</span>
                   </i>
@@ -105,14 +112,15 @@ export default function OaplusSearch({
           </li>
         ))}
       </ul>
-      {plusList.length > 3 && (
+      {selected === 'all' && data?.length > 3 && (
         <button
           type="button"
+          onClick={() => setSelected('plus')}
           className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px]"
         >
           오아플러스 더보기
           <i
-            className={`inline-flex not-italic items-center ${ordinaryArtist.className} before:content-['\\e93c'] before:text-[24px] before:text-gray-600`}
+            className={`inline-flex not-italic items-center icon-more ${ordinaryArtist.className} before:text-[24px] before:text-gray-600`}
           ></i>
         </button>
       )}

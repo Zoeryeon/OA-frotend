@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react';
 import { ordinaryArtist } from '@/app/components/fonts';
 
 const linksGroup1 = [
-  { href: '/login', icon: '\\e940', label: '내 상영관', iconSize: 35 },
-  { href: '/login', icon: '\\e919', label: '내 상영관', iconSize: 45 },
+  { href: '/login', icon: 'icon-movie', label: '내 상영관', iconSize: 35 },
+  { href: '/login', icon: 'icon-my', label: '마이페이지', iconSize: 50 },
 ];
 
 const linksGroup2 = [
@@ -72,7 +72,7 @@ export default function Submenu({ showSubmenu }: { showSubmenu: boolean }) {
               >
                 <span className="text-[30px] w-[30px] h-[30px] flex justify-center items-center mb-[8px]">
                   <b
-                    className={`inline-flex items-center justify-center flex-wrap ${ordinaryArtist.className} before:content-['${link.icon}'] before:text-[${link.iconSize}px] before:text-gray-600 group-hover:before:text-point2`}
+                    className={`inline-flex items-center justify-center flex-wrap ${link.icon} ${ordinaryArtist.className} before:text-[${link.iconSize}px] before:text-gray-600 group-hover:before:text-point2`}
                   ></b>
                 </span>
                 {link.label}

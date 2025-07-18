@@ -49,7 +49,7 @@ export default function FooterList() {
         <li>
           <Link href="https://pf.kakao.com/_Peizb" target="_blank">
             <i
-              className={`not-italic ${ordinaryArtist.className} before:content-['\\e906'] before:text-[32px] before:text-gray-600 before:font-medium dark:before:text-point1`}
+              className={`not-italic icon-kakao ${ordinaryArtist.className} before:text-[32px] before:text-gray-600 before:font-medium dark:before:text-point1`}
             ></i>
             <span className="sr-only">카카오톡</span>
           </Link>
@@ -60,7 +60,7 @@ export default function FooterList() {
             target="_blank"
           >
             <i
-              className={`not-italic ${ordinaryArtist.className} before:content-['\\e907'] before:text-[32px] before:text-gray-600 before:font-medium dark:before:text-point1`}
+              className={`not-italic icon-insta ${ordinaryArtist.className} before:text-[32px] before:text-gray-600 before:font-medium dark:before:text-point1`}
             ></i>
             <span className="sr-only">인스타그램</span>
           </Link>
@@ -68,7 +68,7 @@ export default function FooterList() {
         <li>
           <Link href="https://twitter.com/OALIVE_official" target="_blank">
             <i
-              className={`not-italic ${ordinaryArtist.className} before:content-['\\e95a'] before:text-[32px] before:text-gray-600 before:font-medium dark:before:text-point1`}
+              className={`not-italic icon-x ${ordinaryArtist.className} before:text-[32px] before:text-gray-600 before:font-medium dark:before:text-point1`}
             ></i>
             <span className="sr-only">X</span>
           </Link>
@@ -79,7 +79,7 @@ export default function FooterList() {
             target="_blank"
           >
             <i
-              className={`not-italic ${ordinaryArtist.className} before:content-['\\e909'] before:text-[32px] before:text-gray-600 before:font-medium dark:before:text-point1`}
+              className={`not-italic icon-youtube ${ordinaryArtist.className} before:text-[32px] before:text-gray-600 before:font-medium dark:before:text-point1`}
             ></i>
             <span className="sr-only">유튜브</span>
           </Link>
@@ -87,7 +87,7 @@ export default function FooterList() {
         <li>
           <Link href="https://blog.naver.com/fillthefeel1" target="_blank">
             <i
-              className={`not-italic ${ordinaryArtist.className} before:content-['\\e959'] before:text-[32px] before:text-gray-600 before:font-medium dark:before:text-point1`}
+              className={`not-italic icon-blog ${ordinaryArtist.className} before:text-[32px] before:text-gray-600 before:font-medium dark:before:text-point1`}
             ></i>
             <span className="sr-only">네이버 블로그</span>
           </Link>

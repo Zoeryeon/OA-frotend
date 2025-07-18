@@ -133,7 +133,7 @@ export default function WatchList({
                       {item.summary}
                     </p>
                     <i
-                      className={`inline-flex not-italic ${ordinaryArtist.className} before:content-['\\e949'] before:text-[18px] before:text-point2 before:font-bold`}
+                      className={`inline-flex not-italic icon-heart ${ordinaryArtist.className} before:text-[18px] before:text-point2 before:font-bold`}
                     >
                       <span className="sr-only">좋아요 하트</span>
                     </i>
@@ -196,7 +196,7 @@ export default function WatchList({
                   <div className="flex mt-auto items-end h-[40px] justify-between gap-[10px] max-md:h-auto">
                     <p className="tracking-tight">{item.intro}</p>
                     <i
-                      className={`inline-flex not-italic ${ordinaryArtist.className} before:content-['\\e949'] before:text-[18px] before:text-point2 before:font-bold`}
+                      className={`inline-flex not-italic icon-heart ${ordinaryArtist.className} before:text-[18px] before:text-point2 before:font-bold`}
                     ></i>
                   </div>
                 </div>
@@ -212,7 +212,7 @@ export default function WatchList({
       >
         더보기
         <i
-          className={`inline-flex not-italic ${ordinaryArtist.className} before:content-['\\e94b'] before:text-[24px]`}
+          className={`inline-flex not-italic icon-puls ${ordinaryArtist.className} before:text-[24px]`}
         ></i>
       </button>
     </div>

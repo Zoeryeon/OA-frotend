@@ -224,7 +224,7 @@ export default function PresentSet({ data }: { data: VodData[] }) {
                           {slide.summary}
                         </p>
                         <i
-                          className={`inline-flex not-italic ${ordinaryArtist.className} before:content-['\\e949'] before:text-[18px] before:text-point2 before:font-bold`}
+                          className={`inline-flex not-italic ${styles['icon-heart']} ${ordinaryArtist.className}  before:text-[18px] before:text-point2 before:font-bold`}
                         >
                           <span className="sr-only">좋아요 하트</span>
                         </i>
@@ -240,7 +240,7 @@ export default function PresentSet({ data }: { data: VodData[] }) {
                 className="h-full flex flex-col justify-center items-center gap-[10px]"
               >
                 <i
-                  className={`flex justify-center items-center w-[40px] h-[40px] border border-gray-400 rounded-[50%] not-italic -rotate-[90deg] ${ordinaryArtist.className} before:content-['\\e94d'] before:text-[40px] before:text-point2`}
+                  className={`flex justify-center items-center w-[40px] h-[40px] border border-gray-400 rounded-[50%] not-italic -rotate-[90deg] ${styles['icon-moreP']} ${ordinaryArtist.className} before:text-[40px] before:text-point2`}
                 ></i>
                 <em>더보기</em>
               </Link>

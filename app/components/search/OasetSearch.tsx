@@ -13,14 +13,16 @@ type oaset = {
 };
 export default function OasetSearch({
   selected,
+  setSelected,
   oaCount,
   data,
 }: {
   selected: string;
+  setSelected: (a: string) => void;
   oaCount: number;
   data: oaset[];
 }) {
-  // if (oaCount === 0) return null;
+  if (oaCount === 0) return null;
 
   const oaData = selected === 'oaset' ? data : data?.slice(0, 6);
 
@@ -85,7 +87,7 @@ export default function OasetSearch({
                 <div className="flex mt-auto items-end h-[40px] justify-between gap-[10px] max-md:h-auto">
                   <p className="tracking-tight">{item.intro}</p>
                   <i
-                    className={`inline-flex not-italic ${ordinaryArtist.className} before:content-['\\e949'] before:text-[18px] before:text-point2 before:font-bold`}
+                    className={`inline-flex not-italic icon-heart ${ordinaryArtist.className} before:text-[18px] before:text-point2 before:font-bold`}
                   ></i>
                 </div>
               </div>
@@ -96,11 +98,12 @@ export default function OasetSearch({
       {selected === 'all' && data?.length > 9 && (
         <button
           type="button"
+          onClick={() => setSelected('oaset')}
           className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px]"
         >
           OA SET 더보기
           <i
-            className={`inline-flex not-italic items-center ${ordinaryArtist.className} before:content-['\\e93c'] before:text-[24px] before:text-gray-600`}
+            className={`inline-flex not-italic items-center icon-more ${ordinaryArtist.className} before:text-[24px] before:text-gray-600`}
           ></i>
         </button>
       )}
