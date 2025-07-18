@@ -30,3 +30,7 @@
   transform: rotateZ(0);
 }
 
+.icon-font::before {
+  content: '\e949';
+  font-family: 'ordinaryArtist';
+}
