@@ -1,6 +1,6 @@
 //app /components /home /Search.tsx
 
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { ordinaryArtist } from '@/app/components/fonts';
 import { useRouter } from 'next/navigation';
@@ -44,6 +44,7 @@ export default function Search({
 }: SearchProps) {
   const [keyword, setKeyword] = useState('');
   const router = useRouter();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
@@ -55,6 +56,13 @@ export default function Search({
       }
     }
   };
+
+  useEffect(() => {
+    if (isVisible && inputRef.current) {
+      inputRef.current.focus();
+      setShadow(true);
+    }
+  }, [isVisible]);
 
   return (
     <div className="absolute left-0 top-[75px] w-full z-10">
@@ -73,6 +81,7 @@ export default function Search({
                     className={`w-[24px] inline-flex items-center not-italic justify-center flex-wrap flex-row icon-search ${ordinaryArtist.className} before:text-[40px] before:text-gray-600 dark:before:text-point1`}
                   ></i>
                   <input
+                    ref={inputRef}
                     type="search"
                     placeholder="검색어를 입력해주세요"
                     value={keyword}

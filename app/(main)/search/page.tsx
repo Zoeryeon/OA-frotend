@@ -3,6 +3,7 @@
 
 import Pagination from '@/app/components/Pagination';
 import InterviewSearch from '@/app/components/search/InterviewSearch';
+import LiveSearch from '@/app/components/search/LiveSearch';
 import OaplusSearch from '@/app/components/search/OaplusSearch';
 import OasetSearch from '@/app/components/search/OasetSearch';
 import SearchCate from '@/app/components/search/SearchCate';
@@ -43,6 +44,7 @@ export default function Search({
   const [oaCount, setOaCount] = useState(0);
   const [plusCount, setPlusCount] = useState(0);
   const [interCount, setInterCount] = useState(0);
+  const [liveCount, setLiveCount] = useState(0);
 
   // 검색어 입력 후 엔터
   const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -83,25 +85,30 @@ export default function Search({
   // 데이터 개수
   useEffect(() => {
     if (selected === 'all') {
-      const vodNum = data?.data.filter(
+      const vodNum = data?.data?.filter(
         (item: Item) => item.source === 'vod'
       ).length;
       setVodCount(vodNum);
 
-      const oaNum = data?.data.filter(
+      const oaNum = data?.data?.filter(
         (item: Item) => item.source === 'oaset'
       ).length;
       setOaCount(oaNum);
 
-      const plusNum = data?.data.filter((item: Item) =>
+      const plusNum = data?.data?.filter((item: Item) =>
         item.summary?.includes('OA')
       ).length;
       setPlusCount(plusNum);
 
-      const interNum = data?.data.filter(
+      const interNum = data?.data?.filter(
         (item: Item) => item.is_interview === 'Y'
       ).length;
       setInterCount(interNum);
+
+      const liveNum = data?.data?.filter(
+        (item: Item) => item.source === 'live'
+      ).length;
+      setLiveCount(liveNum);
     }
   }, [data]);
 
@@ -139,8 +146,9 @@ export default function Search({
             oaCount={oaCount}
             plusCount={plusCount}
             interCount={interCount}
+            liveCount={liveCount}
           />
-          {(selected === 'all' || selected === 'vod') && (
+          {(selected === 'vod' || (selected === 'all' && vodCount > 0)) && (
             <VodSearch
               selected={selected}
               setSelected={setSelected}
@@ -148,7 +156,7 @@ export default function Search({
               data={vodList}
             />
           )}
-          {(selected === 'all' || selected === 'oaset') && (
+          {(selected === 'oaset' || (selected === 'all' && oaCount > 0)) && (
             <OasetSearch
               selected={selected}
               setSelected={setSelected}
@@ -156,7 +164,7 @@ export default function Search({
               data={oaList}
             />
           )}
-          {(selected === 'all' || selected === 'plus') && (
+          {(selected === 'plus' || (selected === 'all' && plusCount > 0)) && (
             <OaplusSearch
               selected={selected}
               setSelected={setSelected}
@@ -164,7 +172,8 @@ export default function Search({
               data={plustList}
             />
           )}
-          {(selected === 'all' || selected === 'interview') && (
+          {(selected === 'interview' ||
+            (selected === 'all' && interCount > 0)) && (
             <InterviewSearch
               selected={selected}
               setSelected={setSelected}
@@ -172,6 +181,10 @@ export default function Search({
               data={interList}
             />
           )}
+          {(selected === 'live' || (selected === 'all' && liveCount > 0)) && (
+            <LiveSearch liveCount={liveCount} />
+          )}
+
           {selected !== 'all' && data?.data?.length > 0 && (
             <Pagination page={page} setPage={setPage} totalPage={totalPage} />
           )}

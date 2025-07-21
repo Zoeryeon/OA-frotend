@@ -12,7 +12,7 @@ import { ordinaryArtist } from '@/app/components/fonts';
 
 export default function Header() {
   // 검색입력창 그림자 상태
-  const [isShadow, setShadow] = useState(false);
+  const [isShadow, setShadow] = useState(true);
   // 검색창 띄우기
   const [isVisible, setIsVisible] = useState(false);
 

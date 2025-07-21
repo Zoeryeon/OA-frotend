@@ -8,6 +8,7 @@ export default function SearchCate({
   oaCount,
   plusCount,
   interCount,
+  liveCount,
 }: {
   selected: string;
   setSelected: (a: string) => void;
@@ -16,8 +17,8 @@ export default function SearchCate({
   oaCount: number;
   plusCount: number;
   interCount: number;
+  liveCount: number;
 }) {
-  console.log(vodCount, oaCount);
   return (
     <div>
       <ul className="flex flex-wrap justify-start mx-auto gap-[15px] pb-[8px] w-fit">
@@ -146,11 +147,11 @@ export default function SearchCate({
         <li className="text-[15px]">
           <button
             className={`flex w-[100px] items-center justify-between p-[12px] gatp-[10px] rounded-[100px] shadow-[0_2px_6px_rgba(0,0,0,0.15)] ${
-              selected === 'Live'
+              selected === 'live'
                 ? 'bg-point2 text-point1'
                 : 'bg-point1 text-gray-600'
             }`}
-            onClick={() => setSelected('Live')}
+            onClick={() => setSelected('live')}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -163,7 +164,7 @@ export default function SearchCate({
               <path d="M14.8,4.9c-.9-1.6-2.1-3.4-3.6-4.4s-.8-.3-1.1-.4S9.1,0,8.5,0c-1,0-1.9.2-2.9.5C3.9,1,2.2,1.9,1.2,3.5S0,6.7,0,8.3c0,2.9,1.2,6.2,4.2,7.3s5.7,0,8-1.3,2.6-1.9,3.2-3.4c.9-2,.3-4.1-.7-5.9s-1.4,0-1.1.5c.8,1.4,1.3,3.1.8,4.7s-1.3,2.3-2.3,3c-1.8,1.3-4.2,2.2-6.5,1.8S1.8,12.1,1.4,9.6s-.1-2.9.3-4.3,1.4-2.8,2.9-3.6,3.8-1.3,5.6-.6.8.5,1.1.8.7.7.9,1.1c.6.7,1.1,1.5,1.6,2.4s1.4,0,1.1-.5Z"></path>
             </svg>
             LIVE
-            <span>0</span>
+            <span>{liveCount}</span>
           </button>
         </li>
       </ul>
