@@ -16,7 +16,7 @@ export default function LiveSearch({ liveCount }: { liveCount: number }) {
   return (
     <div>
       <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px] dark:text-white">
-        LIVE <span className="text-point2">0</span>
+        LIVE <span className="text-point2">{liveCount}</span>
       </h3>
       <div className="flex flex-col items-center py-[64px]">
         <span className="block mx-auto w-[120px]">
