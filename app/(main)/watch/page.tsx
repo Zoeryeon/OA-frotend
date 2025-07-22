@@ -98,13 +98,13 @@ export default function Watch({
         <div className="flex px-[20px] pb-[25px] gap-[10px] items-center justify-end w-full max-md:pb-[20px] max-sm:pb-[15px]">
           <Link
             href="/watch/vod/create"
-            className="border border-gray-400 rounded-[5px] p-[8px] text-[12px] text-gray-500"
+            className="border border-gray-400 rounded-[5px] p-[8px] text-[12px] text-gray-500 hover:border-point2"
           >
             vod 작성하기
           </Link>
           <button
             onClick={() => setEditMode((prev) => !prev)}
-            className="border border-gray-400 rounded-[5px] p-[8px] text-[12px] text-gray-500"
+            className="border border-gray-400 rounded-[5px] p-[8px] text-[12px] text-gray-500 hover:border-point2"
           >
             {editMode ? '편집 취소' : 'vod 수정하기'}
           </button>

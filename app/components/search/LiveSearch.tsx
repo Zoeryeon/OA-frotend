@@ -15,14 +15,16 @@ export default function LiveSearch({ liveCount }: { liveCount: number }) {
 
   return (
     <div>
-      <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px]">
+      <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px] dark:text-white">
         LIVE <span className="text-point2">0</span>
       </h3>
       <div className="flex flex-col items-center py-[64px]">
         <span className="block mx-auto w-[120px]">
           <RandomImg num={num} />
         </span>
-        <p className="text-[18px] mt-[20px]">검색 결과가 없어요</p>
+        <p className="text-[18px] mt-[20px] dark:text-point1">
+          검색 결과가 없어요
+        </p>
       </div>
     </div>
   );

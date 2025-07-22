@@ -57,7 +57,7 @@ export default function Form({
     <form onSubmit={handleSubmit}>
       <div className="flex justify-between items-center pb-[35px] max-md:flex-col max-md:pb-[20px] max-sm:pb-[10px]">
         <div className="flex flex-col w-full max-md:flex-row max-md:items-center">
-          <label className="pr-[20px] pb-[10px] max-md:w-[80px] max-sm:text-[13px] max-sm:pb-0">
+          <label className="pr-[20px] pb-[10px] max-md:w-[80px] max-sm:text-[13px] max-sm:pb-0 dark:text-point1">
             장르
           </label>
           <select
@@ -68,7 +68,7 @@ export default function Form({
             className={`border py-[10px] px-[20px] rounded-[5px] hover:border-point2 cursor-pointer max-md:w-full max-sm:text-[12px] ${
               genreSelected == ''
                 ? 'text-gray-400 border-gray-400'
-                : 'text-gray-600 border-point2'
+                : 'text-gray-600 border-point2 dark:text-point1'
             }`}
           >
             <option value="" disabled>
@@ -82,7 +82,7 @@ export default function Form({
           </select>
         </div>
         <div className="flex flex-col w-full pl-[30px] max-md:pl-0 max-md:mt-[20px] max-md:flex-row max-md:items-center max-sm:mt-[10px]">
-          <label className="pr-[20px] pb-[10px] max-md:w-[80px] max-sm:text-[13px] max-sm:pb-0">
+          <label className="pr-[20px] pb-[10px] max-md:w-[80px] max-sm:text-[13px] max-sm:pb-0 dark:text-point1">
             연령
           </label>
           <select
@@ -93,7 +93,7 @@ export default function Form({
             className={`border py-[10px] px-[20px] rounded-[5px] hover:border-point2 cursor-pointer max-md:w-full max-sm:text-[12px] ${
               ageSelected == ''
                 ? 'text-gray-400 border-gray-400'
-                : 'text-gray-600 border-point2'
+                : 'text-gray-600 border-point2 dark:text-point1'
             }`}
           >
             <option value="" disabled>
@@ -106,11 +106,11 @@ export default function Form({
           </select>
         </div>
         <div className="flex flex-col w-full pl-[30px] max-md:pl-0 max-md:mt-[20px] max-md:flex-row max-md:items-center max-sm:mt-[10px]">
-          <label className="pr-[20px] pb-[5px] max-md:w-[80px] max-sm:text-[13px] max-sm:pb-0">
+          <label className="pr-[20px] pb-[5px] max-md:w-[80px] max-sm:text-[13px] max-sm:pb-0 dark:text-point1">
             가격
           </label>
           <div className="flex items-center max-md:w-full max-sm:flex-col max-sm:items-start max-sm:gap-y-[5px]">
-            <label className="radio pr-[10px] max-sm:text-[12px]">
+            <label className="radio pr-[10px] max-sm:text-[12px] dark:text-point1">
               <input
                 type="radio"
                 name="priceType"
@@ -121,7 +121,7 @@ export default function Form({
               />
               무료
             </label>
-            <label className="radio max-sm:text-[12px]">
+            <label className="radio max-sm:text-[12px] dark:text-point1">
               <input
                 type="radio"
                 name="priceType"
@@ -134,7 +134,7 @@ export default function Form({
                 type="text"
                 name="price"
                 placeholder="가격을 입력하세요"
-                className="w-[140px] max-sm:w-[80px] border-gray-400 rounded-[5px] placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px]  hover:border-point2 focus:border-point2"
+                className="w-[140px] max-sm:w-[80px] border-gray-400 rounded-[5px] placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px]  hover:border-point2 focus:border-point2 dark:text-point1"
               />
               WoW~
             </label>
@@ -142,7 +142,9 @@ export default function Form({
         </div>
       </div>
       <div className="flex items-center justify-between pb-[10px]">
-        <label className="w-[80px] max-sm:text-[13px]">키워드</label>
+        <label className="w-[80px] max-sm:text-[13px] dark:text-point1">
+          키워드
+        </label>
         <input
           type="text"
           name="keyword"
@@ -150,7 +152,7 @@ export default function Form({
           value={pickKeyword}
           readOnly
           placeholder="키워드를 선택하세요(최대 5개)"
-          className=" w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2 max-sm:text-[12px] max-sm:placeholder:text-[11px]"
+          className=" w-full placeholder:text-[13px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2 max-sm:text-[12px] max-sm:placeholder:text-[11px] dark:text-point1"
         />
       </div>
       {isPending ? (
@@ -190,39 +192,45 @@ export default function Form({
         </div>
       )}
       <div className="flex items-center justify-between pb-[35px] max-md:pb-[20px]">
-        <label className="w-[80px] max-sm:text-[13px]">요약</label>
+        <label className="w-[80px] max-sm:text-[13px] dark:text-point1">
+          요약
+        </label>
         <input
           type="text"
           name="summary"
           required
           placeholder="한 줄 소개를 입력하세요"
-          className="w-full placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
+          className="w-full placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2 dark:text-point1"
         />
       </div>
       <div className="flex items-center justify-between pb-[35px] max-md:pb-[20px]">
-        <label className="w-[80px] max-sm:text-[13px]">제목</label>
+        <label className="w-[80px] max-sm:text-[13px] dark:text-point1">
+          제목
+        </label>
         <input
           type="text"
           name="title"
           required
           placeholder="제목을 입력하세요"
-          className=" w-full placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
+          className=" w-full placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2 dark:text-point1"
         />
       </div>
       <div className="flex items-center justify-between pb-[35px]">
-        <label className="w-[80px] max-sm:text-[13px]">이미지</label>
+        <label className="w-[80px] max-sm:text-[13px] dark:text-point1">
+          이미지
+        </label>
         <input
           type="text"
           name="img"
           required
           placeholder="이미지경로를 입력하세요"
-          className=" w-full placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2"
+          className=" w-full placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2 dark:text-point1"
         />
       </div>
       <div className="flex items-center justify-center">
         <button
           type="submit"
-          className="p-[15px] border border-gray-400 rounded-[5px] max-sm:text-[13px] max-sm:p-[10px] hover:bg-point2 hover:border-point2 hover:text-point1"
+          className="p-[15px] border border-gray-400 rounded-[5px] max-sm:text-[13px] max-sm:p-[10px] hover:bg-point2 hover:border-point2 hover:text-point1 dark:text-point1"
         >
           vod 등록하기
         </button>

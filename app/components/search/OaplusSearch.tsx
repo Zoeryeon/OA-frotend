@@ -44,7 +44,7 @@ export default function OaplusSearch({
 
   return (
     <div>
-      <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px]">
+      <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px] dark:text-white">
         오아플러스 <span className="text-point2">{plusCount}</span>
       </h3>
       {plusData && plusData.length > 0 ? (
@@ -131,18 +131,20 @@ export default function OaplusSearch({
           <span className="block mx-auto w-[120px]">
             <RandomImg num={num} />
           </span>
-          <p className="text-[18px] mt-[20px]">검색 결과가 없어요</p>
+          <p className="text-[18px] mt-[20px] dark:text-point1">
+            검색 결과가 없어요
+          </p>
         </div>
       )}
       {selected === 'all' && data?.length > 3 && (
         <button
           type="button"
           onClick={() => setSelected('plus')}
-          className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px]"
+          className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px] dark:border-gray-300 dark:text-point1"
         >
           오아플러스 더보기
           <i
-            className={`inline-flex not-italic items-center icon-more ${ordinaryArtist.className} before:text-[24px] before:text-gray-600`}
+            className={`inline-flex not-italic items-center icon-more ${ordinaryArtist.className} before:text-[24px] before:text-gray-600 dark:before:text-point1`}
           ></i>
         </button>
       )}

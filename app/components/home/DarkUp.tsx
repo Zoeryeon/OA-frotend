@@ -1,4 +1,4 @@
-//app /ui/home/DarkUp.tsx
+//app /components /home /DarkUp.tsx
 'use client';
 
 import Link from 'next/link';
@@ -30,8 +30,8 @@ export default function DarkUp({ isFixed }: { isFixed: boolean }) {
     <div
       className={`flex right-0 z-9 mix-blend-exclusion ${
         isFixed
-          ? 'absolute bottom-[160px] max-md:bottom-[195px] max-sm:bottom-[250px]'
-          : 'fixed bottom-[80px]'
+          ? 'absolute bottom-[190px] max-md:bottom-[260px] max-sm:bottom-[290px]'
+          : 'fixed bottom-[10px]'
       }`}
     >
       <button

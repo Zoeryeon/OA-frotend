@@ -1408,4 +1408,10 @@ input[type='radio']:checked + label::before {
   .icon-pageR::before {
     content: '\e905' !important;
   }
+  .icon-chat::before {
+    content: '\e917' !important;
+  }
+  .icon-send::before {
+    content: '\e92c' !important;
+  }
 }

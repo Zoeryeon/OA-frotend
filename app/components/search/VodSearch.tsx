@@ -39,7 +39,7 @@ export default function VodSearch({
 
   return (
     <div>
-      <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px]">
+      <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px] dark:text-white">
         VOD <span className="text-point2">{vodCount}</span>
       </h3>
       {vodData && vodData.length > 0 ? (
@@ -133,11 +133,11 @@ export default function VodSearch({
         <button
           type="button"
           onClick={() => setSelected('vod')}
-          className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px]"
+          className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px] dark:border-gray-300 dark:text-point1"
         >
           VOD 더보기
           <i
-            className={`inline-flex not-italic items-center icon-more ${ordinaryArtist.className} before:text-[24px] before:text-gray-600`}
+            className={`inline-flex not-italic items-center icon-more ${ordinaryArtist.className} before:text-[24px] before:text-gray-600 dark:before:text-point1`}
           ></i>
         </button>
       )}

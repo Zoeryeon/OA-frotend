@@ -125,7 +125,7 @@ export default function Search({
   return (
     <main className="bg-point1 dark:bg-[#080808]">
       <div className="max-w-[1160px] mx-auto ">
-        <div className="px-[20px] pt-[80px] pb-[48px]">
+        <div className="px-[20px] pt-[80px] pb-[100px]">
           {isPending ? (
             <p>로딩 중입니다...</p>
           ) : isError ? (

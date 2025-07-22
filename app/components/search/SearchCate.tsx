@@ -27,7 +27,7 @@ export default function SearchCate({
             className={`flex w-[100px] items-center justify-between p-[12px] gatp-[10px] rounded-[100px] shadow-[0_2px_6px_rgba(0,0,0,0.15)] ${
               selected === 'all'
                 ? 'bg-point2 text-point1'
-                : 'bg-point1 text-gray-600'
+                : 'bg-point1 text-gray-600 dark:bg-[#080808] dark:text-point1 dark:border dark:border-gray-300'
             }`}
             onClick={() => setSelected('all')}
           >
@@ -53,7 +53,7 @@ export default function SearchCate({
             className={`flex w-[100px] items-center justify-between p-[12px] gatp-[10px] rounded-[100px] shadow-[0_2px_6px_rgba(0,0,0,0.15)] ${
               selected === 'vod'
                 ? 'bg-point2 text-point1'
-                : 'bg-point1 text-gray-600'
+                : 'bg-point1 text-gray-600 dark:bg-[#080808] dark:text-point1 dark:border dark:border-gray-300'
             }`}
             onClick={() => setSelected('vod')}
           >
@@ -76,7 +76,7 @@ export default function SearchCate({
             className={`flex w-[120px] items-center justify-between p-[12px] gatp-[10px] rounded-[100px] shadow-[0_2px_6px_rgba(0,0,0,0.15)] ${
               selected === 'oaset'
                 ? 'bg-point2 text-point1'
-                : 'bg-point1 text-gray-600'
+                : 'bg-point1 text-gray-600 dark:bg-[#080808] dark:text-point1 dark:border dark:border-gray-300'
             }`}
             onClick={() => setSelected('oaset')}
           >
@@ -102,7 +102,7 @@ export default function SearchCate({
             className={`flex w-[130px] items-center justify-between p-[12px] gatp-[10px] rounded-[100px] shadow-[0_2px_6px_rgba(0,0,0,0.15)] ${
               selected === 'plus'
                 ? 'bg-point2 text-point1'
-                : 'bg-point1 text-gray-600'
+                : 'bg-point1 text-gray-600 dark:bg-[#080808] dark:text-point1 dark:border dark:border-gray-300'
             }`}
             onClick={() => setSelected('plus')}
           >
@@ -125,7 +125,7 @@ export default function SearchCate({
             className={`flex w-[110px] items-center justify-between p-[12px] gatp-[10px] rounded-[100px] shadow-[0_2px_6px_rgba(0,0,0,0.15)] ${
               selected === 'interview'
                 ? 'bg-point2 text-point1'
-                : 'bg-point1 text-gray-600'
+                : 'bg-point1 text-gray-600 dark:bg-[#080808] dark:text-point1 dark:border dark:border-gray-300'
             }`}
             onClick={() => setSelected('interview')}
           >
@@ -149,7 +149,7 @@ export default function SearchCate({
             className={`flex w-[100px] items-center justify-between p-[12px] gatp-[10px] rounded-[100px] shadow-[0_2px_6px_rgba(0,0,0,0.15)] ${
               selected === 'live'
                 ? 'bg-point2 text-point1'
-                : 'bg-point1 text-gray-600'
+                : 'bg-point1 text-gray-600 dark:bg-[#080808] dark:text-point1 dark:border dark:border-gray-300'
             }`}
             onClick={() => setSelected('live')}
           >
