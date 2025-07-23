@@ -40,7 +40,7 @@ export default function Submenu({ showSubmenu }: { showSubmenu: boolean }) {
 
   return (
     <nav
-      className={`fixed text-center top-[64px] left-0 w-full mt-[1px] p-0 bg-point1 z-10 ${
+      className={`fixed text-center top-[64px] left-0 w-full mt-[1px] p-0 bg-point1 z-10 dark:bg-gray-600 ${
         showSubmenu
           ? 'bottom-0 transition-padding transition-bottom duration-700'
           : 'bottom-[100%]'
@@ -56,7 +56,10 @@ export default function Submenu({ showSubmenu }: { showSubmenu: boolean }) {
           </Link>
         </div>
         <p className="mt-[15px]">
-          <Link href="/login" className="font-semibold text-gray-600">
+          <Link
+            href="/login"
+            className="font-semibold text-gray-600 dark:text-point1"
+          >
             로그인해주세요
           </Link>
         </p>
@@ -68,11 +71,11 @@ export default function Submenu({ showSubmenu }: { showSubmenu: boolean }) {
               <Link
                 key={index}
                 href={link.href}
-                className="flex flex-col items-center justify-center w-full text-gray-600 group hover:text-point2"
+                className="flex flex-col items-center justify-center w-full text-gray-600 group hover:text-point2 dark:text-point1"
               >
                 <span className="text-[30px] w-[30px] h-[30px] flex justify-center items-center mb-[8px]">
                   <b
-                    className={`inline-flex items-center justify-center flex-wrap ${link.icon} ${ordinaryArtist.className} before:text-[${link.iconSize}px] before:text-gray-600 group-hover:before:text-point2`}
+                    className={`inline-flex items-center justify-center flex-wrap ${link.icon} ${ordinaryArtist.className} before:text-[${link.iconSize}px] before:text-gray-600 group-hover:before:text-point2 dark:before:text-point1`}
                   ></b>
                 </span>
                 {link.label}
@@ -84,7 +87,7 @@ export default function Submenu({ showSubmenu }: { showSubmenu: boolean }) {
           <li key={index} className="pt-[18px] px-[18px]">
             <Link
               href={link.href}
-              className="font-semibold flex whitespace-nowrap transition-all duration-500 delay-200 text-gray-600 hover:text-point2"
+              className="font-semibold flex whitespace-nowrap transition-all duration-500 delay-200 text-gray-600 hover:text-point2 dark:text-point1"
             >
               {link.label}
             </Link>

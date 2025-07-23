@@ -169,7 +169,7 @@ export default function Header() {
           onClick={handleClick}
         >
           <i
-            className={`block w-[20px] h-[1px] bg-gray-600 relative transition-all duration-700 before:content-[''] before:block before:w-full before:h-full before:bg-gray-600 before:absolute before:left-0 before:transition-all before:duration-350  after:content-[''] after:block after:w-full after:h-full after:bg-gray-600 after:absolute after:left-0 after:transition-all after:duration-350 rotate-[-45] ${
+            className={`block w-[20px] h-[1px] bg-gray-600 relative transition-all duration-700 dark:bg-point1 before:content-[''] before:block before:w-full before:h-full before:bg-gray-600 before:absolute before:left-0 before:transition-all before:duration-350 dark:before:bg-point1 after:content-[''] after:block after:w-full after:h-full after:bg-gray-600 after:absolute after:left-0 after:transition-all after:duration-350 dark:after:bg-point1 rotate-[-45] ${
               active
                 ? 'transform -rotate-45 before:top-0 after:transform after:rotate-90 after:bottom-0'
                 : 'before:-top-[5px] after:-bottom-[5px]'

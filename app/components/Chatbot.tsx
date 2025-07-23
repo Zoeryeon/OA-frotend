@@ -50,23 +50,26 @@ export default function Chatbot() {
       <button
         type="button"
         onClick={toggleChatbot}
-        className={`w-auto h-auto py-[10px] px-[10px] rounded-full flex flex-col items-center text-[14px] bg-point2`}
+        className={`w-auto h-auto py-[10px] px-[14px] rounded-full flex flex-col items-center text-[10px] text-point1 leading-3 bg-point2`}
       >
         <i
-          className={`not-italic icon-chat ${ordinaryArtist.className} before:text-[28px] before:leading-6 before:text-point1  before:font-medium dark:before:text-point1`}
+          className={`not-italic icon-chat ${ordinaryArtist.className} before:text-[28px] before:leading-4 before:text-point1  before:font-medium dark:before:text-point1`}
         ></i>
+        챗봇
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-[80px] right-[10px] max-w-[400px] h-[500px] bg-point1 border border-gray-400 rounded-[20px] w-full z-60 shadow-[0px_2px_6px_rgba(0,0,0,0.18)">
-          <div className="overflow-auto p-[20px] h-[calc(100%-80px)] scroll-w-[5px]">
-            <div className="flex pb-[20px] items-center justify-between">
-              <h2 className="text-[20px] font-bold">무엇을 도와드릴까요?</h2>
+        <div className="fixed bottom-[80px] right-[10px] max-w-[400px] h-[500px] bg-point1 border border-gray-400 rounded-[20px] w-full z-60 shadow-[0px_2px_6px_rgba(0,0,0,0.18) max-sm:max-w-[250px] max-sm:h-[430px]">
+          <div className="overflow-auto p-[20px] h-[calc(100%-80px)] scroll-w-[5px] max-sm:p-[14px] max-sm:h-[calc(100%-60px)]">
+            <div className="flex pb-[20px] items-center justify-between max-sm:pb-[14px]">
+              <h2 className="text-[20px] font-bold max-sm:text-[14px]">
+                무엇을 도와드릴까요?
+              </h2>
               <button
                 onClick={toggleChatbot}
                 className="relative  opacity-50 hover:opacity-90"
               >
-                <div className="w-[25px]">
+                <div className="w-[25px] max-sm:w-[18px]">
                   <svg
                     version="1.0"
                     xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +88,7 @@ export default function Chatbot() {
                     ></path>
                   </svg>
                 </div>
-                <div className="absolute left-[8px] top-[2px] text-point1">
+                <div className="absolute left-[8px] top-[2px] text-point1 max-sm:text-[12px] max-sm:left-[5px] max-sm:top-[1px]">
                   X
                 </div>
               </button>
@@ -94,7 +97,7 @@ export default function Chatbot() {
               {messages.map((msg, i) => (
                 <p
                   key={i}
-                  className={`mb-[20px] whitespace-pre-line ${
+                  className={`mb-[20px] whitespace-pre-line max-sm:mb-[10px] max-sm:text-[12px] ${
                     i % 2 === 0
                       ? 'border border-point2 rounded-[12px] px-[8px] py-[3px] ml-[18px]'
                       : 'w-full pr-[20px]'
@@ -105,10 +108,10 @@ export default function Chatbot() {
               ))}
             </div>
           </div>
-          <form className="absolute bottom-[10px] left-0 w-full px-[24px] justify-between">
-            <div className="flex items-center border h-[60px] border-gray-400 rounded-[20px] pr-[10px]">
+          <form className="absolute bottom-[10px] left-0 w-full px-[24px] justify-between max-sm:bottom-[8px] max-sm:px-[14px]">
+            <div className="flex items-center border h-[60px] border-gray-400 rounded-[20px] pr-[10px] max-sm:h-[40px] max-sm:rounded-[14px]">
               <input
-                className="w-full border-0"
+                className="w-full border-0 max-sm:text-[12px] max-sm:placeholder:text-[12px]"
                 type="text"
                 placeholder="메세지를 입력하세요"
                 value={input}
@@ -123,7 +126,7 @@ export default function Chatbot() {
                 onClick={handleSubmit}
               >
                 <i
-                  className={`not-italic icon-send px-[4px] ${ordinaryArtist.className} before:text-[18px] before:leading-6 before:text-point1  before:font-medium dark:before:text-point1`}
+                  className={`not-italic icon-send px-[4px] ${ordinaryArtist.className} before:text-[18px] before:leading-6 before:text-point1  before:font-medium dark:before:text-point1 max-sm:before:text-[14px] max-sm:before:leading-1`}
                 ></i>
               </button>
             </div>
