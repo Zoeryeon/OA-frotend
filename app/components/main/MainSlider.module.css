@@ -9,18 +9,22 @@
   right: 20px;
 }
 .slider [class*='swiper-button-prev']::after {
-  content: '\\e935' !important;
-  font-family: 'OrdinaryArtist-ico';
+  /* content: '\e935' !important;
+  font-family: 'OrdinaryArtist-ico'; */
   border-radius: 50%;
   color: #212121;
   background-color: #fffc;
+}
+.swiper-button-prev::after {
+  content: '\e935' !important;
+  font-family: 'OrdinaryArtist-ico';
 }
 .slider [class*='swiper-button-prev']:hover::after {
   color: #f7f7f7;
   background-color: #212121;
 }
 .slider [class*='swiper-button-next']::after {
-  content: '\\e936' !important;
+  content: '\e936' !important;
   font-family: 'OrdinaryArtist-ico';
   border-radius: 50%;
   color: #212121;
