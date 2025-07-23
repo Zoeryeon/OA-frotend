@@ -30,6 +30,7 @@ export default function Search({
 
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
+  console.log(totalPage);
 
   // form에 입력하는 값
   const [inputKeyword, setInputKeyword] = useState('');
@@ -76,11 +77,39 @@ export default function Search({
     setInputKeyword(newKeyword);
   }, [params]);
 
-  // data 상태 변경시 totalPage 계산
+  // selected 상태 변경시 totalPage 계산
   useEffect(() => {
-    // data 없으면 NaN이므로 0으로 초기화
-    setTotalPage(Math.ceil(data?.total / 12) || 0);
-  }, [data]);
+    let count = 0;
+
+    switch (selected) {
+      case 'vod':
+        count = vodCount;
+        break;
+      case 'oaset':
+        count = oaCount;
+        break;
+      case 'plus':
+        count = plusCount;
+        break;
+      case 'interview':
+        count = interCount;
+        break;
+      case 'live':
+        count = liveCount;
+        break;
+      case 'all':
+      default:
+        count = data?.data?.length || 0;
+        break;
+    }
+
+    setTotalPage(Math.ceil(count / 9) || 0);
+  }, [selected, vodCount, oaCount, plusCount, interCount, liveCount, data]);
+
+  // selected 변경 시 page 초기화
+  useEffect(() => {
+    setPage(1);
+  }, [selected]);
 
   // 데이터 개수
   useEffect(() => {

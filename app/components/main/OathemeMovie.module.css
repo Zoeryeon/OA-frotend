@@ -18,7 +18,7 @@
   font-size: 24px;
   font-weight: 600;
   content: '\e93c';
-  font-family: 'OrdinaryArtist-ico';
+  font-family: 'ordinaryArtist';
   color: #212121;
 }
 .movieslider [class*='swiper-button']:hover::after {

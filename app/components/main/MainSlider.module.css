@@ -21,7 +21,7 @@
 }
 .slider [class*='swiper-button-next']::after {
   content: '\e936' !important;
-  font-family: 'OrdinaryArtist-ico';
+  font-family: 'ordinaryArtist';
   border-radius: 50%;
   color: #212121;
   background-color: #fffc;

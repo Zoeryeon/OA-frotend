@@ -49,7 +49,7 @@ export default function InterviewSearch({
       </h3>
       {interData && interData.length > 0 ? (
         <ul className="grid gap-[40px] max-sm:gap-y-[15px] max-sm:gap-x-[10px] grid-cols-3 max-sm:grid-cols-2">
-          {interData?.slice(0, 3).map((item, index) => (
+          {interData?.map((item, index) => (
             <li key={index} className="relative">
               <Link
                 href="#"

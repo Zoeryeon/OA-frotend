@@ -30,7 +30,7 @@ export default function DarkUp({ isFixed }: { isFixed: boolean }) {
     <div
       className={`flex right-0 z-9 mix-blend-exclusion ${
         isFixed
-          ? 'absolute bottom-[190px] max-md:bottom-[260px] max-sm:bottom-[290px]'
+          ? 'absolute bottom-[190px] max-md:bottom-[260px] max-sm:bottom-[300px]'
           : 'fixed bottom-[10px]'
       }`}
     >
@@ -44,7 +44,7 @@ export default function DarkUp({ isFixed }: { isFixed: boolean }) {
       {showScrollTop && (
         <Link
           href="#"
-          className={`w-auto h-auto py-[9px] px-[10px] flex flex-col items-center right-[5px] text-[#fff] before:content-[''] before:block before:absolute before:left-[15px] before:top-0 before:1px before:bg-[#fff] before:transition-all before:duration-75 `}
+          className={`w-auto h-auto py-[9px] px-[10px] flex flex-col items-center right-[5px] text-[#fff] before:content-[''] before:block before:absolute before:left-[15px] before:top-0 before:1px before:bg-[#fff] before:transition-all before:duration-75 max-sm:text-[12px]`}
           onClick={(e) => {
             e.preventDefault();
             scrollToTop();

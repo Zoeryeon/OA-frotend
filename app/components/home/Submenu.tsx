@@ -11,14 +11,22 @@ const linksGroup1 = [
 ];
 
 const linksGroup2 = [
-  { href: '/watch', label: '관람하기' },
+  { href: '/watch?genre=all&type=all', label: '관람하기' },
   { href: '/oatheme', label: '오뗌 극장' },
   { href: '#', label: '오아플러스' },
   { href: '/watch/free', label: 'FREE' },
-  { href: '/account/login', label: '로그인' },
+  { href: '/login', label: '로그인' },
 ];
 
-export default function Submenu({ showSubmenu }: { showSubmenu: boolean }) {
+export default function Submenu({
+  showSubmenu,
+  setShowSubmenu,
+  setActive,
+}: {
+  showSubmenu: boolean;
+  setShowSubmenu: (a: boolean) => void;
+  setActive: (value: boolean) => void;
+}) {
   // 랜덤 이미지
   const [num, setNum] = useState(0);
 
@@ -71,6 +79,10 @@ export default function Submenu({ showSubmenu }: { showSubmenu: boolean }) {
               <Link
                 key={index}
                 href={link.href}
+                onClick={() => {
+                  setShowSubmenu(false);
+                  setActive(false);
+                }}
                 className="flex flex-col items-center justify-center w-full text-gray-600 group hover:text-point2 dark:text-point1"
               >
                 <span className="text-[30px] w-[30px] h-[30px] flex justify-center items-center mb-[8px]">
@@ -87,6 +99,10 @@ export default function Submenu({ showSubmenu }: { showSubmenu: boolean }) {
           <li key={index} className="pt-[18px] px-[18px]">
             <Link
               href={link.href}
+              onClick={() => {
+                setShowSubmenu(false);
+                setActive(false);
+              }}
               className="font-semibold flex whitespace-nowrap transition-all duration-500 delay-200 text-gray-600 hover:text-point2 dark:text-point1"
             >
               {link.label}

@@ -8,7 +8,7 @@
 
 .presentslider [class*='swiper-button']::after {
   content: '\e93c';
-  font-family: 'OrdinaryArtist-ico';
+  font-family: 'ordinaryArtist';
   color: var(--color-point1);
   font-weight: 600;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
@@ -42,7 +42,7 @@
   font-size: 24px;
   font-weight: 600;
   content: '\e93c';
-  font-family: 'OrdinaryArtist-ico';
+  font-family: 'ordinaryArtist';
   color: #212121;
 }
 .subslider [class*='swiper-button']:hover::after {

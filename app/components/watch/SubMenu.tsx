@@ -77,7 +77,7 @@ export default function SubMenu({
           className={`flex items-center content-center border h-[40px] bg-point1 w-[130px] px-[10px] relative cursor-pointer select-none max-md:h-[36px] max-md:text-[14px] max-md:w-auto max-sm:text-[13px] max-sm:pr-[4px] max-sm:pl-[7px] dark:bg-[#080808] ${
             isOpen
               ? 'border-point2 rounded-tr-[5px] rounded-tl-[5px]'
-              : 'border-gray-400 rounded-[5px] dark:border-gray-600 '
+              : 'border-gray-400 rounded-[5px]'
           }`}
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -87,11 +87,13 @@ export default function SubMenu({
             <img
               src="/images/arrow_drop_down.svg"
               alt="메뉴버튼"
-              className={`${isOpen ? 'rotate-180' : ''}`}
+              className={`dark:filter dark:invert ${
+                isOpen ? 'rotate-180' : ''
+              }`}
             />
           </div>
           <ol
-            className={`absolute top-full -left-[1px] -right-[1px] flex-wrap bg-point1 min-w-[82px] w-auto rounded-br-[5px] rounded-bl-[5px] z-10 h-auto border border-point2 border-t-0 ${
+            className={`absolute top-full -left-[1px] -right-[1px] flex-wrap bg-point1 min-w-[82px] w-auto rounded-br-[5px] rounded-bl-[5px] z-10 h-auto border border-point2 border-t-0 dark:bg-[#080808] dark:text-gray-500 ${
               isOpen ? 'flex' : 'hidden'
             }`}
           >
@@ -103,8 +105,8 @@ export default function SubMenu({
                   setCurrentSort(item.name);
                   setCount(0);
                 }}
-                className={`w-full h-[40px] items-center p-[10px] border-t border-t-black/5 hover:bg-black/5 max-md:h-[36px] max-md:py-0 max-md:content-center ${
-                  currentSort === item.name ? 'bg-black/5' : ''
+                className={`w-full h-[40px] items-center p-[10px] border-t border-t-black/5 hover:bg-black/5 max-md:h-[36px] max-md:py-0 max-md:content-center dark:border-t-gray-600 dark:hover:bg-gray-600 ${
+                  currentSort === item.name ? 'bg-black/5 dark:bg-gray-600' : ''
                 }`}
               >
                 {item.name}
@@ -120,20 +122,26 @@ export default function SubMenu({
         >
           <i
             className={`${
-              isSingleColumn ? 'bg-[#676767]' : 'bg-gray-400'
+              isSingleColumn
+                ? 'bg-[#676767] dark:bg-gray-400'
+                : 'bg-gray-400 dark:bg-[#676767]'
             } w-full h-[9px]  block mb-[2px] `}
           ></i>
           <i
             className={`${
-              isSingleColumn ? 'bg-[#676767]' : 'bg-gray-400'
+              isSingleColumn
+                ? 'bg-[#676767] dark:bg-gray-400'
+                : 'bg-gray-400 dark:bg-[#676767]'
             } w-full h-[5px] block`}
           ></i>
         </button>
         <button
           type="button"
           className={`hidden flex-wrap w-[16px] h-[16px] ml-[4px] max-sm:flex ${
-            isSingleColumn ? '[&_i]:bg-gray-400' : '[&_i]:bg-[#676767]'
-          }`}
+            isSingleColumn
+              ? '[&_i]:bg-gray-400 dark:[&_i]:bg-[#676767]'
+              : '[&_i]:bg-[#676767] dark:[&_i]:bg-gray-400'
+          } `}
           onClick={() => setIsSingleColumn(false)}
         >
           <i className="w-[7px] h-[7px] block mb-[2px] mr-[2px]"></i>

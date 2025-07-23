@@ -8,12 +8,17 @@ export default function Login() {
     <main className="bg-point1 dark:bg-[#080808]">
       <div className="max-w-[1160px] mx-auto">
         <div className="px-[20px]">
-          <div className="flex pt-[140px] pb-[80px] border-b border-gray-400 max-md:flex-col max-md:pb-[48px]">
-            <div className="pr-[80px] w-[20%] max-md:w-full">
-              <h2 className="text-[30px] font-bold max-md:pb-[40px]">로그인</h2>
-              <ul className="mt-[20px] text-[17px] max-md:flex max-md:gap-[20px] max-md:pb-[80px]">
+          <div className="flex pt-[140px] pb-[80px] border-b border-gray-400 max-md:flex-col max-md:pb-[48px] dark:border-gray-500">
+            <div className="pr-[80px] w-[24%] max-md:w-full max-md:pr-0">
+              <h2 className="text-[30px] font-bold max-md:pb-[40px] max-sm:text-[22px] dark:text-point1">
+                로그인
+              </h2>
+              <ul className="mt-[20px] text-[17px] max-md:flex max-md:gap-[20px] max-md:pb-[80px] ">
                 <li className="mb-[15px]">
-                  <Link href="#" className="relative">
+                  <Link
+                    href="#"
+                    className="relative max-sm:text-[16px] dark:text-point1"
+                  >
                     이메일 찾기
                     <svg
                       version="1.1"
@@ -24,14 +29,17 @@ export default function Login() {
                       viewBox="0 0 89.124 1.898"
                       enableBackground="new 0 0 89.124 1.898"
                       preserveAspectRatio="none"
-                      className="absolute mt-[5px]"
+                      className="absolute mt-[5px] dark:bg-point1"
                     >
                       <path d="M0.637,1.884c14.674,0.062,29.241-0.071,43.912-0.402c7.861-0.178,15.726-0.206,23.589-0.219 c6.657-0.012,13.645,0.853,20.249-0.129c0.816-0.121,1.092-1.267,0.113-1.121C82.559,0.896,76.228,0.136,70.219,0.14 c-7.865,0.004-15.73,0.044-23.595,0.182C31.303,0.588,16.074,0.826,0.75,0.763C-0.101,0.759-0.343,1.88,0.637,1.884L0.637,1.884z"></path>
                     </svg>
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="pt-[5px] pb-[10px] relative">
+                  <Link
+                    href="#"
+                    className="pt-[5px] pb-[10px] relative max-sm:text-[16px] dark:text-point1"
+                  >
                     비밀번호 재발급
                     <svg
                       version="1.1"
@@ -42,7 +50,7 @@ export default function Login() {
                       viewBox="0 0 89.124 1.898"
                       enableBackground="new 0 0 89.124 1.898"
                       preserveAspectRatio="none"
-                      className="absolute mt-[5px]"
+                      className="absolute mt-[5px] dark:bg-point1"
                     >
                       <path d="M0.637,1.884c14.674,0.062,29.241-0.071,43.912-0.402c7.861-0.178,15.726-0.206,23.589-0.219 c6.657-0.012,13.645,0.853,20.249-0.129c0.816-0.121,1.092-1.267,0.113-1.121C82.559,0.896,76.228,0.136,70.219,0.14 c-7.865,0.004-15.73,0.044-23.595,0.182C31.303,0.588,16.074,0.826,0.75,0.763C-0.101,0.759-0.343,1.88,0.637,1.884L0.637,1.884z"></path>
                     </svg>
@@ -52,8 +60,8 @@ export default function Login() {
             </div>
             <form className="w-[80%] max-md:w-full">
               <ul className="w-full max-w-[480px]">
-                <li className="flex items-center w-full relative pt-[5px] pb-[10px] max-md:pb-[20px]">
-                  <label className="min-w-[110px] text-[13px]">
+                <li className="flex items-center w-full relative pt-[5px] pb-[10px] max-md:pb-[20px] max-sm:flex-col max-sm:items-start">
+                  <label className="min-w-[110px] text-[13px] dark:text-point1">
                     이메일(아이디)
                   </label>
                   <input
@@ -61,7 +69,7 @@ export default function Login() {
                     name="id"
                     required
                     placeholder="이메일을 입력해주세요"
-                    className="w-full placeholder:text-[13px] border-0"
+                    className="w-full placeholder:text-[13px] border-0 max-sm:px-0 dark:text-point1"
                   />
                   <svg
                     version="1.1"
@@ -72,7 +80,7 @@ export default function Login() {
                     viewBox="0 0 89.124 1.898"
                     enableBackground="new 0 0 89.124 1.898"
                     preserveAspectRatio="none"
-                    className="oa_drawingLine colorItem absolute mt-[60px]"
+                    className="oa_drawingLine colorItem absolute mt-[60px] dark:bg-point1"
                   >
                     <path
                       fill="true"
@@ -80,14 +88,16 @@ export default function Login() {
                     ></path>
                   </svg>
                 </li>
-                <li className="flex items-center w-full relative pt-[5px] pb-[10px] max-md:pb-[20px]">
-                  <label className="min-w-[110px] text-[13px]">비밀번호</label>
+                <li className="flex items-center w-full relative pt-[5px] pb-[10px] max-md:pb-[20px] max-sm:flex-col max-sm:items-start">
+                  <label className="min-w-[110px] text-[13px] dark:text-point1">
+                    비밀번호
+                  </label>
                   <input
                     type="text"
                     name="id"
                     required
                     placeholder="비밀번호를 입력해주세요"
-                    className="w-full placeholder:text-[13px] border-0"
+                    className="w-full placeholder:text-[13px] border-0 max-sm:px-0 dark:text-point1"
                   />
                   <svg
                     version="1.1"
@@ -98,7 +108,7 @@ export default function Login() {
                     viewBox="0 0 89.124 1.898"
                     enableBackground="new 0 0 89.124 1.898"
                     preserveAspectRatio="none"
-                    className="oa_drawingLine colorItem absolute mt-[60px]"
+                    className="oa_drawingLine colorItem absolute mt-[60px] dark:bg-point1"
                   >
                     <path
                       fill="true"
@@ -141,10 +151,12 @@ export default function Login() {
               </button>
             </form>
           </div>
-          <div className="flex py-[80px] border-b border-gray-400 max-md:py-[48px] max-md:flex-col">
-            <div className="pr-[80px] w-[20%] max-md:w-full max-md:pb-[80px]">
-              <h2 className="text-[30px] font-bold">소셜로그인</h2>
-              <p className="mt-[20px]">
+          <div className="flex py-[80px] border-b border-gray-400 max-md:py-[48px] max-md:flex-col dark:border-gray-500">
+            <div className="pr-[80px] w-[24%] max-md:w-full max-md:pb-[80px] max-md:pr-0">
+              <h2 className="text-[30px] font-bold max-sm:text-[22px] dark:text-point1">
+                소셜로그인
+              </h2>
+              <p className="mt-[20px] max-sm:text-[14px]  dark:text-point1">
                 해외사용자는 소셜로그인을 사용 할 수 없어요
               </p>
             </div>
@@ -182,9 +194,13 @@ export default function Login() {
             </button>
           </div>
           <div className="flex py-[80px] max-md:flex-col max-md:pt-[48px] max-md:pb-[80px]">
-            <div className="pr-[80px] w-[20%] max-md:w-full max-md:pb-[80px]">
-              <h2 className="text-[30px] font-bold">회원가입</h2>
-              <p className="mt-[20px]">아직 오아라이브 회원이 아니신가요?</p>
+            <div className="pr-[80px] w-[24%] max-md:w-full max-md:pb-[80px] max-md:pr-0">
+              <h2 className="text-[30px] font-bold max-sm:text-[22px] dark:text-point1">
+                회원가입
+              </h2>
+              <p className="mt-[20px] max-sm:text-[14px] dark:text-point1">
+                아직 오아라이브 회원이 아니신가요?
+              </p>
             </div>
             <button
               type="button"

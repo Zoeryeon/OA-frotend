@@ -49,7 +49,7 @@ export default function OaplusSearch({
       </h3>
       {plusData && plusData.length > 0 ? (
         <ul className="grid gap-[40px] max-sm:gap-y-[15px] max-sm:gap-x-[10px] grid-cols-3 max-sm:grid-cols-2">
-          {plusData?.slice(0, 3).map((item, index) => (
+          {plusData?.map((item, index) => (
             <li key={index} className="relative">
               <Link
                 href="#"

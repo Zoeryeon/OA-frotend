@@ -59,15 +59,15 @@ export default function Chatbot() {
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-[80px] right-[10px] max-w-[400px] h-[500px] bg-point1 border border-gray-400 rounded-[20px] w-full z-60 shadow-[0px_2px_6px_rgba(0,0,0,0.18) max-sm:max-w-[250px] max-sm:h-[430px]">
+        <div className="fixed bottom-[80px] right-[10px] max-w-[400px] h-[500px] bg-point1 border border-gray-400 rounded-[20px] w-full z-60 shadow-[0px_2px_6px_rgba(0,0,0,0.18) max-sm:max-w-[250px] max-sm:h-[430px] dark:bg-[#080808] dark:border-gray-600 dark:shadow-[0px_2px_6px_rgba(255,255,255,0.3)]">
           <div className="overflow-auto p-[20px] h-[calc(100%-80px)] scroll-w-[5px] max-sm:p-[14px] max-sm:h-[calc(100%-60px)]">
             <div className="flex pb-[20px] items-center justify-between max-sm:pb-[14px]">
-              <h2 className="text-[20px] font-bold max-sm:text-[14px]">
+              <h2 className="text-[20px] font-bold max-sm:text-[14px] dark:text-point1">
                 무엇을 도와드릴까요?
               </h2>
               <button
                 onClick={toggleChatbot}
-                className="relative  opacity-50 hover:opacity-90"
+                className="relative  opacity-50 hover:opacity-90 dark:opacity-60"
               >
                 <div className="w-[25px] max-sm:w-[18px]">
                   <svg
@@ -88,7 +88,7 @@ export default function Chatbot() {
                     ></path>
                   </svg>
                 </div>
-                <div className="absolute left-[8px] top-[2px] text-point1 max-sm:text-[12px] max-sm:left-[5px] max-sm:top-[1px]">
+                <div className="absolute left-[8px] top-[2px] text-point1 max-sm:text-[12px] max-sm:left-[5px] max-sm:top-[1px] dark:text-gray-600">
                   X
                 </div>
               </button>
@@ -99,8 +99,8 @@ export default function Chatbot() {
                   key={i}
                   className={`mb-[20px] whitespace-pre-line max-sm:mb-[10px] max-sm:text-[12px] ${
                     i % 2 === 0
-                      ? 'border border-point2 rounded-[12px] px-[8px] py-[3px] ml-[18px]'
-                      : 'w-full pr-[20px]'
+                      ? 'border border-point2 rounded-[12px] px-[8px] py-[3px] ml-[18px] dark:text-point1'
+                      : 'w-full pr-[20px] dark:text-point1'
                   }`}
                 >
                   {msg}
@@ -109,9 +109,9 @@ export default function Chatbot() {
             </div>
           </div>
           <form className="absolute bottom-[10px] left-0 w-full px-[24px] justify-between max-sm:bottom-[8px] max-sm:px-[14px]">
-            <div className="flex items-center border h-[60px] border-gray-400 rounded-[20px] pr-[10px] max-sm:h-[40px] max-sm:rounded-[14px]">
+            <div className="flex items-center border h-[60px] border-gray-400 rounded-[20px] pr-[10px] max-sm:h-[40px] max-sm:rounded-[14px] ">
               <input
-                className="w-full border-0 max-sm:text-[12px] max-sm:placeholder:text-[12px]"
+                className="w-full border-0 max-sm:text-[12px] max-sm:placeholder:text-[12px] dark:text-point1"
                 type="text"
                 placeholder="메세지를 입력하세요"
                 value={input}
@@ -121,12 +121,14 @@ export default function Chatbot() {
                 type="submit"
                 disabled={!input.trim()}
                 className={`py-[4px] rounded-full -rotate-[90deg] transition-transform ${
-                  input.trim() ? 'bg-point2' : 'bg-gray-400 cursor-default'
+                  input.trim()
+                    ? 'bg-point2'
+                    : 'bg-gray-400 cursor-default dark:bg-gray-600'
                 }`}
                 onClick={handleSubmit}
               >
                 <i
-                  className={`not-italic icon-send px-[4px] ${ordinaryArtist.className} before:text-[18px] before:leading-6 before:text-point1  before:font-medium dark:before:text-point1 max-sm:before:text-[14px] max-sm:before:leading-1`}
+                  className={`not-italic icon-send px-[4px] ${ordinaryArtist.className} before:text-[18px] before:leading-6 before:text-point1  before:font-medium dark:before:text-gray-400 max-sm:before:text-[14px] max-sm:before:leading-1`}
                 ></i>
               </button>
             </div>
