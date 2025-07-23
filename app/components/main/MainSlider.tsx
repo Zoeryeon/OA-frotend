@@ -728,7 +728,7 @@ export default function MainSlider() {
         <div className="max-w-[1160px] absolute left-1/2 top-[50%] -translate-x-1/2 z-1 w-full flex justify-between">
           <button
             ref={prevRef}
-            className={`swiper-button-prev  ${styles['swiper-button-prev']}`}
+            className="swiper-button-prev icon-prev"
           ></button>
           <button ref={nextRef} className="swiper-button-next"></button>
         </div>

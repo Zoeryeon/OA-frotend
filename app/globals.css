@@ -1414,4 +1414,7 @@ input[type='radio']:checked + label::before {
   .icon-send::before {
     content: '\e92c' !important;
   }
+  .icon-prev::after {
+    content: '\e935' !important;
+  }
 }
