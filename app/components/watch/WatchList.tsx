@@ -81,11 +81,10 @@ export default function WatchList({
                       href="http://www.w3.org/1999/xlink"
                       x="0px"
                       y="0px"
-                      width="100%"
-                      height="100%"
+                      width="27"
+                      height="26"
                       viewBox="0 0 22.678 22.632"
                       enableBackground="new 0 0 22.678 22.632"
-                      preserveAspectRatio="zMinYMin slice"
                     >
                       <path
                         fill={
