@@ -60,14 +60,14 @@ export default function Chatbot() {
 
       {isOpen && (
         <div className="fixed bottom-[80px] right-[10px] max-w-[400px] h-[500px] bg-point1 border border-gray-400 rounded-[20px] w-full z-60 shadow-[0px_2px_6px_rgba(0,0,0,0.18) max-sm:max-w-[250px] max-sm:h-[430px] dark:bg-[#080808] dark:border-gray-600 dark:shadow-[0px_2px_6px_rgba(255,255,255,0.3)]">
-          <div className="overflow-auto p-[20px] h-[calc(100%-80px)] scroll-w-[5px] max-sm:p-[14px] max-sm:h-[calc(100%-60px)]">
-            <div className="flex pb-[20px] items-center justify-between max-sm:pb-[14px]">
+          <div className="overflow-auto px-[20px] h-[calc(100%-70px)] scroll-w-[5px] max-sm:px-[14px] max-sm:h-[calc(100%-60px)]">
+            <div className="fixed flex h-[60px] pt-[20px] items-center gap-[150px] bg-point1 max-sm:gap-[76px] max-sm:h-[40px] max-sm:pt-[14px]">
               <h2 className="text-[20px] font-bold max-sm:text-[14px] dark:text-point1">
                 무엇을 도와드릴까요?
               </h2>
               <button
                 onClick={toggleChatbot}
-                className="relative  opacity-50 hover:opacity-90 dark:opacity-60"
+                className="relative opacity-50 hover:opacity-90 dark:opacity-60"
               >
                 <div className="w-[25px] max-sm:w-[18px]">
                   <svg
@@ -93,14 +93,14 @@ export default function Chatbot() {
                 </div>
               </button>
             </div>
-            <div className="flex flex-col items-end mb-[10px]">
+            <div className="flex flex-col items-end mb-[10px] pt-[70px] max-sm:pt-[44px]">
               {messages.map((msg, i) => (
                 <p
                   key={i}
-                  className={`mb-[20px] whitespace-pre-line max-sm:mb-[10px] max-sm:text-[12px] ${
+                  className={`whitespace-pre-line  max-sm:text-[12px] ${
                     i % 2 === 0
-                      ? 'border border-point2 rounded-[12px] px-[8px] py-[3px] ml-[18px] dark:text-point1'
-                      : 'w-full pr-[20px] dark:text-point1'
+                      ? 'mb-[10px] border border-point2 rounded-[12px] px-[8px] py-[3px] ml-[18px] max-sm:mb-[6px] dark:text-point1'
+                      : 'mb-[22px] w-full pr-[20px] max-sm:mb-[18px] dark:text-point1'
                   }`}
                 >
                   {msg}
@@ -109,7 +109,7 @@ export default function Chatbot() {
             </div>
           </div>
           <form className="absolute bottom-[10px] left-0 w-full px-[24px] justify-between max-sm:bottom-[8px] max-sm:px-[14px]">
-            <div className="flex items-center border h-[60px] border-gray-400 rounded-[20px] pr-[10px] max-sm:h-[40px] max-sm:rounded-[14px] ">
+            <div className="flex items-center border h-[50px] border-gray-400 rounded-[20px] pr-[10px] max-sm:h-[40px] max-sm:rounded-[14px] ">
               <input
                 className="w-full border-0 max-sm:text-[12px] max-sm:placeholder:text-[12px] dark:text-point1"
                 type="text"

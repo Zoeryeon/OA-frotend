@@ -60,11 +60,10 @@ export default function OasetSearch({
                     href="http://www.w3.org/1999/xlink"
                     x="0px"
                     y="0px"
-                    width="100%"
-                    height="100%"
+                    width="27"
+                    height="26"
                     viewBox="0 0 22.678 22.632"
                     enableBackground="new 0 0 22.678 22.632"
-                    preserveAspectRatio="none"
                   >
                     <path
                       fill="var(--gray-600)"
@@ -77,7 +76,7 @@ export default function OasetSearch({
                 </div>
                 <div className="relative w-full h-full rounded-[10px]">
                   <img
-                    src={item.img_url}
+                    src={`${process.env.NEXT_PUBLIC_API_URL}${item.img_url}`}
                     alt="썸네일"
                     className=" w-full h-full bg-[#ededed] object-cover object-center transition-all duration-100 group-hover:duration-200 group-hover:transform group-hover:scale-105"
                     style={{ boxShadow: '2px 2px 6px rgba(0, 0, 0, 0.3)' }}
