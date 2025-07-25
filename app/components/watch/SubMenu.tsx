@@ -93,7 +93,7 @@ export default function SubMenu({
             />
           </div>
           <ol
-            className={`absolute top-full -left-[1px] -right-[1px] flex-wrap bg-point1 min-w-[82px] w-auto rounded-br-[5px] rounded-bl-[5px] z-10 h-auto border border-point2 border-t-0 dark:bg-[#080808] dark:text-gray-500 ${
+            className={`absolute top-full -left-[1px] -right-[1px] flex-wrap bg-point1 min-w-[82px] w-auto rounded-br-[5px] rounded-bl-[5px] z-11 h-auto border border-point2 border-t-0 dark:bg-[#080808] dark:text-gray-500 ${
               isOpen ? 'flex' : 'hidden'
             }`}
           >

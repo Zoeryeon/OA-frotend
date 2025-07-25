@@ -3,7 +3,7 @@
 export default function Title() {
   return (
     <div className="bg-[linear-gradient(0deg,#e4e4f0,rgba(228,228,240,0))]">
-      <div className="max-w-[1152px] py-[64px] text-center mx-auto px-[20px] relative">
+      <div className="max-w-[1152px] py-[64px] text-center mx-auto px-[20px] relative dark:text-point1">
         <h3 className="text-[30px] font-light max-md:text-[28px]">
           OA THEME{' '}
           <span className="inline-block whitespace-nowrap">THEATRE</span>

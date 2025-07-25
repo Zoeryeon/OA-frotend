@@ -74,20 +74,26 @@ export default function ArrayMenu({
         >
           <i
             className={`${
-              isSingleColumn ? 'bg-[#676767]' : 'bg-gray-400'
+              isSingleColumn
+                ? 'bg-[#676767] dark:bg-gray-400'
+                : 'bg-gray-400 dark:bg-[#676767]'
             } w-full h-[9px]  block mb-[2px] `}
           ></i>
           <i
             className={`${
-              isSingleColumn ? 'bg-[#676767]' : 'bg-gray-400'
+              isSingleColumn
+                ? 'bg-[#676767] dark:bg-gray-400'
+                : 'bg-gray-400 dark:bg-[#676767]'
             } w-full h-[5px] block`}
           ></i>
         </button>
         <button
           type="button"
           className={`hidden flex-wrap w-[16px] h-[16px] ml-[4px] max-sm:flex ${
-            isSingleColumn ? '[&_i]:bg-gray-400' : '[&_i]:bg-[#676767]'
-          }`}
+            isSingleColumn
+              ? '[&_i]:bg-gray-400 dark:[&_i]:bg-[#676767]'
+              : '[&_i]:bg-[#676767] dark:[&_i]:bg-gray-400'
+          } `}
           onClick={() => setIsSingleColumn(false)}
         >
           <i className="w-[7px] h-[7px] block mb-[2px] mr-[2px]"></i>

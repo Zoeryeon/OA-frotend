@@ -61,7 +61,7 @@ export default function MovieList() {
               y="0px"
               viewBox="0 0 369.654 257.315"
               enableBackground="new 0 0 369.654 257.315"
-              className="absolute left-[10%] right-[10%] top-0 max-sm:hidden"
+              className="absolute left-[10%] right-[10%] top-0 max-sm:hidden dark:filter dark:invert"
             >
               <title>명화 이미지</title>
               <g>
@@ -140,6 +140,7 @@ export default function MovieList() {
                 viewBox="0.091 -84.203 50.401 25.127"
                 enableBackground="new 0.091 -84.203 50.401 25.127"
                 preserveAspectRatio="none"
+                className="dark:filter dark:invert"
               >
                 <title>액자 프레임 oaThemeItem</title>
                 <path
@@ -187,7 +188,7 @@ export default function MovieList() {
               y="0px"
               viewBox="0 0 369.654 257.315"
               enableBackground="new 0 0 369.654 257.315"
-              className="absolute left-[10%] right-[10%] top-0 max-sm:hidden"
+              className="absolute left-[10%] right-[10%] top-0 max-sm:hidden dark:filter dark:invert"
             >
               <title>명화 이미지</title>
               <g>
@@ -222,6 +223,7 @@ export default function MovieList() {
                 viewBox="0.091 -84.203 50.401 25.127"
                 enableBackground="new 0.091 -84.203 50.401 25.127"
                 preserveAspectRatio="none"
+                className="dark:filter dark:invert"
               >
                 <title>액자 프레임 oaThemeItem</title>
                 <path
@@ -269,7 +271,7 @@ export default function MovieList() {
               y="0px"
               viewBox="0 0 369.654 257.315"
               enableBackground="new 0 0 369.654 257.315"
-              className="absolute left-[10%] right-[10%] top-0 max-md:hidden"
+              className="absolute left-[10%] right-[10%] top-0 max-md:hidden dark:filter dark:invert"
             >
               <title>명화 이미지</title>
               <g>
@@ -324,6 +326,7 @@ export default function MovieList() {
                 viewBox="0.091 -84.203 50.401 25.127"
                 enableBackground="new 0.091 -84.203 50.401 25.127"
                 preserveAspectRatio="none"
+                className="dark:filter dark:invert"
               >
                 <title>액자 프레임 oaThemeItem</title>
                 <path
@@ -376,6 +379,7 @@ export default function MovieList() {
                   viewBox="0.091 -84.203 50.401 25.127"
                   enableBackground="new 0.091 -84.203 50.401 25.127"
                   preserveAspectRatio="none"
+                  className="dark:filter dark:invert"
                 >
                   <title>액자 프레임 oaThemeItem</title>
                   <path
