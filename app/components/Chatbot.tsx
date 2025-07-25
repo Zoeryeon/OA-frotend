@@ -69,7 +69,7 @@ export default function Chatbot() {
                 onClick={toggleChatbot}
                 className="relative opacity-50 hover:opacity-90 dark:opacity-60"
               >
-                <div className="w-[25px] max-sm:w-[18px]">
+                <div className="w-[25px] max-sm:w-[21px]">
                   <svg
                     version="1.0"
                     xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +88,7 @@ export default function Chatbot() {
                     ></path>
                   </svg>
                 </div>
-                <div className="absolute left-[8px] top-[2px] text-point1 max-sm:text-[12px] max-sm:left-[5px] max-sm:top-[1px] dark:text-gray-600">
+                <div className="absolute left-[8px] top-[2px] text-point1 max-sm:text-[12px] max-sm:left-[6px] max-sm:top-[2px] dark:text-gray-600">
                   X
                 </div>
               </button>

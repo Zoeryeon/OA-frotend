@@ -107,7 +107,7 @@ export default function OaplusSearch({
                       </p>
                     ))}
                   </div>
-                  <h4 className="h-[50px] tracking-tighter text-[20px] font-semibold mb-[7px] text-gray-600 line-clamp-2 max-md:text-[16px] max-md:h-[43px] max-md:mt-[3px] max-md:mb-[2px] max-sm:text-[15px] dark:text-point1">
+                  <h4 className="tracking-tighter text-[20px] font-semibold mb-[7px] text-gray-600 line-clamp-2 max-md:text-[16px] max-md:mt-[3px] max-md:mb-[2px] max-sm:text-[15px] dark:text-point1">
                     {item.title}
                   </h4>
                   <div className="flex mt-auto items-end h-[44px] justify-between gap-[10px] max-md:h-auto max-md:mt-0">
