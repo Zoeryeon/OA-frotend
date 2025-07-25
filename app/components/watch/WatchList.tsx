@@ -85,7 +85,7 @@ export default function WatchList({
                       height="100%"
                       viewBox="0 0 22.678 22.632"
                       enableBackground="new 0 0 22.678 22.632"
-                      preserveAspectRatio="zMidYMid meet"
+                      preserveAspectRatio="zMinYMin slice"
                     >
                       <path
                         fill={
