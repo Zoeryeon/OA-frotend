@@ -44,7 +44,7 @@ export default function OaplusSearch({
 
   return (
     <div>
-      <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px] dark:text-white">
+      <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px] dark:text-white max-sm:pt-[40px]">
         오아플러스 <span className="text-point2">{plusCount}</span>
       </h3>
       {plusData && plusData.length > 0 ? (
@@ -139,7 +139,7 @@ export default function OaplusSearch({
         <button
           type="button"
           onClick={() => setSelected('plus')}
-          className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px] dark:border-gray-300 dark:text-point1"
+          className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px] dark:border-gray-300 dark:text-point1 max-sm:mt-[40px]"
         >
           오아플러스 더보기
           <i

@@ -22,7 +22,7 @@ export default function Title({
         <strong className="text-point2 font-semibold">{resultCount}</strong>
         개가 검색됐어요
       </h3>
-      <div className="w-full h-[188px] bg-point1 dark:bg-[#080808] dark:border-t-black py-[64px]">
+      <div className="w-full bg-point1 dark:bg-[#080808] dark:border-t-black py-[64px] max-sm:py-[40px]">
         <div className="w-[calc(100%-160px)] max-w-[calc(1280px/2-160px)] mx-auto relative py-[10px] rounded-[15px] h-[60px] max-md:w-full max-md:max-w-full max-md:mx-0 dark:bg-gray-600 shadow-[0px_2px_6px_rgba(0,0,0,0.15)]">
           <label className="relative px-[20px] flex items-center w-full h-[40px] gap-[10px]">
             <i

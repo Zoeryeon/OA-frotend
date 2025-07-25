@@ -1409,7 +1409,7 @@ input[type='radio']:checked + label::before {
     content: '\e905' !important;
   }
   .icon-chat::before {
-    content: '\e917' !important;
+    content: '\e915' !important;
   }
   .icon-send::before {
     content: '\e92c' !important;

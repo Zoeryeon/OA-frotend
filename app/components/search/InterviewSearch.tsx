@@ -44,7 +44,7 @@ export default function InterviewSearch({
 
   return (
     <div>
-      <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px] dark:text-white">
+      <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px] dark:text-white max-sm:pt-[40px]">
         인터뷰 <span className="text-point2">{interCount}</span>
       </h3>
       {interData && interData.length > 0 ? (
@@ -137,7 +137,7 @@ export default function InterviewSearch({
         <button
           type="button"
           onClick={() => setSelected('interview')}
-          className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px] dark:border-gray-300 dark:text-point1"
+          className="border border-gray-600 w-full h-[55px] flex justify-center items-center rounded-[5px] gap-[10px] mt-[64px] text-[15px] dark:border-gray-300 dark:text-point1 max-sm:mt-[40px]"
         >
           인터뷰 더보기
           <i
