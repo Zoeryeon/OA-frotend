@@ -107,11 +107,11 @@ export default function VodList({
                     </p>
                   ))}
                 </div>
-                <h4 className="h-[50px] tracking-tighter text-[20px] font-semibold mb-[7px] text-gray-600 overflow-hidden text-ellipsis line-clamp-2 max-md:text-[16px] max-md:h-[43px] max-md:mt-[3px] max-md:mb-[2px] dark:text-point1 max-sm:h-[40px]">
+                <h4 className="tracking-tighter text-[20px] font-semibold mb-[7px] text-gray-600 line-clamp-2 max-md:text-[16px] max-md:mt-[3px] max-md:mb-[2px] max-sm:text-[15px] dark:text-point1">
                   {item.title}
                 </h4>
-                <div className="flex mt-auto items-end h-[40px] justify-between gap-[10px] max-md:h-auto max-md:mt-0">
-                  <p className="text-[#676767] overflow-hidden text-ellipsis line-clamp-2 dark:text-point1">
+                <div className="flex mt-auto items-end h-[44px] justify-between gap-[10px] max-md:h-auto max-md:mt-0">
+                  <p className="text-[#676767] line-clamp-2 dark:text-point1 max-sm:text-[13px]">
                     {item.summary}
                   </p>
                   <i

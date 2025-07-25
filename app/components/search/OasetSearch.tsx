@@ -50,7 +50,7 @@ export default function OasetSearch({
             <li key={index}>
               <Link
                 href="#"
-                className=" block border border-gray-400 rounded-[10px] overflow-hidden group dark:border-gray-600 relative aspect-[344.67/375.86]"
+                className=" block border border-gray-400 rounded-[10px] overflow-hidden group dark:border-gray-600 relative aspect-[344.67/375.86] max-sm:aspect-auto max-sm:h-[200px]"
                 style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.07)' }}
               >
                 <div className="min-w-[15px] h-[30px] whitespace-nowrap absolute z-10 left-[10px] top-[13px] max-sm:h-[24px]">
@@ -94,11 +94,13 @@ export default function OasetSearch({
                       {item.price}
                     </p>
                   </div>
-                  <h4 className="h-[45px] tracking-tighter text-[18px] font-semibold mb-[5px] overflow-hidden text-ellipsis line-clamp-2 max-md:text-[16px]">
+                  <h4 className="tracking-tighter text-[18px] font-semibold mb-[5px] line-clamp-2 max-md:text-[16px] max-sm:text-[15px]">
                     {item.title}
                   </h4>
                   <div className="flex mt-auto items-end h-[40px] justify-between gap-[10px] max-md:h-auto">
-                    <p className="tracking-tight">{item.intro}</p>
+                    <p className="tracking-tight line-clamp-2 max-sm:text-[13px]">
+                      {item.intro}
+                    </p>
                     <i
                       className={`inline-flex not-italic icon-heart ${ordinaryArtist.className} before:text-[18px] before:text-point2 before:font-bold`}
                     ></i>
