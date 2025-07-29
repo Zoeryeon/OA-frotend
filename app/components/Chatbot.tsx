@@ -3,6 +3,7 @@
 
 import { ordinaryArtist } from '@/app/components/fonts';
 import { useState } from 'react';
+import { marked } from 'marked';
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -105,6 +106,7 @@ export default function Chatbot() {
                       ? 'mb-[10px] border border-point2 rounded-[12px] px-[8px] py-[3px] ml-[18px] max-sm:mb-[6px] dark:text-point1'
                       : 'mb-[22px] w-full pr-[20px] max-sm:mb-[18px] dark:text-point1'
                   }`}
+                  dangerouslySetInnerHTML={{ __html: marked.parse(msg) }}
                 >
                   {msg}
                 </p>
