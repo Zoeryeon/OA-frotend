@@ -25,6 +25,7 @@ export default function Header() {
   const [active, setActive] = useState(false);
   const [showSubmenu, setShowSubmenu] = useState(false);
 
+  // 모바일 메뉴버튼
   const handleClick = () => {
     setActive(!active);
     setShowSubmenu(!showSubmenu);

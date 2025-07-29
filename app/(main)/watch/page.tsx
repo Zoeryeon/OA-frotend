@@ -73,6 +73,7 @@ export default function Watch({
     }
   }, [data, count, currentSort]);
 
+  // 장르와 타입 변경
   useEffect(() => {
     params.set('genre', currentGenre);
     params.set('type', currentType);
@@ -95,6 +96,7 @@ export default function Watch({
           setIsSingleColumn={setIsSingleColumn}
           setCount={setCount}
         />
+        {/* 편집하기 */}
         <div className="flex px-[20px] pb-[25px] gap-[10px] items-center justify-end w-full max-md:pb-[20px] max-sm:pb-[15px]">
           <Link
             href="/watch/vod/create"

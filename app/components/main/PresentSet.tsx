@@ -78,6 +78,7 @@ export default function PresentSet({ data }: { data: VodData[] }) {
   const [randomSlide, setRandomSlide] = useState<typeof slideData>([]);
   const [randomSlide2, setRandomSlide2] = useState<typeof data>([]);
 
+  // 데이터 램덤으로 뽑기
   useEffect(() => {
     setRandomSlide([...slideData].sort(() => Math.random() - 0.5).slice(0, 4));
   }, []);
@@ -97,6 +98,7 @@ export default function PresentSet({ data }: { data: VodData[] }) {
             가격 부담은 낮추고 가치는 높이고
           </p>
         </div>
+        {/* 첫번쨰 스와이퍼 */}
         <div className={`relative`}>
           <Swiper
             className={styles.presentslider}
@@ -138,6 +140,7 @@ export default function PresentSet({ data }: { data: VodData[] }) {
             ))}
           </Swiper>
         </div>
+        {/* 두번쨰 스와이퍼 */}
         <div className="relative mt-[30px] max-w-[1160px] px-[20px] mx-auto max-[580px]:mt-[20px]">
           <Swiper
             className={`${styles.subslider} sub-slider`}

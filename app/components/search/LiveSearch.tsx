@@ -14,6 +14,7 @@ export default function LiveSearch({ liveCount }: { liveCount: number }) {
   }, []);
 
   return (
+    // 데이터 없어서 결과 없음 띄움
     <div>
       <h3 className="text-[18px] font-semibold pt-[64px] pb-[20px] dark:text-white max-sm:pt-[40px]">
         LIVE <span className="text-point2">{liveCount}</span>

@@ -28,9 +28,9 @@ export default function Search({
   const paramsObj = use(searchParams);
   const [params] = useState(new URLSearchParams(paramsObj));
 
+  // 페이지네이션
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
-  console.log(totalPage);
 
   // form에 입력하는 값
   const [inputKeyword, setInputKeyword] = useState('');

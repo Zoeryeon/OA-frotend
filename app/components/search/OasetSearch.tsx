@@ -24,6 +24,7 @@ export default function OasetSearch({
   oaCount: number;
   data: oaset[];
 }) {
+  // 전체에서 3개, 더보기에서 9개씩 보여주기
   const oaData =
     selected === 'all'
       ? data?.slice(0, 6)
@@ -111,6 +112,7 @@ export default function OasetSearch({
           ))}
         </ul>
       ) : (
+        // oaData가 0일때
         <div className="flex flex-col items-center py-[64px]">
           <span className="block mx-auto w-[120px]">
             <RandomImg num={num} />
@@ -118,6 +120,7 @@ export default function OasetSearch({
           <p className="text-[18px] mt-[20px]">검색 결과가 없어요</p>
         </div>
       )}
+      {/* 전체이면서 데이터가 10개이상일때 나오기 */}
       {selected === 'all' && data?.length > 9 && (
         <button
           type="button"

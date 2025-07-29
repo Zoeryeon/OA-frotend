@@ -46,6 +46,7 @@ export default function Free({
   // 누적 상태
   const [allList, setAllList] = useState<All[]>([]);
 
+  // 데이터 가져오기
   const { data, isPending, isError, error } = useQuery({
     queryKey: ['free', currentGenre, currentSort, count],
     queryFn: () =>
@@ -65,6 +66,7 @@ export default function Free({
     }
   }, [data, count]);
 
+  // 장르 변경
   useEffect(() => {
     params.set('genre', currentGenre);
     router.replace(`?${params.toString()}`);

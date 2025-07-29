@@ -27,6 +27,7 @@ export default function VodSearch({
   vodCount: number;
   data: vod[];
 }) {
+  // 전체, 더보기에서 9개씩 보여주기
   const vodData = selected === 'vod' ? data : data?.slice(0, 9);
 
   // 랜덤 이미지
@@ -121,6 +122,7 @@ export default function VodSearch({
           ))}
         </ul>
       ) : (
+        // vodData가 0일때
         <div className="flex flex-col items-center py-[64px]">
           <span className="block mx-auto w-[120px]">
             <RandomImg num={num} />
@@ -128,6 +130,7 @@ export default function VodSearch({
           <p className="text-[18px] mt-[20px]">검색 결과가 없어요</p>
         </div>
       )}
+      {/* 전체이면서 데이터가 10개이상일때 나오기 */}
       {selected === 'all' && data?.length > 9 && (
         <button
           type="button"

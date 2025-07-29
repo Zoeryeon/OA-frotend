@@ -8,6 +8,7 @@ export default function Login() {
     <main className="bg-point1 dark:bg-[#080808]">
       <div className="max-w-[1160px] mx-auto">
         <div className="px-[20px]">
+          {/* 로그인 */}
           <div className="flex pt-[140px] pb-[80px] border-b border-gray-400 max-md:flex-col max-md:pb-[48px] dark:border-gray-500">
             <div className="pr-[80px] w-[24%] max-md:w-full max-md:pr-0">
               <h2 className="text-[30px] font-bold max-md:pb-[40px] max-sm:text-[22px] dark:text-point1">
@@ -151,6 +152,7 @@ export default function Login() {
               </button>
             </form>
           </div>
+          {/* 소셜 로그인 */}
           <div className="flex py-[80px] border-b border-gray-400 max-md:py-[48px] max-md:flex-col dark:border-gray-500">
             <div className="pr-[80px] w-[24%] max-md:w-full max-md:pb-[80px] max-md:pr-0">
               <h2 className="text-[30px] font-bold max-sm:text-[22px] dark:text-point1">
@@ -193,6 +195,7 @@ export default function Login() {
               </div>
             </button>
           </div>
+          {/* 회원가입 */}
           <div className="flex py-[80px] max-md:flex-col max-md:pt-[48px] max-md:pb-[80px]">
             <div className="pr-[80px] w-[24%] max-md:w-full max-md:pb-[80px] max-md:pr-0">
               <h2 className="text-[30px] font-bold max-sm:text-[22px] dark:text-point1">

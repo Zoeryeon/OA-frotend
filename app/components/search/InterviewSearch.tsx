@@ -27,6 +27,7 @@ export default function InterviewSearch({
   interCount: number;
   data: inter[];
 }) {
+  // 전체에서 3개, 더보기에서 9개씩 보여주기
   const interData =
     selected === 'all'
       ? data?.slice(0, 3)
@@ -126,6 +127,7 @@ export default function InterviewSearch({
           ))}
         </ul>
       ) : (
+        // // interData가 0일때
         <div className="flex flex-col items-center py-[64px]">
           <span className="block mx-auto w-[120px]">
             <RandomImg num={num} />
@@ -133,6 +135,7 @@ export default function InterviewSearch({
           <p className="text-[18px] mt-[20px]">검색 결과가 없어요</p>
         </div>
       )}
+      {/* 전체이면서 데이터가 4개이상일때 나오기 */}
       {selected === 'all' && data?.length > 3 && (
         <button
           type="button"

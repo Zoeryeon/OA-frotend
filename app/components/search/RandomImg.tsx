@@ -2,6 +2,7 @@
 
 export default function RandomImg({ num }: { num: number }) {
   return (
+    // 검색결과 없음 이미지 랜덤 띄우기
     <div>
       <svg
         version="1.1"

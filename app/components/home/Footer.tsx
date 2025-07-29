@@ -11,6 +11,7 @@ export default function Footer() {
   const [isFixed, setIsFixed] = useState(false);
   const footerRef = useRef<HTMLElement | null>(null);
 
+  // 다크모드 푸터 위 fixed
   useEffect(() => {
     function handleScroll() {
       if (

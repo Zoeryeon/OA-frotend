@@ -25,9 +25,10 @@ export default function VodEdit({
   params: Promise<{ id: string }>;
 }) {
   const { id } = use(params);
+  const router = useRouter();
+
   const [genreSelected, setGenreSelected] = useState('');
   const [ageSelected, setAgeSelected] = useState('');
-  const router = useRouter();
 
   // vod 조회요청
   const {

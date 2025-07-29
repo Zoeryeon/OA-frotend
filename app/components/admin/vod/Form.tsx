@@ -22,9 +22,10 @@ export default function Form({
   ageSelected: string;
   setAgeSelected: (age: string) => void;
 }) {
+  // 키워드 선택
   const [pickKeyword, setPickKeyword] = useState<string[]>([]);
-  console.log(pickKeyword);
 
+  // 데이터 가져오기
   const { isPending, data, isError, error } = useQuery<Keyword[]>({
     queryKey: ['keyword'],
     queryFn: () =>
@@ -56,6 +57,7 @@ export default function Form({
   return (
     <form onSubmit={handleSubmit}>
       <div className="flex justify-between items-center pb-[35px] max-md:flex-col max-md:pb-[20px] max-sm:pb-[10px]">
+        {/* 장르 */}
         <div className="flex flex-col w-full max-md:flex-row max-md:items-center">
           <label className="pr-[20px] pb-[10px] max-md:w-[80px] max-sm:text-[13px] max-sm:pb-0 dark:text-point1">
             장르
@@ -81,6 +83,7 @@ export default function Form({
             <option value="5">인터뷰</option>
           </select>
         </div>
+        {/* 연령 */}
         <div className="flex flex-col w-full pl-[30px] max-md:pl-0 max-md:mt-[20px] max-md:flex-row max-md:items-center max-sm:mt-[10px]">
           <label className="pr-[20px] pb-[10px] max-md:w-[80px] max-sm:text-[13px] max-sm:pb-0 dark:text-point1">
             연령
@@ -105,6 +108,7 @@ export default function Form({
             <option value="4">없음</option>
           </select>
         </div>
+        {/* 가격 */}
         <div className="flex flex-col w-full pl-[30px] max-md:pl-0 max-md:mt-[20px] max-md:flex-row max-md:items-center max-sm:mt-[10px]">
           <label className="pr-[20px] pb-[5px] max-md:w-[80px] max-sm:text-[13px] max-sm:pb-0 dark:text-point1">
             가격
@@ -141,6 +145,7 @@ export default function Form({
           </div>
         </div>
       </div>
+      {/* 키워드 */}
       <div className="flex items-center justify-between pb-[10px]">
         <label className="w-[80px] max-sm:text-[13px] dark:text-point1">
           키워드
@@ -191,6 +196,7 @@ export default function Form({
           </ul>
         </div>
       )}
+      {/* 요약 */}
       <div className="flex items-center justify-between pb-[35px] max-md:pb-[20px]">
         <label className="w-[80px] max-sm:text-[13px] dark:text-point1">
           요약
@@ -203,6 +209,7 @@ export default function Form({
           className="w-full placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2 dark:text-point1"
         />
       </div>
+      {/* 제목 */}
       <div className="flex items-center justify-between pb-[35px] max-md:pb-[20px]">
         <label className="w-[80px] max-sm:text-[13px] dark:text-point1">
           제목
@@ -215,6 +222,7 @@ export default function Form({
           className=" w-full placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2 dark:text-point1"
         />
       </div>
+      {/* 이미지 */}
       <div className="flex items-center justify-between pb-[35px]">
         <label className="w-[80px] max-sm:text-[13px] dark:text-point1">
           이미지
@@ -227,6 +235,7 @@ export default function Form({
           className=" w-full placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2 dark:text-point1"
         />
       </div>
+      {/* 등록 버튼 */}
       <div className="flex items-center justify-center">
         <button
           type="submit"

@@ -109,6 +109,7 @@ export default function Search({
                   ))}
                 </ul>
               </div>
+              {/* 테블릿 크기부터 나옴 */}
               <div className="hidden max-md:flex max-md:flex-col max-md:gap-[10px] max-md:mt-[20px] max-md:px-[10px]">
                 <span className="text-[12px] opacity-50">카테고리</span>
                 <ul className="flex flex-wrap gap-[15px]">

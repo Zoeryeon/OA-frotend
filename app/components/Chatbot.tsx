@@ -9,15 +9,16 @@ export default function Chatbot() {
   const [messages, setMessages] = useState<string[]>([]);
   const [input, setInput] = useState('');
 
-  const toggleChatbot = () => {
+  // 챗봇 켜고 끄기
+  function toggleChatbot() {
     if (isOpen) {
       setMessages([]);
       setInput('');
     }
     setIsOpen(!isOpen);
-  };
+  }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
     if (!input.trim()) return;
@@ -25,6 +26,7 @@ export default function Chatbot() {
     setMessages((prev) => [...prev, `${input}`]);
     setInput('');
 
+    // ai 답변 가져오기
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_FASTAPI_URL}/chat`,
@@ -43,10 +45,11 @@ export default function Chatbot() {
       console.error('api요청실패:', error);
     }
     setInput('');
-  };
+  }
 
   return (
     <div className="flex right-[10px] z-10 fixed bottom-[80px]">
+      {/* 모든 페이지에 뜨는 버튼 */}
       <button
         type="button"
         onClick={toggleChatbot}

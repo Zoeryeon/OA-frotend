@@ -22,6 +22,7 @@ type Data = {
 export default function Create() {
   const [genreSelected, setGenreSelected] = useState('');
   const [ageSelected, setAgeSelected] = useState('');
+
   const router = useRouter();
 
   const { mutate } = useMutation({

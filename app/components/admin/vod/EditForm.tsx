@@ -35,15 +35,19 @@ export default function EditForm({
   ageSelected: string;
   setAgeSelected: (age: string) => void;
 }) {
+  // 키워드 수정
   const [pickKeyword, setPickKeyword] = useState<string[]>([]);
 
+  // 가격 수정
   const [priceType, setPriceType] = useState<'1' | '2'>('1');
   const [price, setPrice] = useState('');
 
+  // 제목, 요약, 이미지 수정
   const [title, setTitle] = useState('');
   const [summary, setSummary] = useState('');
   const [imgUrl, setImgUrl] = useState('');
 
+  // 데이터 가져오기
   const { isPending, data, isError, error } = useQuery<Keyword[]>({
     queryKey: ['keyword'],
     queryFn: () =>
@@ -52,6 +56,7 @@ export default function EditForm({
       ),
   });
 
+  // 키워드 데이터 가져오기
   const {
     isPending: keyIsPending,
     data: keyData,
@@ -134,6 +139,7 @@ export default function EditForm({
     },
   });
 
+  // vod 삭제하기
   function handleDelete() {
     mutate();
     window.location.href = '/watch?genre=all&type=all';
@@ -146,6 +152,7 @@ export default function EditForm({
   return (
     <form onSubmit={handleSubmit}>
       <div className="flex justify-between items-center pb-[35px] max-md:flex-col max-md:pb-[20px] max-sm:pb-[10px]">
+        {/* 장르 */}
         <div className="flex flex-col w-full max-md:flex-row max-md:items-center">
           <label className="pr-[20px] pb-[10px] max-md:w-[80px] max-sm:text-[13px] max-sm:pb-0 dark:text-point1">
             장르
@@ -171,6 +178,7 @@ export default function EditForm({
             <option value="5">인터뷰</option>
           </select>
         </div>
+        {/* 연령 */}
         <div className="flex flex-col w-full pl-[30px] max-md:pl-0 max-md:mt-[20px] max-md:flex-row max-md:items-center max-sm:mt-[10px]">
           <label className="pr-[20px] pb-[10px] max-md:w-[80px] max-sm:text-[13px] max-sm:pb-0 dark:text-point1">
             연령
@@ -195,6 +203,7 @@ export default function EditForm({
             <option value="4">없음</option>
           </select>
         </div>
+        {/* 가격 */}
         <div className="flex flex-col w-full pl-[30px] max-md:pl-0 max-md:mt-[20px] max-md:flex-row max-md:items-center max-sm:mt-[10px]">
           <label className="pr-[20px] pb-[5px] max-md:w-[80px] max-sm:text-[13px] max-sm:pb-0 dark:text-point1">
             가격
@@ -235,6 +244,7 @@ export default function EditForm({
           </div>
         </div>
       </div>
+      {/* 키워드 */}
       <div className="flex items-center justify-between pb-[10px]">
         <label className="w-[80px] max-sm:text-[13px] dark:text-point1">
           키워드
@@ -285,6 +295,7 @@ export default function EditForm({
           </ul>
         </div>
       )}
+      {/* 요약 */}
       <div className="flex items-center justify-between pb-[35px] max-md:pb-[20px]">
         <label className="w-[80px] max-sm:text-[13px] dark:text-point1">
           요약
@@ -299,6 +310,7 @@ export default function EditForm({
           className="w-full placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2 dark:text-point1"
         />
       </div>
+      {/* 제목 */}
       <div className="flex items-center justify-between pb-[35px] max-md:pb-[20px]">
         <label className="w-[80px] max-sm:text-[13px] dark:text-point1">
           제목
@@ -313,6 +325,7 @@ export default function EditForm({
           className=" w-full placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2 dark:text-point1"
         />
       </div>
+      {/* 이미지 */}
       <div className="flex items-center justify-between pb-[35px]">
         <label className="w-[80px] max-sm:text-[13px] dark:text-point1">
           이미지
@@ -327,6 +340,7 @@ export default function EditForm({
           className=" w-full placeholder:text-[13px] max-sm:text-[12px] max-sm:placeholder:text-[11px] border-gray-400 rounded-[5px] hover:border-point2 focus:border-point2 dark:text-point1"
         />
       </div>
+      {/* 수정,삭제버튼 */}
       <div className="flex items-center justify-center gap-[10px]">
         <button
           type="submit"
