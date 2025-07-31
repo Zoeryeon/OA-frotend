@@ -64,7 +64,7 @@ export default function Chatbot() {
       {isOpen && (
         <div className="fixed bottom-[80px] right-[10px] max-w-[400px] h-[500px] bg-point1 border border-gray-400 rounded-[20px] w-full z-60 shadow-[0px_2px_6px_rgba(0,0,0,0.18) max-sm:max-w-[290px] max-sm:h-[450px] dark:bg-[#080808] dark:border-gray-600 dark:shadow-[0px_2px_6px_rgba(255,255,255,0.3)]">
           <div className="overflow-auto px-[20px] h-[calc(100%-70px)] scroll-w-[5px] max-sm:px-[14px] max-sm:h-[calc(100%-60px)]">
-            <div className="fixed flex h-[60px] pt-[20px] items-center gap-[150px] bg-point1 max-sm:gap-[94px] max-sm:h-[40px] max-sm:pt-[14px]">
+            <div className="fixed flex h-[60px] pt-[20px] items-center gap-[150px] bg-point1 max-sm:gap-[94px] max-sm:h-[40px] max-sm:pt-[14px] dark:bg-[#080808]">
               <h2 className="text-[20px] font-bold max-sm:text-[16px] dark:text-point1">
                 무엇을 도와드릴까요?
               </h2>
