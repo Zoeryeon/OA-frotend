@@ -262,15 +262,19 @@
   }
 
   /* 스크롤바 */
-  /* ::-webkit-scrollbar {
-  width: 10px;
-  background: #f5f5f5;
-}
-::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border: 2px solid #fff;
-  border-radius: 10px;
-} */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #9450e7;
+    /* border: 2px solid #fff; */
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-button:vertical:start:decrement,
+  ::-webkit-scrollbar-button:vertical:start:increment {
+    display: block;
+    height: 37px;
+  }
 
   /* 스크롤바 안보이게 */
   /* IE */

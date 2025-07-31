@@ -81,7 +81,7 @@ export default function OaplusSearch({
                         d="M11.586,0.008c-7.5-0.332-14.125,10.498-10.625,16.83c2.5,4.668,7.723,6.4,12.125,5.609 c6.167-1.109,11.143-10.605,9.143-16.105C20.729,2.842,14.919,0.002,11.586,0.008"
                       ></path>
                     </svg>
-                    <em className="text-point1 text-[12px] w-full text-center absolute left-0 top-0 leading-[27px] max-sm:leading-[24px] max-sm:text-[10px]">
+                    <em className="text-point1 text-[12px] w-full text-center absolute -left-[1px] -top-[2px] leading-[27px] max-sm:leading-[24px] max-sm:text-[10px] max-sm:-left-0 max-sm:-top-0">
                       {item.age}
                     </em>
                   </div>
